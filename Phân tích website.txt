@@ -1,0 +1,150 @@
+- Trang chủ
+- Đăng nhập/ Đăng kí/ Đăng xuất
+- Tính toán chế độ ăn
+- Thực đơn hôm nay
+- Quản lý món ăn
+- Chi tiết món ăn
+- Trang cá nhân
+- Nhật ký ăn uống
+- Admin Dashboard
+- Admin Panel,....
+
+
+------------------------------------------------------------------------
+- Header: 	Logo website
+		Narbar: 	Trang chủ
+				Tính toán chế độ ăn
+				Thực đơn hôm nay
+				Quản lý món ăn
+		Logo profile user: 	Trang cá nhân
+					Nhật kí ăn uống
+					Đăng xuất
+		(Đăng nhập/ Đăng xuất)
+
+- Footer: liên hệ/ địa chỉ/ chứng nhận/ hyperlink quảng cáo / bản quyền/ ...
+--------------------------------------------------------------------------
+- Trang chủ, đăng nhập, đăng kí.
+- Tính toán chế độ ăn
+	+ Mục tiêu: 	* Nhập thông tin cá nhân (tuổi, giới tính, cân nặng, chiều cao, mức vận động, mục tiêu) / Tự lấy dữ liệu cá nhân theo người đăng nhập
+			* Tính BMR, TDEE, BMI
+			* Gợi ý lượng calo cần nạp mỗi ngày
+			* Sinh thực đơn mẫu gợi ý tương ứng (Button xác thực để lưu vào thực đơn hôm nay)
+	+ Giao diện: 	* 1 trang nhập liệu (tuổi, giới tính, chiều cao, cân nặng, mức độ hoạt động, mục tiêu, ...)
+			* Button tính toán
+			* Form kết quả
+			* Box gợi ý chế độ ăn (có nút lưu làm thực đơn hằng ngày)
+	+ DB: User, MealPlans, DietResult
+	+ Api:		/api/diet/calculate (POST) (Tương tác db hoặc k) - Nhận thông tin, tính toán BMR/BMI/TDEE, trả kết quả
+			/api/mealplans/recommend (GET) - Trả về danh sách thực đơn phù hợp
+			/api/diet/save-result (POST) - Lưu kết quả người dùng vừa tính vào DB
+- Thực đơn hôm nay
+	+ Mục tiêu: 	* Hiển thị thực đơn gợi ý trong ngày cho người dùng dựa trên kết quả tính toán
+			* Cho phép tùy chỉnh món ăn, lượng ăn, và lưu lại kế hoạch
+			* Hiển thị thông tin dinh dưỡng tổng thể (calo, protein, fat, carb)
+			* Giao tiếp trực tiếp với MongoDB để lấy dữ liệu món ăn và thực đơn mẫu
+	+ Giao diện:	* Box hiện mục tiêu (tăng cơ/ giảm cân, calo mục tiêu, ...)
+			* Button refresh thực đơn, Button Lưu vào thực đơn hôm nay
+			* 3 Layout card (sáng, trưa, tối). Mỗi layout gồm 1 text ở trên ghi tên buổi ăn, phía dưới là boxScroolBar_Horizontal gồm các món ăn được gợi ý từ chế độ ăn đã lưu trong db của user (chẳng hạn user bửa sáng cần ít thịt, rau thì sẽ đọc các món trong db có mô tả thịt rau ít). User chỉ chọn 1 món ăn trong các item của list, item đc chọn có bg=blue else bg=white)
+			* Box tính lại tổng kết của các bửa ăn trong ngày, button xác nhận bửa ăn
+			* Ban đầu mặc định là các item đầu tiên sẽ là các món được chọn (có bg=green)
+			* Khi qua thời gian của buổi ăn thì disable=true
+	+ DB: Foods, MealPlans, MealLogs, Users
+	+ Api: 		/api/mealplans/recommend (GET) - Trả về thực đơn gợi ý phù hợp
+			/api/mealplans/regenerate (GET) - Random lại thực đơn mới
+			/api/meallogs (POST) - Lưu thực đơn hôm nay của user
+			/api/meallogs/today (GET) - Lấy thực đơn đã lưu hôm nay
+			/api/foods/search (GET) - Tìm món ăn để thay thế / thêm vào thực đơn
+- Quản lý món ăn
+	+ Mục tiêu: 	* Lọc danh sách món ăn: Danh mục (Carb / Protein / Fat / Rau củ / Trái cây / Khác), Tag (ăn chay, ít đường, high-protein, low-fat, keto,...), Khoảng calo (slider từ 0 → 1000), ....
+			* Xem chi tiết món ăn
+			* Thêm vào thực đơn
+			* Khi người dùng chọn nhiều món → hiển thị tổng cộng dinh dưỡng
+	+ Giao diện: 	* Thanh tìm kiếm, bộ lọc, nút tìm kiếm
+			* Danh sách thực phẩm (nên ở dạng boxItem để nâng cao UI, có button chi tiết)
+			* Có phân trang để load giới hạn item
+	+ DB: Foods, FoodCategories, FoodTags
+	+ Api: 		/api/foods (GET) - Lấy danh sách thực phẩm
+			/api/foods/{id} (GET) - Lấy chi tiết 1 món
+			/api/foods (POST) - Thêm món mới
+			/api/foods/{id} (PUT) - Sửa thông tin món
+			/api/foods/{id} (DELETE) - Xóa món
+			/api/foods/categories (GET) - Lấy danh sách danh mục
+			/api/foods/tags (GET) - Lấy danh sách tag phổ biến
+- Chi tiết món ăn: 
+	+ Mục tiêu: 	* Hiển thị chi tiết dinh dưỡng của 1 món ăn trong cơ sở dữ liệu
+			* Cho phép người dùng:	> Xem giá trị calo & thành phần (P/F/C)
+						> Tính lại calo theo khẩu phần khác (vd: 150g thay vì 100g)
+						> Thêm món vào thực đơn hôm nay hoặc nhật ký ăn uống
+	+ Giao diện:	* Header gồm ảnh món ăn, tên món, tag/ category, button thêm vào thực đơn
+			* Bảng thông tin dinh dưỡng dựa trên khối lượng chất (theo gam)
+			* Cho phép chỉnh sửa khối lượng để tính lại dinh dưỡng (nếu có thể)
+			* Lợi ích món ăn, lưu ý, gợi ý kết hợp
+	+ DB: 		* Foods, MealLogs
+	+ Api:		* /api/foods/{id} (GET) - Lấy chi tiết món ăn
+			* /api/foods/recalc (POST) - Tính lại giá trị dinh dưỡng theo khẩu phần (client-side tính hoặc backend API)
+			* /api/meallogs/add-food (POST) - Thêm món vào thực đơn (api cho phép xóa nếu đã thêm)
+- Trang cá nhân: 	
+	+ Mục tiêu:	* Hiển thị thông tin cá nhân + mục tiêu dinh dưỡng hiện tại của người dùng
+			* Cho phép chỉnh sửa thông tin sức khỏe (tuổi, cân nặng, chiều cao, mức vận động, mục tiêu)
+			* Hiển thị tiến trình thay đổi (biểu đồ cân nặng / calo theo thời gian) (nếu có thể)
+			* Cho phép đổi mật khẩu, ảnh đại diện, hoặc xóa tài khoản
+	+ Giao diện: 	* BoxForm1 hiện thị thông tin cơ bản (avt [nằm bên phải, height=100%], tên, mail, giới tính, tuổi, cao, nặng, mức vận động,...), button chỉnh sửa hồ sơ, thay đổi mật khẩu, đổi avt
+			* BoxForm2 hiện thông tin mục tiêu (mục tiêu tổng quát kiểu selectComboBox [giảm cân/tăng cân/duy trì], cân nặng mong muốn kiểu textBoxNumber, thời gian mục tiêu kiểu date, lượng calo khuyến nghị/ngày dạng text, ghi chú cá nhân kiểu textBox)
+			* Thanh tiến độ
+	+ DB: Users, UserGoals, MealLogs, DietResults(nếu có)
+	+ Api: 		* /api/users/me (GET) - Lấy thông tin user hiện tại (qua JWT)
+			* /api/users/me (PUT) - Cập nhật thông tin cá nhân
+			* /api/users/me/avatar (POST) - Upload / đổi avatar
+			* /api/diet/calculate (POST) - Tính lại BMI/BMR/TDEE khi cập nhật thông tin (Nếu có DietResultsDB)	
+			* /api/users/goal (GET) - Lấy mục tiêu hiện tại
+			* /api/users/goal (POST) - Tạo mục tiêu mới / cập nhật
+			* /api/users/progress (GET) - Lấy tiến độ so với mục tiêu
+- Nhật ký ăn uống: 	
+	+ Mục tiêu: 	* Xem lại thực đơn đã ăn mỗi ngày
+			* Xem tổng calo nạp và phân tích P/F/C từng ngày
+			* Thêm, sửa, xóa món trong nhật ký của ngày hiện tại (nếu có thể)
+			* Đánh giá thực đơn ngày hôm trước (nếu thực đơn chưa được đánh giá và thời gian đánh giá trong khoảng 0h tới 24h sau khi dùng thực đơn)
+			* Cung cấp dữ liệu cho phần “Tiến độ dinh dưỡng” ở Profile
+	+ Giao diện: 	* Thanh chọn ngày dạng lịch
+			* Danh sách bửa ăn trong ngày dạng listTable, khi nhấn vào chi tiết của món thì show thêm 1 dòng để biểu thị chi tiết món ăn, mặc định là hide
+			* Tính tổng kết cuối trang (hiện tại và cuối ngày)
+			* Form đánh giá thực đơn (số sao, cảm nhận, loại thực đơn [dễ thực hiện, no, ...])
+			* Khi thanh chọn ngày có ngày = ngày hiện tại - 1 và chưa có đánh giá nào về thực đơn thì form đánh giá thực đơn có disable=false, mặc định là disable=true
+	+ DB: MealLogs, Foods, MealPlanReviews
+	+ Api: 		* /api/meallogs/today (GET) - Lấy thực đơn hôm nay
+			* /api/meallogs/{date} (GET) - Lấy nhật ký của ngày cụ thể
+			* /api/meallogs/{date}/mealreviews (GET) - Kiểm tra tình trạng đánh giá ngày đó
+			* /api/meallogs/{date}/mealreviews (POST) - Gửi đánh giá thực đơn (1 lần duy nhất)
+			* CRUD food trong mealLogs (nếu có thể)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
