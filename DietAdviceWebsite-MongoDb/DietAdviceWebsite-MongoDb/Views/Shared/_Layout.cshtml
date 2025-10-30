@@ -1,0 +1,83 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DietAdviceWebsite_MongoDb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DietAdviceWebsite_MongoDb.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-success" asp-area="" asp-controller="Home" asp-action="Index">
+                    Diet Advice
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Advice" asp-action="Index">Tính toán chế độ ăn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Advice" asp-action="Index">Thực đơn hôm nay</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Quản lý món ăn</a>
+                        </li>
+                    </ul>
+
+                    <!--  Phần hiển thị bên phải -->
+                    <div class="d-flex ms-auto">
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("Username") == null)
+                        {
+                            <!-- Khi CHƯA đăng nhập -->
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success me-2">Đăng nhập</a>
+                            <a asp-controller="Account" asp-action="Register" class="btn btn-success">Đăng ký</a>
+                        }
+                        else
+                        {
+                            <!-- Khi ĐÃ đăng nhập -->
+                            <div class="d-flex align-items-center">
+                                <span class="me-3 text-success fw-bold">
+                                    👤 @HttpContextAccessor.HttpContext.Session.GetString("Username")
+                                </span>
+                                <a asp-controller="Account" asp-action="Logout" class="btn btn-outline-danger">Đăng xuất</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - DietAdviceWebsite_MongoDb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
