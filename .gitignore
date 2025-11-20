@@ -1,0 +1,90 @@
+####################################
+# Visual Studio / Rider / VS Code
+####################################
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+####################################
+# Build output
+####################################
+bin/
+obj/
+out/
+
+####################################
+# ASP.NET Core runtime files
+####################################
+wwwroot/lib/
+wwwroot/dist/
+
+####################################
+# Logs & temp
+####################################
+logs/
+*.log
+
+####################################
+# Environment / secrets
+####################################
+appsettings.Development.json
+appsettings.Production.json
+.env
+
+####################################
+# OS generated
+####################################
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+####################################
+# Visual Studio cache
+####################################
+*.cache
+*.tmp
+
+####################################
+# Rider
+####################################
+_ReSharper*/
+*.DotSettings.user
+
+####################################
+# NuGet
+####################################
+packages/
+*.nupkg
+.nuget/
+
+####################################
+# .NET build artifacts
+####################################
+*.dll
+*.exe
+*.pdb
+apphost.exe
+
+####################################
+# ASP.NET Core static assets
+####################################
+staticwebassets*.json
+*.staticwebassets.*
+
+####################################
+# NuGet / MSBuild cache
+####################################
+project.assets.json
+project.nuget.cache
+*.FileListAbsolute.txt
+*.nuget.dgspec.json
+*.g.props
+
+####################################
+# Build references tạm
+####################################
+ref/
+refint/
