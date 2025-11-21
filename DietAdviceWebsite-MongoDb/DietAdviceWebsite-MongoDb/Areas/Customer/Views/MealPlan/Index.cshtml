@@ -1,0 +1,43 @@
+﻿<div id="customMealModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Thêm món ăn</h2>
+
+        <div class="form-group position-relative">
+            <label>Tên món ăn</label>
+            <input type="text" id="foodSearchInput" placeholder="Nhập tên món (vd: Phở, Cơm...)" autocomplete="off">
+            <div id="foodSuggestions" class="suggestions-box"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Số lượng</label>
+                <input type="number" id="foodQuantity" value="1" min="0.5" step="0.5">
+            </div>
+            <div class="form-group">
+                <label>Đơn vị</label>
+                <select id="foodUnit" disabled>
+                    <option value="portion">Suất/Phần</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="nutrition-preview">
+            <p>Ước tính dinh dưỡng:</p>
+            <div class="preview-stats">
+                <span id="previewCal">0</span> <small>kcal</small>
+                <span class="divider">|</span>
+                <span id="previewPro">0</span> <small>g pro</small>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="closeModal()">Hủy</button>
+            <button class="btn btn-primary" onclick="saveCustomMeal()">Lưu vào thực đơn</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/meal-plan.js"></script>
+}

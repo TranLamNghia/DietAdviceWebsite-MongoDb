@@ -1,0 +1,35 @@
+﻿<div class="container main-content">
+    <!-- Header Section -->
+    <div class="page-header-center">
+        <h1>Thư viện món ăn</h1>
+        <p class="page-subtitle">Khám phá thông tin dinh dưỡng các món ăn phổ biến</p>
+    </div>
+
+    <!-- Toolbar: Search Only (No Add Button) -->
+    <div class="toolbar-section centered-toolbar">
+        <div class="search-wrapper large-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Tìm món phở, cơm, healthy..." onkeyup="handleSearch()">
+        </div>
+    </div>
+
+    <!-- Dynamic Filter Tags -->
+    <div class="filter-tags-container" id="filterContainer">
+        <!-- Tags sẽ được JS render tự động dựa trên dữ liệu thực tế -->
+        <button class="filter-tag active" onclick="filterByCategory('all', this)">Tất cả</button>
+        <!-- Ví dụ: JS sẽ thêm: Món Việt, Healthy, Giảm cân... -->
+    </div>
+
+    <!-- Meal Grid -->
+    <div class="food-grid" id="foodGrid">
+        <!-- Các thẻ món ăn sẽ được JS render tại đây -->
+    </div>
+</div>
+
+<!-- Không còn Modal Thêm/Sửa vì đây là trang dành cho Customer -->
+
+<link rel="stylesheet" href="~/css/meal-management.css">
+
+@section Scripts {
+    <script src="~/js/meal-management.js"></script>
+}

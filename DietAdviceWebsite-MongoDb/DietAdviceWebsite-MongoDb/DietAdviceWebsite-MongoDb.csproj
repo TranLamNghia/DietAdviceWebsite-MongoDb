@@ -7,4 +7,9 @@
     <RootNamespace>DietAdviceWebsite_MongoDb</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\" />
+    <Folder Include="Areas\Customer\Middleware\" />
+  </ItemGroup>
+
 </Project>
