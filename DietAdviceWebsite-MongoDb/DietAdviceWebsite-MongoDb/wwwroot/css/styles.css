@@ -486,3 +486,148 @@ body {
     .view-details:hover {
         color: var(--primary-dark);
     }
+
+/* Custom Styles to Match Image */
+
+/* Tùy chỉnh Hero Section */
+.container.mt-5.text-center {
+    padding-top: var(--spacing-2xl); /* Tăng khoảng đệm trên */
+    padding-bottom: var(--spacing-2xl); /* Tăng khoảng đệm dưới */
+}
+
+/* Tiêu đề chính */
+.display-4.fw-bold.text-success.mb-4 {
+    font-size: 2.5rem; /* Điều chỉnh kích thước font */
+    color: var(--text-primary) !important; /* Thay màu tiêu đề thành màu chính */
+    font-weight: 700 !important;
+}
+
+/* Phụ đề */
+.lead.text-muted {
+    font-size: 1.15rem;
+    color: var(--text-secondary) !important;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Nút chính */
+.btn-success.btn-lg.px-4.me-2 {
+    background-color: var(--primary); /* Màu nền primary */
+    border-color: var(--primary);
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+    .btn-success.btn-lg.px-4.me-2:hover {
+        background-color: var(--primary-dark);
+        border-color: var(--primary-dark);
+    }
+
+/* Nút outline */
+.btn-outline-success.btn-lg.px-4 {
+    color: var(--text-primary); /* Màu chữ primary */
+    border-color: var(--border-color); /* Viền màu xám */
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+    .btn-outline-success.btn-lg.px-4:hover {
+        color: var(--primary);
+        border-color: var(--primary);
+        background-color: transparent; /* Đảm bảo nền vẫn trong suốt */
+    }
+
+/* Dấu gạch ngang */
+.my-5 {
+    border-top: none; /* Xóa đường kẻ Bootstrap */
+    height: 1px;
+    background-color: var(--border-color);
+    opacity: 0.5; /* Giảm độ mờ */
+    margin: 3rem 0 !important; /* Khoảng cách trên và dưới */
+}
+
+/* Khối thông tin 3 cột */
+.row.text-start {
+    display:flex;
+    flex-direction: row;
+    /* Đảm bảo căn giữa cho bố cục tổng thể nếu cần, nhưng .container đã làm điều này */
+}
+
+/* Card Section */
+.card.border-0.shadow-sm.h-100 {
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: var(--shadow-md) !important;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+    .card.border-0.shadow-sm.h-100:hover {
+        box-shadow: var(--shadow-lg) !important;
+        transform: translateY(-2px);
+    }
+
+.card-img-top {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+}
+
+.card-body {
+    padding: var(--spacing-xl);
+}
+
+/* Tiêu đề trong card */
+.card-title.text-success {
+    padding: var(--spacing-xl);
+    flex-grow: 1;
+}
+
+    /* Emoji trong card title (để chỉnh màu emoji nếu cần, nhưng màu sẽ do browser quyết định) */
+    .card-title.text-success::before {
+        /* Đây là nơi có thể thêm icon nếu không dùng emoji, nhưng hiện tại đã dùng emoji trong html */
+    }
+
+
+/* Nội dung mô tả trong card */
+.card-text.text-muted {
+    color: var(--text-secondary) !important;
+    font-size: 1rem;
+}
+
+/* Section Mục tiêu (Goal Section) */
+.mt-5.bg-light.p-5.rounded {
+    background-color: var(--card-bg) !important; /* Nền trắng như ảnh */
+    box-shadow: var(--shadow-md);
+    border-radius: var(--radius-xl) !important;
+    padding: var(--spacing-2xl) !important;
+    margin-top: 3rem !important; /* Khoảng cách trên */
+    margin-bottom: 3rem; /* Khoảng cách dưới */
+    border: 1px solid var(--border-color);
+}
+
+.text-success.mb-3 {
+    font-size: 1.8rem;
+    color: var(--primary) !important; /* Màu xanh lá cây */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.text-muted {
+    font-size: 1.1rem;
+    color: var(--text-secondary) !important;
+}

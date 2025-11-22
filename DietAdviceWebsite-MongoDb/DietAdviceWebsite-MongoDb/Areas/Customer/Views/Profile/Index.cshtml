@@ -1,7 +1,130 @@
-@{
-    ViewData["Title"] = "Profile";
-}
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
 
-<h1>Profile</h1>
+<body>
+    <div class="wrap">
+        <div class="page-title">
+            <h1>Trang cá nhân</h1>
+            <p>Quản lý thông tin cá nhân và mục tiêu sức khỏe</p>
+        </div>
 
-<p>This is the Profile page. Content will be added later.</p>
+        <div class="profile-card">
+            <div class="avatar">
+                <img src="/img/avatar.png" alt="avatar" />
+            </div>
+            <div class="profile-main">
+                <h2>Nguyễn Văn A</h2>
+                <div class="email">nguyenvana@example.com</div>
+                <div class="joined">Tham gia từ 15/1/2024</div>
+            </div>
+            <button class="edit-btn">✎ Chỉnh sửa</button>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" data-tab="thongtin">Thông tin</div>
+            <div class="tab" data-tab="muctieu">Mục tiêu</div>
+            <div class="tab" data-tab="caidat">Cài đặt</div>
+        </div>
+
+        <!-- Tab Contents -->
+        <div class="tab-contents">
+            <!-- Thông tin -->
+            <div id="thongtin" class="tab-content active">
+                <div class="content-card">
+                    <div class="section-title">Thông tin cá nhân</div>
+                    <div class="info-grid">
+                        <div>
+                            <div class="info-row"><div class="label">Tên</div><div class="value">Nguyễn Văn A</div></div>
+                            <div class="info-row"><div class="label">Tuổi</div><div class="value">28 tuổi</div></div>
+                            <div class="info-row"><div class="label">Cân nặng</div><div class="value">75 kg</div></div>
+                            <div class="info-row"><div class="label">Chiều cao</div><div class="value">175 cm</div></div>
+                        </div>
+                        <div>
+                            <div class="info-row"><div class="label">Email</div><div class="value">nguyenvana@example.com</div></div>
+                            <div class="info-row"><div class="label">Giới tính</div><div class="value">Nam</div></div>
+                            <div class="info-row"><div class="label">Số điện thoại</div><div class="value">(0123) 456-789</div></div>
+                            <div class="info-row"><div class="label">Địa chỉ</div><div class="value">Hà Nội, Việt Nam</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mục tiêu -->
+            <div id="muctieu" class="tab-content">
+                <div class="goal-card">
+                    <div class="section-title">Mục tiêu sức khỏe</div>
+                    <div class="goal-main">Giảm cân</div>
+                    <div class="activity-level">Mức độ hoạt động <span class="green">Vừa phải</span></div>
+                </div>
+
+                <div class="stats-card">
+                    <div class="heart-icon">❤ Chỉ số sức khỏe</div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="label">BMI</div>
+                            <div class="big-value green">24.5</div>
+                            <div class="small">Bình thường</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="label">Cân nặng lý tưởng</div>
+                            <div class="big-value">67 kg</div>
+                            <div class="small">Cần giảm 8 kg</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cài đặt -->
+            <div id="caidat" class="tab-content">
+                <div class="content-card settings">
+                    <div class="setting-item">
+                        <div>Thông báo hàng ngày<br><small>Nhận nhắc nhở về bữa ăn</small></div>
+                        <label class="switch">
+                            <input type="checkbox" checked />
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div>Báo cáo hàng tuần<br><small>Nhận báo cáo tiến độ hàng tuần</small></div>
+                        <label class="switch">
+                            <input type="checkbox" checked />
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div>Chia sẻ dữ liệu<br><small>Cho phép chia sẻ dữ liệu ẩn danh</small></div>
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-links">
+                        <div >Đổi mật khẩu</div>
+                        <div >Tải xuống dữ liệu</div>
+                        <button class="delete-btn">Xóa tài khoản</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
