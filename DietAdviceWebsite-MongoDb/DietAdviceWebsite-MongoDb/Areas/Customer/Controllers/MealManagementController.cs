@@ -1,3 +1,5 @@
+using DietAdviceWebsite_MongoDb.Models;
+using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
@@ -5,11 +7,23 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
     [Area("Customer")]
     public class MealManagementController : Controller
     {
-        [HttpGet]
-        [Route("customer/meal-management/index")]
-        public IActionResult Index()
+        private readonly MealsManagementService _service;
+
+        public MealManagementController(MealsManagementService service)
         {
-            return View();
+            _service = service;
+        }
+
+        [HttpGet]
+        [Route("/customer/meal-management/index")]
+        public async Task<IActionResult> Index(string? category, string? search)
+        {
+            List<Meals> allMeals = await _service.GetAsync(null, null);
+            ViewBag.Categories = allMeals.Select(m => m.Category).Distinct().OrderBy(c => c).ToList();
+
+            List<Meals> filteredMeals = await _service.GetAsync(category, search);
+
+            return View(filteredMeals);
         }
     }
 }

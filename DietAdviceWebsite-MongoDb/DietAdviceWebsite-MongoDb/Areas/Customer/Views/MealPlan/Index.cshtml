@@ -1,42 +1,125 @@
-﻿<div id="customMealModal" class="modal" style="display: none;">
+﻿@{
+    ViewData["Title"] = "Kế hoạch ăn uống thông minh";
+}
+
+<div class="container main-content">
+    <!-- 1. Header & Summary -->
+    <div class="header-section">
+        <h1>Thực đơn hôm nay</h1>
+        <p class="page-subtitle" id="currentDateDisplay">Đang tải...</p>
+
+        <!-- Calorie Budget Card -->
+        <div class="calorie-budget-card">
+            <div class="budget-item target">
+                <span class="label">Mục tiêu</span>
+                <span class="value" id="goalCalories">2000</span>
+                <span class="unit">kcal</span>
+            </div>
+            <div class="budget-divider">-</div>
+            <div class="budget-item consumed">
+                <span class="label">Đã nạp</span>
+                <span class="value" id="consumedCalories">0</span>
+                <span class="unit">kcal</span>
+            </div>
+            <div class="budget-divider">=</div>
+            <div class="budget-item remaining">
+                <span class="label">Còn lại</span>
+                <span class="value" id="remainingCalories">2000</span>
+                <span class="unit">kcal</span>
+            </div>
+            <div class="status-badge" id="dayStatus">Đang tính...</div>
+        </div>
+    </div>
+
+    <!-- 2. Main Meal Plan Flow -->
+    <div class="meal-plan-container">
+        <!-- Bữa Sáng -->
+        <div class="meal-section" id="section-breakfast">
+            <div class="section-header">
+                <h3>☕ Bữa Sáng <span class="time-range">(06:00 - 10:00)</span></h3>
+            </div>
+            <div class="meal-grid" id="grid-breakfast"></div>
+            <div class="section-footer">
+                <button class="btn-add-side" onclick="openAddModal('breakfast')">+ Thêm món ăn kèm</button>
+            </div>
+        </div>
+
+        <!-- Bữa Trưa -->
+        <div class="meal-section" id="section-lunch">
+            <div class="section-header">
+                <h3>🍱 Bữa Trưa <span class="time-range">(11:00 - 14:00)</span></h3>
+            </div>
+            <div class="meal-grid" id="grid-lunch"></div>
+            <div class="section-footer">
+                <button class="btn-add-side" onclick="openAddModal('lunch')">+ Thêm món ăn kèm</button>
+            </div>
+        </div>
+
+        <!-- Bữa Tối -->
+        <div class="meal-section" id="section-dinner">
+            <div class="section-header">
+                <h3>🍲 Bữa Tối <span class="time-range">(18:00 - 20:00)</span></h3>
+            </div>
+            <div id="dinner-alert" class="dinner-alert" style="display: none;">
+                ⚠️ Bạn chỉ còn <b id="dinner-remaining">0</b> kcal. Hãy chọn món nhẹ nhàng!
+            </div>
+            <div class="meal-grid" id="grid-dinner"></div>
+            <div class="section-footer">
+                <button class="btn-add-side" onclick="openAddModal('dinner')">+ Thêm món ăn kèm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Snacks Section -->
+    <div class="snacks-section">
+        <div class="section-header">
+            <h3>🍿 Bữa Phụ / Ăn Vặt (Luôn mở)</h3>
+            <button class="btn-add-snack" onclick="openAddModal('snack')">+ Khai báo món ăn vặt</button>
+        </div>
+        <div class="snack-list" id="snackList"></div>
+    </div>
+</div>
+
+<!-- 4. MODAL THÊM MÓN (Đã đồng bộ ID) -->
+<div id="addFoodModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h2>Thêm món ăn</h2>
 
-        <div class="form-group position-relative">
-            <label>Tên món ăn</label>
-            <input type="text" id="foodSearchInput" placeholder="Nhập tên món (vd: Phở, Cơm...)" autocomplete="off">
-            <div id="foodSuggestions" class="suggestions-box"></div>
+        <!-- Search Box -->
+        <div class="modal-search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="modalSearchInput" placeholder="Tìm món phở, cơm, bánh..." autocomplete="off">
+            <div id="modalSuggestions" class="suggestions-dropdown"></div>
         </div>
 
-        <div class="form-row">
-            <div class="form-group">
-                <label>Số lượng</label>
-                <input type="number" id="foodQuantity" value="1" min="0.5" step="0.5">
+        <!-- Selected Item Detail -->
+        <div id="selectedItemDetails" style="display: none;">
+            <div class="selected-food-info">
+                <h4 id="selName" style="margin: 0 0 5px 0;">Tên món</h4>
+                <div class="sel-nutrition" style="color: #666; font-size: 0.9rem;">
+                    <span id="selCal" style="font-weight: bold; color: #27ae60;">0</span> kcal &bull;
+                    <span id="selPro">0</span>g Pro
+                </div>
             </div>
-            <div class="form-group">
-                <label>Đơn vị</label>
-                <select id="foodUnit" disabled>
-                    <option value="portion">Suất/Phần</option>
-                </select>
-            </div>
-        </div>
 
-        <div class="nutrition-preview">
-            <p>Ước tính dinh dưỡng:</p>
-            <div class="preview-stats">
-                <span id="previewCal">0</span> <small>kcal</small>
-                <span class="divider">|</span>
-                <span id="previewPro">0</span> <small>g pro</small>
+            <div class="quantity-control" style="margin-top: 15px;">
+                <label>Số lượng:</label>
+                <div class="qty-inputs">
+                    <input type="number" id="selQty" value="1" min="0.5" step="0.5">
+                    <span class="unit-label" id="selUnit">suất</span>
+                </div>
+                <p class="total-preview" style="margin-top: 10px; font-weight: bold;">
+                    Tổng cộng: <span id="totalPreviewCal" style="color: #e67e22; font-size: 1.2rem;">0</span> kcal
+                </p>
             </div>
-        </div>
 
-        <div class="modal-actions">
-            <button class="btn btn-secondary" onclick="closeModal()">Hủy</button>
-            <button class="btn btn-primary" onclick="saveCustomMeal()">Lưu vào thực đơn</button>
+            <button class="btn-confirm-add" onclick="confirmAddFood()">Thêm vào thực đơn</button>
         </div>
     </div>
 </div>
+
+<link rel="stylesheet" href="~/css/meal-plan.css">
 
 @section Scripts {
     <script src="~/js/meal-plan.js"></script>

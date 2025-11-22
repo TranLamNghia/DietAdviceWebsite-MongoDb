@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriCare - Quản lý chế độ ăn uống</title>
     <link rel="stylesheet" href="~/css/styles.css">
+
+    <style>
+        /* Thêm style cho trạng thái active */
+        .navbar-menu li.active .nav-link {
+            color: #2ecc71; /* Màu xanh lá cây nổi bật */
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -12,13 +20,29 @@
             <div class="navbar-brand">
                 <a href="index.html" class="logo">🥗 NutriCare</a>
             </div>
+            @{
+                var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+                var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+            }
             <ul class="navbar-menu">
-                <li><a href="@Url.Action("Index", "Home")" class="nav-link">Trang chủ</a></li>
-                <li><a href="@Url.Action("Index", "DietCalculator", new { area = "Customer" })" class="nav-link">Tính toán</a></li>
-                <li><a href="@Url.Action("Index", "MealPlan", new { area = "Customer" })" class="nav-link">Thực đơn</a></li>
-                <li><a href="@Url.Action("Index", "MealManagement", new { area = "Customer" })" class="nav-link">Quản lý</a></li>
-                <li><a href="@Url.Action("Index", "FoodDiary", new { area = "Customer" })" class="nav-link">Nhật ký</a></li>
-                <li><a href="@Url.Action("Index", "Profile", new { area = "Customer" })" class="nav-link">Cá nhân</a></li>
+                <li class="@(currentController == "Home" ? "active" : "")">
+                    <a href="@Url.Action("Index", "Home", new { area = "Customer" })" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="@(currentController == "DietCalculator" ? "active" : "")">
+                    <a href="@Url.Action("Index", "DietCalculator", new { area = "Customer" })" class="nav-link">Tính toán</a>
+                    </li>
+                <li class="@(currentController == "MealPlan" ? "active" : "")">
+                    <a href="@Url.Action("Index", "MealPlan", new { area = "Customer" })" class="nav-link">Thực đơn</a>
+                </li>
+                <li class="@(currentController == "MealManagement" ? "active" : "")">
+                    <a href="@Url.Action("Index", "MealManagement", new { area = "Customer" })" class="nav-link">Quản lý</a>
+                </li>
+                <li class="@(currentController == "FoodDiary" ? "active" : "")">
+                    <a href="@Url.Action("Index", "FoodDiary", new { area = "Customer" })" class="nav-link">Nhật ký</a>
+                </li>
+                <li class="@(currentController == "Profile" ? "active" : "")">
+                    <a href="@Url.Action("Index", "Profile", new { area = "Customer" })" class="nav-link">Cá nhân</a>
+                </li>
             </ul>
             <button class="menu-toggle" id="menuToggle">☰</button>
         </div>
