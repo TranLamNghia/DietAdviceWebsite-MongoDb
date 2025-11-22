@@ -1,0 +1,1293 @@
+[{
+  "_id": "meal_101",
+  "name": "Phở Bò Tái",
+  "description": "Món nước truyền thống, nước dùng trong, thịt bò tái mềm.",
+  "image_url": "https://example.com/images/pho-bo.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 20,
+    "carbs": 60,
+    "fats": 12
+  },
+  "tags": [
+    "Món Việt",
+    "Nhiều tinh bột",
+    "Không dành cho keto"
+  ]
+},
+{
+  "_id": "meal_102",
+  "name": "Cơm Trắng",
+  "description": "Cơm gạo tẻ nấu chín, hạt mềm dẻo.",
+  "image_url": "https://example.com/com-trang.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 200,
+    "protein": 4.5,
+    "carbs": 44,
+    "fats": 0.5
+  },
+  "tags": [
+    "Cơ bản",
+    "Không gluten",
+    "Thuần chay",
+    "Ít béo"
+  ]
+},
+{
+  "_id": "meal_103",
+  "name": "Thịt Kho Tàu",
+  "description": "Thịt ba chỉ kho mềm với trứng và nước dừa.",
+  "image_url": "https://example.com/thit-kho.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 350,
+    "protein": 18,
+    "carbs": 8,
+    "fats": 28
+  },
+  "tags": [
+    "Món Việt",
+    "Nhiều chất béo",
+    "Giàu đạm",
+    "Mặn"
+  ]
+},
+{
+  "_id": "meal_104",
+  "name": "Gỏi Gà Xé",
+  "description": "Ức gà xé trộn bắp cải, rau răm và hành phi.",
+  "image_url": "https://example.com/goi-ga.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 280,
+    "protein": 32,
+    "carbs": 10,
+    "fats": 12
+  },
+  "tags": [
+    "Giảm cân",
+    "Nhiều đạm",
+    "Ít tinh bột"
+  ]
+},
+{
+  "_id": "meal_105",
+  "name": "Bún Chả Hà Nội",
+  "description": "Thịt nướng ăn kèm bún, nước mắm pha và rau sống.",
+  "image_url": "https://example.com/bun-cha.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 25,
+    "carbs": 65,
+    "fats": 18
+  },
+  "tags": [
+    "Món Việt",
+    "Nhiều năng lượng"
+  ]
+},
+{
+  "_id": "meal_106",
+  "name": "Cơm Gà Hải Nam",
+  "description": "Cơm được nấu từ nước luộc gà, thịt gà mềm, ăn kèm nước chấm gừng.",
+  "image_url": "https://example.com/com-ga.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 600,
+    "protein": 36,
+    "carbs": 70,
+    "fats": 18
+  },
+  "tags": [
+    "Giàu đạm",
+    "Nhiều tinh bột"
+  ]
+},
+{
+  "_id": "meal_107",
+  "name": "Salad Cá Ngừ",
+  "description": "Xà lách, cá ngừ, bắp, trứng luộc, sốt mè rang.",
+  "image_url": "https://example.com/salad-ca-ngu.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 28,
+    "carbs": 16,
+    "fats": 14
+  },
+  "tags": [
+    "Giảm cân",
+    "Nhiều đạm",
+    "Healthy"
+  ]
+},
+{
+  "_id": "meal_108",
+  "name": "Súp Lơ Xào Thịt Bò",
+  "description": "Thịt bò xào với súp lơ xanh, gừng và tỏi.",
+  "image_url": "https://example.com/bo-xao-sup-lo.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 330,
+    "protein": 26,
+    "carbs": 12,
+    "fats": 18
+  },
+  "tags": [
+    "Ít tinh bột",
+    "Giàu đạm",
+    "Healthy"
+  ]
+},
+{
+  "_id": "meal_109",
+  "name": "Cháo Yến Mạch",
+  "description": "Cháo nấu từ yến mạch, sữa và trái cây.",
+  "image_url": "https://example.com/chao-yen-mach.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 250,
+    "protein": 6,
+    "carbs": 40,
+    "fats": 6
+  },
+  "tags": [
+    "Healthy",
+    "Nhiều chất xơ",
+    "Tốt cho tiêu hóa"
+  ]
+},
+{
+  "_id": "meal_110",
+  "name": "Bánh Mì Thịt Nướng",
+  "description": "Bánh mì kẹp thịt nướng, đồ chua, pate và rau.",
+  "image_url": "https://example.com/banh-mi.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 23,
+    "carbs": 55,
+    "fats": 16
+  },
+  "tags": [
+    "Món Việt",
+    "Nhiều năng lượng"
+  ]
+},
+{
+  "_id": "meal_111",
+  "name": "Bún Bò Huế",
+  "description": "Bún bò cay nhẹ, nước dùng thơm sả.",
+  "image_url": "https://example.com/bun-bo.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 550,
+    "protein": 28,
+    "carbs": 68,
+    "fats": 20
+  },
+  "tags": [
+    "Món Việt",
+    "Nhiều tinh bột"
+  ]
+},
+{
+  "_id": "meal_112",
+  "name": "Salad Trứng",
+  "description": "Xà lách, trứng luộc, cà chua bi, sốt chua ngọt.",
+  "image_url": "https://example.com/salad-trung.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 12,
+    "carbs": 8,
+    "fats": 14
+  },
+  "tags": [
+    "Healthy",
+    "Ít tinh bột"
+  ]
+},
+{
+  "_id": "meal_113",
+  "name": "Ốp La + Bánh Mì",
+  "description": "Trứng ốp la với bánh mì.",
+  "image_url": "https://example.com/op-la.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 20,
+    "carbs": 34,
+    "fats": 18
+  },
+  "tags": [
+    "Giàu đạm",
+    "Năng lượng cao"
+  ]
+},
+{
+  "_id": "meal_114",
+  "name": "Hủ Tiếu Nam Vang",
+  "description": "Sợi hủ tiếu dai, nước trong, tôm thịt ngọt.",
+  "image_url": "https://example.com/hu-tieu.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 460,
+    "protein": 22,
+    "carbs": 55,
+    "fats": 14
+  },
+  "tags": [
+    "Món Việt",
+    "Món nước"
+  ]
+},
+{
+  "_id": "meal_115",
+  "name": "Cơm Tấm Sườn",
+  "description": "Cơm tấm sườn nướng, bì, chả.",
+  "image_url": "https://example.com/com-tam.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 780,
+    "protein": 38,
+    "carbs": 92,
+    "fats": 28
+  },
+  "tags": [
+    "Rất nhiều năng lượng",
+    "Không dành cho giảm cân"
+  ]
+},
+{
+  "_id": "meal_116",
+  "name": "Salad Rau Củ",
+  "description": "Salad rau củ luộc nhẹ với dầu oliu.",
+  "image_url": "https://example.com/salad-rau.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 150,
+    "protein": 5,
+    "carbs": 18,
+    "fats": 6
+  },
+  "tags": [
+    "Thuần chay",
+    "Giảm cân",
+    "Ít calo"
+  ]
+},
+{
+  "_id": "meal_117",
+  "name": "Mì Xào Hải Sản",
+  "description": "Mì trứng xào với tôm, mực và rau.",
+  "image_url": "https://example.com/mi-xao.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 620,
+    "protein": 32,
+    "carbs": 75,
+    "fats": 18
+  },
+  "tags": [
+    "Nhiều năng lượng",
+    "Không phù hợp giảm cân"
+  ]
+},
+{
+  "_id": "meal_118",
+  "name": "Sữa Chua Trái Cây",
+  "description": "Sữa chua ít béo với chuối, táo và dâu.",
+  "image_url": "https://example.com/yogurt-fruit.jpg",
+  "category": "Tráng miệng",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Phụ"
+  ],
+  "nutrition": {
+    "calories": 180,
+    "protein": 7,
+    "carbs": 28,
+    "fats": 4
+  },
+  "tags": [
+    "Healthy",
+    "Tốt cho tiêu hóa"
+  ]
+},
+{
+  "_id": "meal_119",
+  "name": "Sinh Tố Bơ",
+  "description": "Sinh tố bơ béo mịn.",
+  "image_url": "https://example.com/sinh-to.jpg",
+  "category": "Đồ uống",
+  "meal_types": [
+    "Bữa Phụ"
+  ],
+  "nutrition": {
+    "calories": 300,
+    "protein": 4,
+    "carbs": 22,
+    "fats": 24
+  },
+  "tags": [
+    "Nhiều chất béo tốt",
+    "Tốt cho tăng cân"
+  ]
+},
+{
+  "_id": "meal_120",
+  "name": "Gà Luộc",
+  "description": "Gà luộc đơn giản, chấm muối tiêu chanh.",
+  "image_url": "https://example.com/ga-luoc.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 280,
+    "protein": 42,
+    "carbs": 0,
+    "fats": 12
+  },
+  "tags": [
+    "Nhiều đạm",
+    "Ít tinh bột",
+    "Phù hợp giảm cân"
+  ]
+},
+{
+  "_id": "meal_121",
+  "name": "Cá Hồi Áp Chảo",
+  "description": "Cá hồi áp chảo với chanh và tiêu.",
+  "image_url": "https://example.com/ca-hoi.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 34,
+    "carbs": 0,
+    "fats": 26
+  },
+  "tags": [
+    "Healthy",
+    "Nhiều omega-3"
+  ]
+},
+{
+  "_id": "meal_122",
+  "name": "Bánh Cuốn",
+  "description": "Bánh cuốn nóng với chả và nước mắm.",
+  "image_url": "https://example.com/banh-cuon.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 12,
+    "carbs": 52,
+    "fats": 8
+  },
+  "tags": [
+    "Món Việt",
+    "Nhẹ bụng"
+  ]
+},
+{
+  "_id": "meal_123",
+  "name": "Chè Đậu Đỏ",
+  "description": "Chè đậu đỏ nước cốt dừa.",
+  "image_url": "https://example.com/che-dau-do.jpg",
+  "category": "Tráng miệng",
+  "meal_types": [
+    "Bữa Phụ"
+  ],
+  "nutrition": {
+    "calories": 260,
+    "protein": 8,
+    "carbs": 48,
+    "fats": 6
+  },
+  "tags": [
+    "Nhiều tinh bột",
+    "Không phù hợp giảm cân"
+  ]
+},
+{
+  "_id": "meal_124",
+  "name": "Bánh Xèo Miền Tây",
+  "description": "Bánh xèo vỏ giòn, nhân tôm thịt, ăn kèm rau sống và nước mắm chua ngọt.",
+  "image_url": "https://example.com/banh-xeo.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 22,
+    "carbs": 55,
+    "fats": 20
+  },
+  "tags": [
+    "Món Việt",
+    "Nhiều năng lượng",
+    "Đặc sản miền Tây"
+  ]
+},
+{
+  "_id": "meal_125",
+  "name": "Bánh Canh Cua",
+  "description": "Bánh canh bột gạo dai, nước dùng sánh và thịt cua ngọt.",
+  "image_url": "https://example.com/banh-canh-cua.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 28,
+    "carbs": 60,
+    "fats": 16
+  },
+  "tags": [
+    "Món Việt",
+    "Giàu đạm"
+  ]
+},
+{
+  "_id": "meal_126",
+  "name": "Bún Riêu Cua",
+  "description": "Bún riêu cua đồng, cà chua, chả và huyết.",
+  "image_url": "https://example.com/bun-rieu.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 20,
+    "carbs": 50,
+    "fats": 14
+  },
+  "tags": [
+    "Ngon nhẹ",
+    "Món Việt"
+  ]
+},
+{
+  "_id": "meal_127",
+  "name": "Bánh Ướt Lòng Gà",
+  "description": "Đặc sản Đà Lạt, bánh ướt ăn cùng lòng gà và rau thơm.",
+  "image_url": "https://example.com/banh-uot-long-ga.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 350,
+    "protein": 32,
+    "carbs": 28,
+    "fats": 10
+  },
+  "tags": [
+    "Đặc sản",
+    "Giàu đạm"
+  ]
+},
+{
+  "_id": "meal_128",
+  "name": "Bún Chả Cá Nha Trang",
+  "description": "Chả cá dai, nước dùng thanh ngọt đặc trưng miền biển.",
+  "image_url": "https://example.com/bun-cha-ca.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 20,
+    "carbs": 48,
+    "fats": 12
+  },
+  "tags": [
+    "Món biển",
+    "Ít béo"
+  ]
+},
+{
+  "_id": "meal_129",
+  "name": "Cơm Hến Huế",
+  "description": "Cơm trộn hến xào, tóp mỡ, rau sống và mắm ruốc.",
+  "image_url": "https://example.com/com-hen.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 24,
+    "carbs": 52,
+    "fats": 16
+  },
+  "tags": [
+    "Đậm vị",
+    "Đặc sản Huế"
+  ]
+},
+{
+  "_id": "meal_130",
+  "name": "Hủ Tiếu Sa Đéc",
+  "description": "Hủ tiếu khô với nước sốt đậm đà và thịt xá xíu.",
+  "image_url": "https://example.com/hu-tieu-sadec.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 26,
+    "carbs": 60,
+    "fats": 14
+  },
+  "tags": [
+    "Món Việt",
+    "Tinh bột vừa"
+  ]
+},
+{
+  "_id": "meal_131",
+  "name": "Mì Quảng Gà",
+  "description": "Sợi mì vàng, thịt gà, rau sống và đậu phộng rang.",
+  "image_url": "https://example.com/mi-quang.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 500,
+    "protein": 28,
+    "carbs": 55,
+    "fats": 16
+  },
+  "tags": [
+    "Đặc sản miền Trung"
+  ]
+},
+{
+  "_id": "meal_132",
+  "name": "Bánh Bột Lọc",
+  "description": "Bánh bột lọc nhân tôm thịt, dai ngon.",
+  "image_url": "https://example.com/banh-bot-loc.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Phụ"
+  ],
+  "nutrition": {
+    "calories": 240,
+    "protein": 8,
+    "carbs": 42,
+    "fats": 5
+  },
+  "tags": [
+    "Đặc sản Huế",
+    "Nhiều tinh bột"
+  ]
+},
+{
+  "_id": "meal_133",
+  "name": "Nem Nướng Nha Trang",
+  "description": "Nem nướng ăn kèm bánh tráng và rau sống.",
+  "image_url": "https://example.com/nem-nuong.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 460,
+    "protein": 26,
+    "carbs": 40,
+    "fats": 18
+  },
+  "tags": [
+    "Đặc sản",
+    "Giàu đạm"
+  ]
+},
+{
+  "_id": "meal_134",
+  "name": "Lẩu Mắm",
+  "description": "Lẩu đậm vị mắm cá linh, nhiều loại rau đồng.",
+  "image_url": "https://example.com/lau-mam.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 650,
+    "protein": 36,
+    "carbs": 58,
+    "fats": 24
+  },
+  "tags": [
+    "Đặc sản miền Tây"
+  ]
+},
+{
+  "_id": "meal_135",
+  "name": "Gà Nướng Muối Ớt",
+  "description": "Gà nướng cay nhẹ, da giòn thơm.",
+  "image_url": "https://example.com/ga-nuong.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 42,
+    "carbs": 0,
+    "fats": 28
+  },
+  "tags": [
+    "Giàu đạm",
+    "Đậm vị"
+  ]
+},
+{
+  "_id": "meal_136",
+  "name": "Canh Chua Cá Lóc",
+  "description": "Cá lóc, bạc hà, cà chua, thơm; vị chua ngọt.",
+  "image_url": "https://example.com/canh-chua.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 260,
+    "protein": 28,
+    "carbs": 10,
+    "fats": 8
+  },
+  "tags": [
+    "Ngon nhẹ",
+    "Healthy"
+  ]
+},
+{
+  "_id": "meal_137",
+  "name": "Gỏi Đu Đủ",
+  "description": "Đu đủ sợi trộn tôm thịt và đậu phộng.",
+  "image_url": "https://example.com/goi-du-du.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 12,
+    "carbs": 30,
+    "fats": 8
+  },
+  "tags": [
+    "Healthy",
+    "Ít dầu"
+  ]
+},
+{
+  "_id": "meal_138",
+  "name": "Cơm Cháy Kho Quẹt",
+  "description": "Cơm cháy giòn ăn kèm kho quẹt mặn ngọt.",
+  "image_url": "https://example.com/com-chay.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Phụ"
+  ],
+  "nutrition": {
+    "calories": 500,
+    "protein": 12,
+    "carbs": 70,
+    "fats": 20
+  },
+  "tags": [
+    "Đậm vị",
+    "Ăn chơi"
+  ]
+},
+{
+  "_id": "meal_139",
+  "name": "Cá Kèo Kho Tiêu",
+  "description": "Cá kèo kho thơm mùi tiêu và nước màu.",
+  "image_url": "https://example.com/ca-keo.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 34,
+    "carbs": 4,
+    "fats": 12
+  },
+  "tags": [
+    "Món Việt",
+    "Giàu đạm"
+  ]
+},
+{
+  "_id": "meal_140",
+  "name": "Cháo Sườn",
+  "description": "Cháo trắng nấu với sườn mềm và hành lá.",
+  "image_url": "https://example.com/chao-suon.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 350,
+    "protein": 18,
+    "carbs": 55,
+    "fats": 8
+  },
+  "tags": [
+    "Nhẹ bụng",
+    "Healthy"
+  ]
+},
+{
+  "_id": "meal_141",
+  "name": "Lẩu Thái",
+  "description": "Lẩu chua cay, hải sản và nấm.",
+  "image_url": "https://example.com/lau-thai.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 680,
+    "protein": 40,
+    "carbs": 60,
+    "fats": 24
+  },
+  "tags": [
+    "Đậm vị",
+    "Khá cay"
+  ]
+},
+{
+  "_id": "meal_142",
+  "name": "Cơm Gà Xối Mỡ",
+  "description": "Gà chiên giòn vàng ăn kèm cơm thơm.",
+  "image_url": "https://example.com/com-ga-xoi-mo.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 780,
+    "protein": 36,
+    "carbs": 85,
+    "fats": 32
+  },
+  "tags": [
+    "Nhiều calo",
+    "Không phù hợp giảm cân"
+  ]
+},
+{
+  "_id": "meal_143",
+  "name": "Cá Chiên Sốt Me",
+  "description": "Cá chiên giòn dùng kèm sốt me chua ngọt.",
+  "image_url": "https://example.com/ca-sot-me.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 500,
+    "protein": 30,
+    "carbs": 30,
+    "fats": 22
+  },
+  "tags": [
+    "Đậm vị",
+    "Món Việt"
+  ]
+},
+{
+  "_id": "meal_144",
+  "name": "Hủ Tiếu Mì Sườn",
+  "description": "Hủ tiếu mì nước trong, sườn non hầm mềm.",
+  "image_url": "https://example.com/hu-tieu-mi-suon.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 460,
+    "protein": 24,
+    "carbs": 58,
+    "fats": 14
+  },
+  "tags": [
+    "Món nước",
+    "Món Việt",
+    "Ngon nhẹ"
+  ]
+},
+{
+  "_id": "meal_145",
+  "name": "Bún Bò Giò Heo",
+  "description": "Bún bò Huế ăn cùng giò heo, nước dùng sả cay.",
+  "image_url": "https://example.com/bun-bo-gio.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 580,
+    "protein": 30,
+    "carbs": 66,
+    "fats": 22
+  },
+  "tags": [
+    "Món Việt",
+    "Đặc sản",
+    "Cay nhẹ"
+  ]
+},
+{
+  "_id": "meal_146",
+  "name": "Cơm Chiên Dương Châu",
+  "description": "Cơm chiên trứng, lạp xưởng, tôm và đậu Hà Lan.",
+  "image_url": "https://example.com/com-chien.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 650,
+    "protein": 28,
+    "carbs": 80,
+    "fats": 22
+  },
+  "tags": [
+    "Nhiều tinh bột",
+    "No lâu"
+  ]
+},
+{
+  "_id": "meal_147",
+  "name": "Gà Kho Sả Ớt",
+  "description": "Gà kho hương sả, cay nhẹ và thơm.",
+  "image_url": "https://example.com/ga-kho.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 34,
+    "carbs": 8,
+    "fats": 20
+  },
+  "tags": [
+    "Giàu đạm",
+    "Ăn với cơm"
+  ]
+},
+{
+  "_id": "meal_148",
+  "name": "Bún Thịt Nướng",
+  "description": "Thịt nướng than hoa, bún, rau sống và mắm chua ngọt.",
+  "image_url": "https://example.com/bun-thit-nuong.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 26,
+    "carbs": 60,
+    "fats": 16
+  },
+  "tags": [
+    "Món Việt",
+    "Đặc sản miền Nam"
+  ]
+},
+{
+  "_id": "meal_149",
+  "name": "Phở Gà",
+  "description": "Phở gà nước trong, thịt gà xé, hành lá và rau thơm.",
+  "image_url": "https://example.com/pho-ga.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 32,
+    "carbs": 55,
+    "fats": 8
+  },
+  "tags": [
+    "Nhẹ bụng",
+    "Healthy"
+  ]
+},
+{
+  "_id": "meal_150",
+  "name": "Bánh Mì Ốp La Thịt Nguội",
+  "description": "Bánh mì giòn, trứng ốp la, thịt nguội và pate.",
+  "image_url": "https://example.com/banh-mi-op-la.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 24,
+    "carbs": 50,
+    "fats": 24
+  },
+  "tags": [
+    "Nhiều năng lượng",
+    "Món sáng quốc dân"
+  ]
+},
+{
+  "_id": "meal_151",
+  "name": "Chả Cá Thăng Long",
+  "description": "Cá chiên nghệ ăn cùng thì là và bún.",
+  "image_url": "https://example.com/cha-ca.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 560,
+    "protein": 38,
+    "carbs": 32,
+    "fats": 24
+  },
+  "tags": [
+    "Đặc sản Hà Nội"
+  ]
+},
+{
+  "_id": "meal_152",
+  "name": "Cá Kho Làng Vũ Đại",
+  "description": "Cá trắm kho niêu đất, đậm vị cổ truyền.",
+  "image_url": "https://example.com/ca-kho-lang-vu-dai.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 32,
+    "carbs": 6,
+    "fats": 16
+  },
+  "tags": [
+    "Đậm vị",
+    "Mặn",
+    "Truyền thống"
+  ]
+},
+{
+  "_id": "meal_153",
+  "name": "Bò Kho Bánh Mì",
+  "description": "Thịt bò hầm mềm với cà rốt, sả, hoa hồi, nước sốt đậm đà ăn kèm bánh mì giòn.",
+  "image_url": "https://example.com/bo-kho.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng",
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 580,
+    "protein": 35,
+    "carbs": 50,
+    "fats": 26
+  },
+  "tags": [
+    "Món Việt",
+    "Đậm đà",
+    "Nhiều năng lượng",
+    "Giàu đạm"
+  ]
+},
+{
+  "_id": "meal_154",
+  "name": "Bún Mọc",
+  "description": "Bún mọc viên giò sống mềm, nước dùng trong.",
+  "image_url": "https://example.com/bun-moc.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 22,
+    "carbs": 54,
+    "fats": 8
+  },
+  "tags": [
+    "Nhẹ nhàng",
+    "Ít dầu mỡ"
+  ]
+},
+{
+  "_id": "meal_155",
+  "name": "Cơm Gà Hội An",
+  "description": "Cơm nghệ, gà xé, mỡ hành và đồ chua.",
+  "image_url": "https://example.com/com-ga-hoi-an.jpg",
+  "category": "Tinh bột",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 560,
+    "protein": 32,
+    "carbs": 66,
+    "fats": 18
+  },
+  "tags": [
+    "Đặc sản Hội An"
+  ]
+},
+{
+  "_id": "meal_156",
+  "name": "Mì Gói Xào Bò",
+  "description": "Mì gói xào bò, rau cải và trứng.",
+  "image_url": "https://example.com/mi-xao.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 620,
+    "protein": 28,
+    "carbs": 68,
+    "fats": 22
+  },
+  "tags": [
+    "Ngon rẻ",
+    "Siêu nhanh"
+  ]
+},
+{
+  "_id": "meal_157",
+  "name": "Cháo Lòng",
+  "description": "Cháo gạo tẻ ăn kèm lòng heo, hành và tiêu.",
+  "image_url": "https://example.com/chao-long.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Sáng"
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 26,
+    "carbs": 60,
+    "fats": 16
+  },
+  "tags": [
+    "Đậm đà",
+    "Ấm bụng"
+  ]
+},
+{
+  "_id": "meal_158",
+  "name": "Gỏi Bò Bóp Thấu",
+  "description": "Thịt bò tái trộn hành tây và rau thơm.",
+  "image_url": "https://example.com/goi-bo.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 26,
+    "carbs": 10,
+    "fats": 12
+  },
+  "tags": [
+    "Giảm cân",
+    "Giàu đạm"
+  ]
+},
+{
+  "_id": "meal_159",
+  "name": "Canh Khổ Qua Nhồi Thịt",
+  "description": "Khổ qua nhồi thịt băm, nấu nước trong thanh mát.",
+  "image_url": "https://example.com/kho-qua.jpg",
+  "category": "Món nước",
+  "meal_types": [
+    "Bữa Trưa"
+  ],
+  "nutrition": {
+    "calories": 200,
+    "protein": 18,
+    "carbs": 12,
+    "fats": 4
+  },
+  "tags": [
+    "Healthy",
+    "Thanh mát"
+  ]
+},
+{
+  "_id": "meal_160",
+  "name": "Thịt Kho Tiêu",
+  "description": "Thịt ba chỉ kho tiêu cay nhẹ, đưa cơm.",
+  "image_url": "https://example.com/thit-kho-tieu.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 24,
+    "carbs": 8,
+    "fats": 28
+  },
+  "tags": [
+    "Đậm vị",
+    "Đưa cơm"
+  ]
+},
+{
+  "_id": "meal_161",
+  "name": "Nộm Tai Heo",
+  "description": "Tai heo trộn chua ngọt, giòn sật.",
+  "image_url": "https://example.com/nom-tai-heo.jpg",
+  "category": "Salad",
+  "meal_types": [
+    "Bữa Phụ"
+  ],
+  "nutrition": {
+    "calories": 260,
+    "protein": 14,
+    "carbs": 18,
+    "fats": 12
+  },
+  "tags": [
+    "Ăn chơi",
+    "Nhậu"
+  ]
+},
+{
+  "_id": "meal_162",
+  "name": "Mực Xào Hành Cần",
+  "description": "Mực tươi xào hành tây và cần tây.",
+  "image_url": "https://example.com/muc-xao.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 28,
+    "carbs": 8,
+    "fats": 10
+  },
+  "tags": [
+    "Giảm cân",
+    "Món biển"
+  ]
+},
+{
+  "_id": "meal_163",
+  "name": "Sườn Nướng Mật Ong",
+  "description": "Sườn heo nướng mật ong thơm ngọt.",
+  "image_url": "https://example.com/suon-nuong.jpg",
+  "category": "Món mặn",
+  "meal_types": [
+    "Bữa Tối"
+  ],
+  "nutrition": {
+    "calories": 540,
+    "protein": 32,
+    "carbs": 28,
+    "fats": 22
+  },
+  "tags": [
+    "Đậm vị",
+    "Giàu đạm"
+  ]
+}]
