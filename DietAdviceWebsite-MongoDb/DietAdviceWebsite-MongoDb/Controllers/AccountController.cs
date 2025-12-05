@@ -77,7 +77,7 @@ namespace DietAdviceWebsite_MongoDb.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Home");
+            return RedirectToAction("Login", "Account");
         }
     }
 }

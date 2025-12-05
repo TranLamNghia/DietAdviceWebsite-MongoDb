@@ -23,5 +23,14 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
             await _users.ReplaceOneAsync(x => x.Id == user.Id, user,
                 new ReplaceOptions { IsUpsert = true });
         }
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _users.Find(x => x.Email == email).FirstOrDefaultAsync();
+        }
+        public async Task UpdateUser(User user)
+        {
+            await _users.ReplaceOneAsync(x => x.Id == user.Id, user);
+        }
+
     }
 }

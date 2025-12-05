@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using DietAdviceWebsite_MongoDb.Areas.ViewModels;
 using DietAdviceWebsite_MongoDb.Models;
 using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels;
 
 namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
 {

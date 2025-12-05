@@ -1,0 +1,143 @@
+﻿@model DietAdviceWebsite_MongoDb.Models.User
+
+@{
+    var profile = Model.Profile ?? new DietAdviceWebsite_MongoDb.Models.Profile();
+
+    // Tạo danh sách SelectList cho Giới tính
+    var genders = new List<SelectListItem>
+    {
+        new SelectListItem("Nam", "Nam", profile.Gender == "Nam"),
+        new SelectListItem("Nữ", "Nữ", profile.Gender == "Nữ"),
+        new SelectListItem("Khác", "Khác", profile.Gender == "Khác")
+    };
+
+    // Tạo danh sách SelectList cho Mức độ hoạt động
+    var activities = new List<SelectListItem>
+    {
+        new SelectListItem("Thấp", "Thấp", profile.ActivityLevel == "Thấp"),
+        new SelectListItem("Trung bình", "Trung bình", profile.ActivityLevel == "Trung bình"),
+        new SelectListItem("Cao", "Cao", profile.ActivityLevel == "Cao")
+    };
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Chỉnh sửa hồ sơ</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <style>
+        .form-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: 20px auto;
+        }
+        .form-card h2 { margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { font-weight: bold; }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        .btn-save {
+            background: #28a745;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-back {
+            margin-left: 10px;
+            background: #6c757d;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .avatar-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-card">
+        <h2>Chỉnh sửa thông tin cá nhân</h2>
+
+        <form asp-area="Customer" asp-controller="Profile" asp-action="Edit" method="post" enctype="multipart/form-data">
+
+            <!-- Avatar -->
+            <div class="form-group">
+                <label>Ảnh đại diện</label><br />
+                <img src="~/images/default-avatar.png" class="avatar-preview" alt="avatar" />
+            </div>
+
+            <!-- Họ tên -->
+            <div class="form-group">
+                <label>Họ tên</label>
+                <input type="text" name="FullName" value="@profile.FullName" class="form-control" required />
+            </div>
+
+            <!-- Cân nặng & chiều cao -->
+            <div class="form-group">
+                <label>Cân nặng (kg)</label>
+                <input type="number" name="Weight" value="@profile.Weight" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Chiều cao (cm)</label>
+                <input type="number" name="Height" value="@profile.Height" class="form-control" required />
+            </div>
+
+            <!-- Năm sinh -->
+            <div class="form-group">
+                <label>Năm sinh</label>
+                <input type="number" name="BirthYear" value="@profile.BirthYear" class="form-control" required />
+            </div>
+
+            <!-- Giới tính -->
+            <div class="form-group">
+                <label>Giới tính</label>
+                <select name="Gender" asp-items="genders" class="form-control"></select>
+            </div>
+
+            <!-- Dị ứng -->
+            <div class="form-group">
+                <label>Dị ứng</label>
+                <input type="text" name="Allergies"
+                       value="@string.Join(",", profile.Allergies ?? new List<string>())"
+                       placeholder="Ví dụ: hải sản, trứng"
+                       class="form-control" />
+            </div>
+
+            <!-- Tình trạng sức khỏe -->
+            <div class="form-group">
+                <label>Tình trạng sức khỏe</label>
+                <input type="text" name="HealthCondition" value="@profile.HealthCondition"
+                       placeholder="Không bắt buộc" class="form-control" />
+            </div>
+
+            <!-- Mức độ hoạt động -->
+            <div class="form-group">
+                <label>Mức độ hoạt động</label>
+                <select name="ActivityLevel" asp-items="activities" class="form-control"></select>
+            </div>
+
+            <button type="submit" class="btn-save">Lưu thay đổi</button>
+            <a href="/customer/profile" class="btn-back">Quay lại</a>
+
+        </form>
+    </div>
+</body>
+</html>
