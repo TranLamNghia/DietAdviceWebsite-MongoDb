@@ -1,0 +1,26 @@
+[{
+  "_id": "user_004",
+  "email": "doankimnghia1908@gmail.com",
+  "password_hash": "$2a$11$Pc0qR3TfeWibWtMpx/RZ3e1aZRHByprV6vlbFMk/Rm3Miu/3WOi6.",
+  "role": "Customer"
+},
+{
+  "_id": "user_005",
+  "email": "dangquoce@example.com",
+  "password_hash": "$2a$11$QHQcxaKYhYxz/tICtydP.upMcX7KofScpZBrDSY825.VR9lwaCbLe",
+  "role": "Customer"
+},
+{
+  "_id": "user_006",
+  "email": "nhanvo@gmail.com",
+  "password_hash": "$2a$11$VzpGbKRhCGbFJlOV.LPLCuY.ILmqSgSeGCsedWk6xb9yWdYYP9tEe",
+  "role": "Customer"
+},
+{
+  "_id": {
+    "$oid": "6921651f8b0b4c2110d3655e"
+  },
+  "email": "abc@gmail.com",
+  "password_hash": "$2a$11$cAPS8NPaclVVJd1b2ZnOc.nIdaJuBEmW6YPfIgZ0nkYigEFp9Xs2.",
+  "role": "Customer"
+}]

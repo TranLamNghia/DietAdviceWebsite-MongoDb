@@ -7,5 +7,6 @@ namespace DietAdviceWebsite_MongoDb.Models
         public string MealsCollectionName { get; set; } = null!;
         public string DailyLogCollectionName { get; set; } = null!;
         public string UserCollectionName { get; set; } = null!;
+        public string AccountCollectionName { get; set; } = null!;
     }
 }

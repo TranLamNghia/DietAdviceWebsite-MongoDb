@@ -2,6 +2,8 @@ using DietAdviceWebsite_MongoDb.Models;
 using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using DietAdviceWebsite_MongoDb.Service;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,19 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 
 // 3. Đăng ký các service của bạn
 builder.Services.AddSingleton<MealsManagementService>();
+builder.Services.AddScoped<AuthService>();
+builder.Services.AddHttpContextAccessor();
+
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Customer/Account/Login";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+    });
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -40,6 +55,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapAreaControllerRoute(
@@ -50,6 +66,6 @@ app.MapAreaControllerRoute(
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}/{id?}");
 
 app.Run();
