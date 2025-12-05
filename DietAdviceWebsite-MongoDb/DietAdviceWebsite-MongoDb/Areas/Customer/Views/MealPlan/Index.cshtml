@@ -1,14 +1,32 @@
-﻿@{
+﻿@model DietAdviceWebsite_MongoDb.Models.DailyLog
+@{
     ViewData["Title"] = "Kế hoạch ăn uống thông minh";
+
+    // 1. Lấy tất cả món ăn
+    var allMeals = Model?.MealsEaten ?? new List<DietAdviceWebsite_MongoDb.Models.MealEaten>();
+
+    // 2. Cấu hình cho 3 bữa ăn chính (Dùng mảng object để loop)
+    var mealConfigs = new[]
+    {
+        new { Id = "breakfast", Title = "Bữa Sáng", Icon = "☕", Time = "06:00 - 10:00", Keyword = "sáng" },
+        new { Id = "lunch",     Title = "Bữa Trưa", Icon = "🍱", Time = "11:00 - 14:00", Keyword = "trưa" },
+        new { Id = "dinner",    Title = "Bữa Tối",  Icon = "🍲", Time = "18:00 - 20:00", Keyword = "tối" }
+    };
+
+    // 3. Lọc riêng Snack (những món không thuộc 3 bữa trên)
+    // Logic: Lấy tất cả món, loại bỏ những món có TimeSlot chứa từ khóa sáng/trưa/tối
+    var mainMealKeywords = mealConfigs.Select(c => c.Keyword).ToList();
+    var snackMeals = allMeals.Where(m =>
+        m.TimeSlot == null ||
+        !mainMealKeywords.Any(k => m.TimeSlot.ToLower().Contains(k))
+    ).ToList();
 }
 
 <div class="container main-content">
-    <!-- 1. Header & Summary -->
     <div class="header-section">
         <h1>Thực đơn hôm nay</h1>
-        <p class="page-subtitle" id="currentDateDisplay">Đang tải...</p>
+        <p class="page-subtitle" id="currentDateDisplay">@DateTime.Now.ToString("dddd, dd/MM/yyyy", new System.Globalization.CultureInfo("vi-VN"))</p>
 
-        <!-- Calorie Budget Card -->
         <div class="calorie-budget-card">
             <div class="budget-item target">
                 <span class="label">Mục tiêu</span>
@@ -17,110 +35,156 @@
             </div>
             <div class="budget-divider">-</div>
             <div class="budget-item consumed">
-                <span class="label">Đã nạp</span>
-                <span class="value" id="consumedCalories">0</span>
+                <span class="value" id="consumedCalories">@(allMeals.Sum(m => m.CaloriesConsumed))</span>
                 <span class="unit">kcal</span>
             </div>
             <div class="budget-divider">=</div>
             <div class="budget-item remaining">
                 <span class="label">Còn lại</span>
-                <span class="value" id="remainingCalories">2000</span>
+                <span class="value" id="remainingCalories">@(2000 - allMeals.Sum(m => m.CaloriesConsumed))</span>
                 <span class="unit">kcal</span>
             </div>
             <div class="status-badge" id="dayStatus">Đang tính...</div>
         </div>
     </div>
 
-    <!-- 2. Main Meal Plan Flow -->
     <div class="meal-plan-container">
-        <!-- Bữa Sáng -->
-        <div class="meal-section" id="section-breakfast">
-            <div class="section-header">
-                <h3>☕ Bữa Sáng <span class="time-range">(06:00 - 10:00)</span></h3>
-            </div>
-            <div class="meal-grid" id="grid-breakfast"></div>
-            <div class="section-footer">
-                <button class="btn-add-side" onclick="openAddModal('breakfast')">+ Thêm món ăn kèm</button>
-            </div>
-        </div>
+        @foreach (var config in mealConfigs)
+        {
+            // Lọc món ăn cho bữa hiện tại trong vòng lặp
+            var currentMeals = allMeals.Where(m => m.TimeSlot != null && m.TimeSlot.ToLower().Contains(config.Keyword)).ToList();
 
-        <!-- Bữa Trưa -->
-        <div class="meal-section" id="section-lunch">
-            <div class="section-header">
-                <h3>🍱 Bữa Trưa <span class="time-range">(11:00 - 14:00)</span></h3>
-            </div>
-            <div class="meal-grid" id="grid-lunch"></div>
-            <div class="section-footer">
-                <button class="btn-add-side" onclick="openAddModal('lunch')">+ Thêm món ăn kèm</button>
-            </div>
-        </div>
+            <div class="meal-section" id="section-@config.Id">
+                <div class="section-header">
+                    <h3>@config.Icon @config.Title <span class="time-range">(@config.Time)</span></h3>
+                </div>
 
-        <!-- Bữa Tối -->
-        <div class="meal-section" id="section-dinner">
-            <div class="section-header">
-                <h3>🍲 Bữa Tối <span class="time-range">(18:00 - 20:00)</span></h3>
+                @if (config.Id == "dinner")
+                {
+                    <div id="dinner-alert" class="dinner-alert" style="display: none;">
+                        ⚠️ Bạn chỉ còn <b id="dinner-remaining">0</b> kcal. Hãy chọn món nhẹ nhàng!
+                    </div>
+                }
+
+                <div class="meal-grid" id="grid-@config.Id">
+                    @if (currentMeals.Any())
+                    {
+                        foreach (var item in currentMeals)
+                        {
+                            <div class="meal-card selected">
+                                <span class="meal-name">@item.Name (@item.Quantity @item.Unit)</span>
+                                <span class="meal-info">@item.CaloriesConsumed kcal</span>
+                                <span class="remove-item" onclick="removeItem('@config.Id', '@item.MealId')">&times;</span>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="empty-text">Chưa có món ăn nào.</p>
+                    }
+                </div>
+
+                <div class="section-footer">
+                    <button class="btn-add-side" onclick="openChangeModal('@config.Id')">+ Thay món ăn</button>
+                </div>
             </div>
-            <div id="dinner-alert" class="dinner-alert" style="display: none;">
-                ⚠️ Bạn chỉ còn <b id="dinner-remaining">0</b> kcal. Hãy chọn món nhẹ nhàng!
-            </div>
-            <div class="meal-grid" id="grid-dinner"></div>
-            <div class="section-footer">
-                <button class="btn-add-side" onclick="openAddModal('dinner')">+ Thêm món ăn kèm</button>
-            </div>
-        </div>
+        }
     </div>
 
-    <!-- 3. Snacks Section -->
     <div class="snacks-section">
         <div class="section-header">
             <h3>🍿 Bữa Phụ / Ăn Vặt (Luôn mở)</h3>
             <button class="btn-add-snack" onclick="openAddModal('snack')">+ Khai báo món ăn vặt</button>
         </div>
-        <div class="snack-list" id="snackList"></div>
+        <div class="snack-list" id="snackList">
+            @if (snackMeals.Any())
+            {
+                foreach (var item in snackMeals)
+                {
+                    <div class="snack-chip">
+                        @item.Name (@item.Quantity @item.Unit) (@item.CaloriesConsumed kcal)
+                        <span class="remove-snack" onclick="removeItem('snack', '@item.MealId')">&times;</span>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="empty-text" style="color:#aaa; font-style:italic;">Chưa có bữa phụ nào.</p>
+            }
+        </div>
     </div>
 </div>
 
-<!-- 4. MODAL THÊM MÓN (Đã đồng bộ ID) -->
 <div id="addFoodModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h2>Thêm món ăn</h2>
-
-        <!-- Search Box -->
         <div class="modal-search-box">
             <i class="fas fa-search"></i>
             <input type="text" id="modalSearchInput" placeholder="Tìm món phở, cơm, bánh..." autocomplete="off">
             <div id="modalSuggestions" class="suggestions-dropdown"></div>
         </div>
-
-        <!-- Selected Item Detail -->
         <div id="selectedItemDetails" style="display: none;">
             <div class="selected-food-info">
                 <h4 id="selName" style="margin: 0 0 5px 0;">Tên món</h4>
                 <div class="sel-nutrition" style="color: #666; font-size: 0.9rem;">
-                    <span id="selCal" style="font-weight: bold; color: #27ae60;">0</span> kcal &bull;
-                    <span id="selPro">0</span>g Pro
+                    <span id="selCal" style="font-weight: bold; color: #27ae60;">0</span> kcal / 100g &bull;
+                    <span id="selPro">0</span>g Pro / 100g
                 </div>
             </div>
-
             <div class="quantity-control" style="margin-top: 15px;">
-                <label>Số lượng:</label>
+                <label>Khối lượng (gram):</label>
                 <div class="qty-inputs">
-                    <input type="number" id="selQty" value="1" min="0.5" step="0.5">
-                    <span class="unit-label" id="selUnit">suất</span>
+                    <input type="number" id="selQty" value="100" min="10" step="10">
+                    <span class="unit-label" id="selUnit">gram</span>
                 </div>
                 <p class="total-preview" style="margin-top: 10px; font-weight: bold;">
                     Tổng cộng: <span id="totalPreviewCal" style="color: #e67e22; font-size: 1.2rem;">0</span> kcal
                 </p>
             </div>
-
             <button class="btn-confirm-add" onclick="confirmAddFood()">Thêm vào thực đơn</button>
         </div>
+    </div>
+</div>
+
+<div id="changeMealModal" class="modal">
+    <div class="modal-content large-modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Thay đổi thực đơn</h2>
+
+        <!-- 4.1 Filter & Add -->
+        <div class="modal-controls">
+            <div class="control-group">
+                <label>Calo mong muốn (<=):</label>
+                <input type="number" id="targetCalInput" placeholder="VD: 500" oninput="filterMealOptions()">
+            </div>
+            <div class="control-group grow">
+                <label>Chọn món thêm vào:</label>
+                <select id="mealSelectBox" onchange="addFromSelectBox()">
+                    <option value="">-- Chọn món ăn --</option>
+                    <!-- JS will populate this -->
+                </select>
+            </div>
+        </div>
+
+        <!-- 4.2 Current Items List (Horizontal Box) -->
+        <div class="current-items-container">
+            <label>Các món trong bữa này:</label>
+            <div id="modalCurrentList" class="horizontal-list">
+                <!-- Item render mẫu bởi JS -->
+            </div>
+            <p id="modalTotalCal" class="modal-summary">Tổng: 0 kcal</p>
+        </div>
+
+        <button class="btn-confirm-save" onclick="saveMealChanges()">Lưu thay đổi</button>
     </div>
 </div>
 
 <link rel="stylesheet" href="~/css/meal-plan.css">
 
 @section Scripts {
+    <script>
+        const initialMealPlan = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model ?? new object()));
+    </script>
     <script src="~/js/meal-plan.js"></script>
 }

@@ -22,7 +22,8 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 });
 
 // 3. Đăng ký các service của bạn
-builder.Services.AddSingleton<MealsManagementService>();
+builder.Services.AddSingleton<MealManagementService>();
+builder.Services.AddSingleton<MealPlanService>();
 
 var app = builder.Build();
 

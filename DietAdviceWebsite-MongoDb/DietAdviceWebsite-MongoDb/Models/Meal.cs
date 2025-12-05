@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace DietAdviceWebsite_MongoDb.Models
 {
-    public class Meals
+    public class Meal
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
