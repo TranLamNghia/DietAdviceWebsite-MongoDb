@@ -1,5 +1,7 @@
 [{
-  "_id": "meal_101",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044706"
+  },
   "name": "Phở Bò Tái",
   "description": "Món nước truyền thống, nước dùng trong, thịt bò tái mềm.",
   "image_url": "https://example.com/images/pho-bo.jpg",
@@ -21,7 +23,9 @@
   ]
 },
 {
-  "_id": "meal_102",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044707"
+  },
   "name": "Cơm Trắng",
   "description": "Cơm gạo tẻ nấu chín, hạt mềm dẻo.",
   "image_url": "https://example.com/com-trang.jpg",
@@ -45,7 +49,9 @@
   ]
 },
 {
-  "_id": "meal_103",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044708"
+  },
   "name": "Thịt Kho Tàu",
   "description": "Thịt ba chỉ kho mềm với trứng và nước dừa.",
   "image_url": "https://example.com/thit-kho.jpg",
@@ -68,7 +74,9 @@
   ]
 },
 {
-  "_id": "meal_104",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044709"
+  },
   "name": "Gỏi Gà Xé",
   "description": "Ức gà xé trộn bắp cải, rau răm và hành phi.",
   "image_url": "https://example.com/goi-ga.jpg",
@@ -90,7 +98,9 @@
   ]
 },
 {
-  "_id": "meal_105",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470a"
+  },
   "name": "Bún Chả Hà Nội",
   "description": "Thịt nướng ăn kèm bún, nước mắm pha và rau sống.",
   "image_url": "https://example.com/bun-cha.jpg",
@@ -110,7 +120,9 @@
   ]
 },
 {
-  "_id": "meal_106",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470b"
+  },
   "name": "Cơm Gà Hải Nam",
   "description": "Cơm được nấu từ nước luộc gà, thịt gà mềm, ăn kèm nước chấm gừng.",
   "image_url": "https://example.com/com-ga.jpg",
@@ -131,7 +143,9 @@
   ]
 },
 {
-  "_id": "meal_107",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470c"
+  },
   "name": "Salad Cá Ngừ",
   "description": "Xà lách, cá ngừ, bắp, trứng luộc, sốt mè rang.",
   "image_url": "https://example.com/salad-ca-ngu.jpg",
@@ -153,7 +167,9 @@
   ]
 },
 {
-  "_id": "meal_108",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470d"
+  },
   "name": "Súp Lơ Xào Thịt Bò",
   "description": "Thịt bò xào với súp lơ xanh, gừng và tỏi.",
   "image_url": "https://example.com/bo-xao-sup-lo.jpg",
@@ -175,7 +191,9 @@
   ]
 },
 {
-  "_id": "meal_109",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470e"
+  },
   "name": "Cháo Yến Mạch",
   "description": "Cháo nấu từ yến mạch, sữa và trái cây.",
   "image_url": "https://example.com/chao-yen-mach.jpg",
@@ -196,7 +214,9 @@
   ]
 },
 {
-  "_id": "meal_110",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470f"
+  },
   "name": "Bánh Mì Thịt Nướng",
   "description": "Bánh mì kẹp thịt nướng, đồ chua, pate và rau.",
   "image_url": "https://example.com/banh-mi.jpg",
@@ -216,7 +236,9 @@
   ]
 },
 {
-  "_id": "meal_111",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044710"
+  },
   "name": "Bún Bò Huế",
   "description": "Bún bò cay nhẹ, nước dùng thơm sả.",
   "image_url": "https://example.com/bun-bo.jpg",
@@ -237,7 +259,9 @@
   ]
 },
 {
-  "_id": "meal_112",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044711"
+  },
   "name": "Salad Trứng",
   "description": "Xà lách, trứng luộc, cà chua bi, sốt chua ngọt.",
   "image_url": "https://example.com/salad-trung.jpg",
@@ -257,7 +281,9 @@
   ]
 },
 {
-  "_id": "meal_113",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044712"
+  },
   "name": "Ốp La + Bánh Mì",
   "description": "Trứng ốp la với bánh mì.",
   "image_url": "https://example.com/op-la.jpg",
@@ -277,7 +303,9 @@
   ]
 },
 {
-  "_id": "meal_114",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044713"
+  },
   "name": "Hủ Tiếu Nam Vang",
   "description": "Sợi hủ tiếu dai, nước trong, tôm thịt ngọt.",
   "image_url": "https://example.com/hu-tieu.jpg",
@@ -298,7 +326,9 @@
   ]
 },
 {
-  "_id": "meal_115",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044714"
+  },
   "name": "Cơm Tấm Sườn",
   "description": "Cơm tấm sườn nướng, bì, chả.",
   "image_url": "https://example.com/com-tam.jpg",
@@ -318,7 +348,9 @@
   ]
 },
 {
-  "_id": "meal_116",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044715"
+  },
   "name": "Salad Rau Củ",
   "description": "Salad rau củ luộc nhẹ với dầu oliu.",
   "image_url": "https://example.com/salad-rau.jpg",
@@ -340,7 +372,9 @@
   ]
 },
 {
-  "_id": "meal_117",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044716"
+  },
   "name": "Mì Xào Hải Sản",
   "description": "Mì trứng xào với tôm, mực và rau.",
   "image_url": "https://example.com/mi-xao.jpg",
@@ -360,7 +394,9 @@
   ]
 },
 {
-  "_id": "meal_118",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044717"
+  },
   "name": "Sữa Chua Trái Cây",
   "description": "Sữa chua ít béo với chuối, táo và dâu.",
   "image_url": "https://example.com/yogurt-fruit.jpg",
@@ -381,7 +417,9 @@
   ]
 },
 {
-  "_id": "meal_119",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044718"
+  },
   "name": "Sinh Tố Bơ",
   "description": "Sinh tố bơ béo mịn.",
   "image_url": "https://example.com/sinh-to.jpg",
@@ -401,7 +439,9 @@
   ]
 },
 {
-  "_id": "meal_120",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044719"
+  },
   "name": "Gà Luộc",
   "description": "Gà luộc đơn giản, chấm muối tiêu chanh.",
   "image_url": "https://example.com/ga-luoc.jpg",
@@ -423,7 +463,9 @@
   ]
 },
 {
-  "_id": "meal_121",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471a"
+  },
   "name": "Cá Hồi Áp Chảo",
   "description": "Cá hồi áp chảo với chanh và tiêu.",
   "image_url": "https://example.com/ca-hoi.jpg",
@@ -443,7 +485,9 @@
   ]
 },
 {
-  "_id": "meal_122",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471b"
+  },
   "name": "Bánh Cuốn",
   "description": "Bánh cuốn nóng với chả và nước mắm.",
   "image_url": "https://example.com/banh-cuon.jpg",
@@ -463,7 +507,9 @@
   ]
 },
 {
-  "_id": "meal_123",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471c"
+  },
   "name": "Chè Đậu Đỏ",
   "description": "Chè đậu đỏ nước cốt dừa.",
   "image_url": "https://example.com/che-dau-do.jpg",
@@ -483,7 +529,9 @@
   ]
 },
 {
-  "_id": "meal_124",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471d"
+  },
   "name": "Bánh Xèo Miền Tây",
   "description": "Bánh xèo vỏ giòn, nhân tôm thịt, ăn kèm rau sống và nước mắm chua ngọt.",
   "image_url": "https://example.com/banh-xeo.jpg",
@@ -505,7 +553,9 @@
   ]
 },
 {
-  "_id": "meal_125",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471e"
+  },
   "name": "Bánh Canh Cua",
   "description": "Bánh canh bột gạo dai, nước dùng sánh và thịt cua ngọt.",
   "image_url": "https://example.com/banh-canh-cua.jpg",
@@ -525,7 +575,9 @@
   ]
 },
 {
-  "_id": "meal_126",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471f"
+  },
   "name": "Bún Riêu Cua",
   "description": "Bún riêu cua đồng, cà chua, chả và huyết.",
   "image_url": "https://example.com/bun-rieu.jpg",
@@ -545,7 +597,9 @@
   ]
 },
 {
-  "_id": "meal_127",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044720"
+  },
   "name": "Bánh Ướt Lòng Gà",
   "description": "Đặc sản Đà Lạt, bánh ướt ăn cùng lòng gà và rau thơm.",
   "image_url": "https://example.com/banh-uot-long-ga.jpg",
@@ -566,7 +620,9 @@
   ]
 },
 {
-  "_id": "meal_128",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044721"
+  },
   "name": "Bún Chả Cá Nha Trang",
   "description": "Chả cá dai, nước dùng thanh ngọt đặc trưng miền biển.",
   "image_url": "https://example.com/bun-cha-ca.jpg",
@@ -586,7 +642,9 @@
   ]
 },
 {
-  "_id": "meal_129",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044722"
+  },
   "name": "Cơm Hến Huế",
   "description": "Cơm trộn hến xào, tóp mỡ, rau sống và mắm ruốc.",
   "image_url": "https://example.com/com-hen.jpg",
@@ -606,7 +664,9 @@
   ]
 },
 {
-  "_id": "meal_130",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044723"
+  },
   "name": "Hủ Tiếu Sa Đéc",
   "description": "Hủ tiếu khô với nước sốt đậm đà và thịt xá xíu.",
   "image_url": "https://example.com/hu-tieu-sadec.jpg",
@@ -627,7 +687,9 @@
   ]
 },
 {
-  "_id": "meal_131",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044724"
+  },
   "name": "Mì Quảng Gà",
   "description": "Sợi mì vàng, thịt gà, rau sống và đậu phộng rang.",
   "image_url": "https://example.com/mi-quang.jpg",
@@ -646,7 +708,9 @@
   ]
 },
 {
-  "_id": "meal_132",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044725"
+  },
   "name": "Bánh Bột Lọc",
   "description": "Bánh bột lọc nhân tôm thịt, dai ngon.",
   "image_url": "https://example.com/banh-bot-loc.jpg",
@@ -666,7 +730,9 @@
   ]
 },
 {
-  "_id": "meal_133",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044726"
+  },
   "name": "Nem Nướng Nha Trang",
   "description": "Nem nướng ăn kèm bánh tráng và rau sống.",
   "image_url": "https://example.com/nem-nuong.jpg",
@@ -686,7 +752,9 @@
   ]
 },
 {
-  "_id": "meal_134",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044727"
+  },
   "name": "Lẩu Mắm",
   "description": "Lẩu đậm vị mắm cá linh, nhiều loại rau đồng.",
   "image_url": "https://example.com/lau-mam.jpg",
@@ -705,7 +773,9 @@
   ]
 },
 {
-  "_id": "meal_135",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044728"
+  },
   "name": "Gà Nướng Muối Ớt",
   "description": "Gà nướng cay nhẹ, da giòn thơm.",
   "image_url": "https://example.com/ga-nuong.jpg",
@@ -725,7 +795,9 @@
   ]
 },
 {
-  "_id": "meal_136",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044729"
+  },
   "name": "Canh Chua Cá Lóc",
   "description": "Cá lóc, bạc hà, cà chua, thơm; vị chua ngọt.",
   "image_url": "https://example.com/canh-chua.jpg",
@@ -745,7 +817,9 @@
   ]
 },
 {
-  "_id": "meal_137",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472a"
+  },
   "name": "Gỏi Đu Đủ",
   "description": "Đu đủ sợi trộn tôm thịt và đậu phộng.",
   "image_url": "https://example.com/goi-du-du.jpg",
@@ -766,7 +840,9 @@
   ]
 },
 {
-  "_id": "meal_138",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472b"
+  },
   "name": "Cơm Cháy Kho Quẹt",
   "description": "Cơm cháy giòn ăn kèm kho quẹt mặn ngọt.",
   "image_url": "https://example.com/com-chay.jpg",
@@ -786,7 +862,9 @@
   ]
 },
 {
-  "_id": "meal_139",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472c"
+  },
   "name": "Cá Kèo Kho Tiêu",
   "description": "Cá kèo kho thơm mùi tiêu và nước màu.",
   "image_url": "https://example.com/ca-keo.jpg",
@@ -806,7 +884,9 @@
   ]
 },
 {
-  "_id": "meal_140",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472d"
+  },
   "name": "Cháo Sườn",
   "description": "Cháo trắng nấu với sườn mềm và hành lá.",
   "image_url": "https://example.com/chao-suon.jpg",
@@ -826,7 +906,9 @@
   ]
 },
 {
-  "_id": "meal_141",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472e"
+  },
   "name": "Lẩu Thái",
   "description": "Lẩu chua cay, hải sản và nấm.",
   "image_url": "https://example.com/lau-thai.jpg",
@@ -846,7 +928,9 @@
   ]
 },
 {
-  "_id": "meal_142",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472f"
+  },
   "name": "Cơm Gà Xối Mỡ",
   "description": "Gà chiên giòn vàng ăn kèm cơm thơm.",
   "image_url": "https://example.com/com-ga-xoi-mo.jpg",
@@ -866,7 +950,9 @@
   ]
 },
 {
-  "_id": "meal_143",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044730"
+  },
   "name": "Cá Chiên Sốt Me",
   "description": "Cá chiên giòn dùng kèm sốt me chua ngọt.",
   "image_url": "https://example.com/ca-sot-me.jpg",
@@ -886,7 +972,9 @@
   ]
 },
 {
-  "_id": "meal_144",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044731"
+  },
   "name": "Hủ Tiếu Mì Sườn",
   "description": "Hủ tiếu mì nước trong, sườn non hầm mềm.",
   "image_url": "https://example.com/hu-tieu-mi-suon.jpg",
@@ -908,7 +996,9 @@
   ]
 },
 {
-  "_id": "meal_145",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044732"
+  },
   "name": "Bún Bò Giò Heo",
   "description": "Bún bò Huế ăn cùng giò heo, nước dùng sả cay.",
   "image_url": "https://example.com/bun-bo-gio.jpg",
@@ -929,7 +1019,9 @@
   ]
 },
 {
-  "_id": "meal_146",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044733"
+  },
   "name": "Cơm Chiên Dương Châu",
   "description": "Cơm chiên trứng, lạp xưởng, tôm và đậu Hà Lan.",
   "image_url": "https://example.com/com-chien.jpg",
@@ -950,7 +1042,9 @@
   ]
 },
 {
-  "_id": "meal_147",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044734"
+  },
   "name": "Gà Kho Sả Ớt",
   "description": "Gà kho hương sả, cay nhẹ và thơm.",
   "image_url": "https://example.com/ga-kho.jpg",
@@ -970,7 +1064,9 @@
   ]
 },
 {
-  "_id": "meal_148",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044735"
+  },
   "name": "Bún Thịt Nướng",
   "description": "Thịt nướng than hoa, bún, rau sống và mắm chua ngọt.",
   "image_url": "https://example.com/bun-thit-nuong.jpg",
@@ -990,7 +1086,9 @@
   ]
 },
 {
-  "_id": "meal_149",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044736"
+  },
   "name": "Phở Gà",
   "description": "Phở gà nước trong, thịt gà xé, hành lá và rau thơm.",
   "image_url": "https://example.com/pho-ga.jpg",
@@ -1010,7 +1108,9 @@
   ]
 },
 {
-  "_id": "meal_150",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044737"
+  },
   "name": "Bánh Mì Ốp La Thịt Nguội",
   "description": "Bánh mì giòn, trứng ốp la, thịt nguội và pate.",
   "image_url": "https://example.com/banh-mi-op-la.jpg",
@@ -1030,7 +1130,9 @@
   ]
 },
 {
-  "_id": "meal_151",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044738"
+  },
   "name": "Chả Cá Thăng Long",
   "description": "Cá chiên nghệ ăn cùng thì là và bún.",
   "image_url": "https://example.com/cha-ca.jpg",
@@ -1049,7 +1151,9 @@
   ]
 },
 {
-  "_id": "meal_152",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044739"
+  },
   "name": "Cá Kho Làng Vũ Đại",
   "description": "Cá trắm kho niêu đất, đậm vị cổ truyền.",
   "image_url": "https://example.com/ca-kho-lang-vu-dai.jpg",
@@ -1070,7 +1174,9 @@
   ]
 },
 {
-  "_id": "meal_153",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473a"
+  },
   "name": "Bò Kho Bánh Mì",
   "description": "Thịt bò hầm mềm với cà rốt, sả, hoa hồi, nước sốt đậm đà ăn kèm bánh mì giòn.",
   "image_url": "https://example.com/bo-kho.jpg",
@@ -1093,7 +1199,9 @@
   ]
 },
 {
-  "_id": "meal_154",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473b"
+  },
   "name": "Bún Mọc",
   "description": "Bún mọc viên giò sống mềm, nước dùng trong.",
   "image_url": "https://example.com/bun-moc.jpg",
@@ -1113,7 +1221,9 @@
   ]
 },
 {
-  "_id": "meal_155",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473c"
+  },
   "name": "Cơm Gà Hội An",
   "description": "Cơm nghệ, gà xé, mỡ hành và đồ chua.",
   "image_url": "https://example.com/com-ga-hoi-an.jpg",
@@ -1132,7 +1242,9 @@
   ]
 },
 {
-  "_id": "meal_156",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473d"
+  },
   "name": "Mì Gói Xào Bò",
   "description": "Mì gói xào bò, rau cải và trứng.",
   "image_url": "https://example.com/mi-xao.jpg",
@@ -1152,7 +1264,9 @@
   ]
 },
 {
-  "_id": "meal_157",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473e"
+  },
   "name": "Cháo Lòng",
   "description": "Cháo gạo tẻ ăn kèm lòng heo, hành và tiêu.",
   "image_url": "https://example.com/chao-long.jpg",
@@ -1172,7 +1286,9 @@
   ]
 },
 {
-  "_id": "meal_158",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473f"
+  },
   "name": "Gỏi Bò Bóp Thấu",
   "description": "Thịt bò tái trộn hành tây và rau thơm.",
   "image_url": "https://example.com/goi-bo.jpg",
@@ -1192,7 +1308,9 @@
   ]
 },
 {
-  "_id": "meal_159",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044740"
+  },
   "name": "Canh Khổ Qua Nhồi Thịt",
   "description": "Khổ qua nhồi thịt băm, nấu nước trong thanh mát.",
   "image_url": "https://example.com/kho-qua.jpg",
@@ -1212,7 +1330,9 @@
   ]
 },
 {
-  "_id": "meal_160",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044741"
+  },
   "name": "Thịt Kho Tiêu",
   "description": "Thịt ba chỉ kho tiêu cay nhẹ, đưa cơm.",
   "image_url": "https://example.com/thit-kho-tieu.jpg",
@@ -1232,7 +1352,9 @@
   ]
 },
 {
-  "_id": "meal_161",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044742"
+  },
   "name": "Nộm Tai Heo",
   "description": "Tai heo trộn chua ngọt, giòn sật.",
   "image_url": "https://example.com/nom-tai-heo.jpg",
@@ -1252,7 +1374,9 @@
   ]
 },
 {
-  "_id": "meal_162",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044743"
+  },
   "name": "Mực Xào Hành Cần",
   "description": "Mực tươi xào hành tây và cần tây.",
   "image_url": "https://example.com/muc-xao.jpg",
@@ -1272,7 +1396,9 @@
   ]
 },
 {
-  "_id": "meal_163",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044744"
+  },
   "name": "Sườn Nướng Mật Ong",
   "description": "Sườn heo nướng mật ong thơm ngọt.",
   "image_url": "https://example.com/suon-nuong.jpg",
