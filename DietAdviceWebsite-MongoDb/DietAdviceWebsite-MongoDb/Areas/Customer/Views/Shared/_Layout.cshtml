@@ -9,9 +9,36 @@
     <style>
         /* Thêm style cho trạng thái active */
         .navbar-menu li.active .nav-link {
-            color: #2ecc71; /* Màu xanh lá cây nổi bật */
+            color: #2ecc71;
             font-weight: bold;
         }
+
+        .btn-logout {
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            margin-top:5px;
+            padding: 5px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .btn-logout:hover {
+            background-color: #c0392b;
+        }
+
+        .user-gmail {
+            background-color: #f1f1f1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+
     </style>
 </head>
 <body>
@@ -45,6 +72,26 @@
                 </li>
             </ul>
             <button class="menu-toggle" id="menuToggle">☰</button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="d-flex ms-auto">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success me-2">Đăng nhập</a>
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-success">Đăng ký</a>
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center">
+                            <span class="user-gmail">
+                                @User.Identity.Name
+                            </span>
+                            <form asp-area="" asp-controller="Account" asp-action="Logout" method="get" class="d-inline">
+                                <button type="submit" class="btn btn-logout">Đăng xuất</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </nav>
 

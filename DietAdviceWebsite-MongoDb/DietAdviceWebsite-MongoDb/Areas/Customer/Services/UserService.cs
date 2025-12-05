@@ -1,6 +1,5 @@
-﻿using DietAdviceWebsite_MongoDb.Areas.ViewModel;
-using DietAdviceWebsite_MongoDb.Models;
-using Microsoft.Extensions.Configuration;
+﻿using DietAdviceWebsite_MongoDb.Models;
+using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
@@ -9,12 +8,9 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
     {
         private readonly IMongoCollection<User> _users;
 
-        public UserService(IConfiguration config)
+        public UserService(IMongoDatabase database, IOptions<MongoDbSettings> settings)
         {
-            var client = new MongoClient(config.GetConnectionString("MongoDb"));
-            var database = client.GetDatabase("DietAdviceDB");
-
-            _users = database.GetCollection<User>("users");
+            _users = database.GetCollection<User>(settings.Value.UsersCollectionName);
         }
 
         public async Task<User?> GetUserByIdAsync(string id)
@@ -24,7 +20,8 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
 
         public async Task SaveUserAsync(User user)
         {
-            await _users.ReplaceOneAsync(x => x.Id == user.Id, user, new ReplaceOptions { IsUpsert = true });
+            await _users.ReplaceOneAsync(x => x.Id == user.Id, user,
+                new ReplaceOptions { IsUpsert = true });
         }
     }
 }

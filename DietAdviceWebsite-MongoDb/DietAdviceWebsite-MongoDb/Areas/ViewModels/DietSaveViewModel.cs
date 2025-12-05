@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DietAdviceWebsite_MongoDb.Areas.ViewModel
+namespace DietAdviceWebsite_MongoDb.Areas.ViewModels
 {
     public class DietSaveViewModel
     {
