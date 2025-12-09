@@ -1,0 +1,402 @@
+[{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff44044767"
+  },
+  "user_id": "69324f221d64e3ff440446cd",
+  "date": "2025-11-20",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Bát lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Bát vừa (150g)"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044708",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Đĩa nhỏ (100g thịt)"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044728",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Phần đầy đủ"
+    }
+  ],
+  "daily_review": {}
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff44044768"
+  },
+  "user_id": "69324f221d64e3ff440446cd",
+  "date": "2025-11-19",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Bát lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044721",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Tô vừa"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044734",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Đĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ 150g"
+    }
+  ],
+  "daily_review": {
+    "rating": 4,
+    "comment": "Ngày ăn nhẹ nhàng, buổi tối ăn gà kho hơi cay nhưng ngon miệng. Hôm nay ăn hơi ít so với mục tiêu."
+  }
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff44044769"
+  },
+  "user_id": "69324f2c1d64e3ff440446ce",
+  "date": "2025-11-19",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff44044737",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Ổ lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ 150g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470a",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Phần đầy đủ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Ly 350ml"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044733",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa lớn"
+    }
+  ],
+  "daily_review": {
+    "rating": 5,
+    "comment": "Hôm nay ăn uống rất đầy đủ, đúng mục tiêu tăng cân. Các bữa phụ giúp duy trì năng lượng tốt."
+  }
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476a"
+  },
+  "user_id": "69324f2c1d64e3ff440446ce",
+  "date": "2025-11-20",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff4404470f",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Ổ lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044734",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Phần tiêu chuẩn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Bát 200g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ 150g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044724",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Tô đầy"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Ly 350ml"
+    }
+  ],
+  "daily_review": {}
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476b"
+  },
+  "user_id": "69324f2f1d64e3ff440446cf",
+  "date": "2025-11-19",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff4404470f",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Ổ lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470d",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Dĩa tiêu chuẩn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "200g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470c",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Ly 350ml"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044728",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Phần lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044719",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1.4,
+      "unit": "200g"
+    }
+  ],
+  "daily_review": {
+    "rating": 5,
+    "comment": "Hôm nay tập luyện nặng nên ăn bù bữa tối muộn. Tổng lượng calo nạp vào rất sát với mục tiêu."
+  }
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476c"
+  },
+  "user_id": "69324f2f1d64e3ff440446cf",
+  "date": "2025-11-20",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff44044712",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Phần đầy đủ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044724",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Tô đầy"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470c",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Tô trung bình"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044734",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Phần tiêu chuẩn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "200g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404471a",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "150g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ"
+    }
+  ],
+  "daily_review": {}
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476d"
+  },
+  "user_id": "69324f3a1d64e3ff440446d0",
+  "date": "2025-11-19",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff4404471b",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Đĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044743",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Phần tiêu chuẩn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Trưa",
+      "quantity": 0.5,
+      "unit": "100g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ 150g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044740",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044742",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Tối",
+      "quantity": 0.2,
+      "unit": "50g"
+    }
+  ],
+  "daily_review": {
+    "rating": 5,
+    "comment": "Thêm một chút cơm vào bữa tối để đủ năng lượng. Ngày ăn rất chuẩn chỉnh."
+  }
+},
+{
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476e"
+  },
+  "user_id": "69324f3a1d64e3ff440446d0",
+  "date": "2025-11-20",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff4404472d",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044735",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Phần nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ 150g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044741",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "120g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470e",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
+    }
+  ],
+  "daily_review": {}
+},
+{
+  "_id": {
+    "$oid": "69326c181d64e3ff44044780"
+  },
+  "user_id": "69324f3a1d64e3ff440446d0",
+  "date": "2025-12-06",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff4404472d",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044735",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Phần nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
+      "quantity": 1,
+      "unit": "Hũ 150g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044741",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "120g"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470e",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
+    }
+  ],
+  "daily_review": {}
+}]

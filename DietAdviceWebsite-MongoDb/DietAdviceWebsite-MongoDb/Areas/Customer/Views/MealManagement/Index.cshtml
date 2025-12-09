@@ -1,0 +1,88 @@
+﻿@model List<DietAdviceWebsite_MongoDb.Models.Meal>
+
+<div class="container main-content">
+    <!-- Header Section -->
+    <div class="page-header-center">
+        <h1>Thư viện món ăn</h1>
+        <p class="page-subtitle">Khám phá thông tin dinh dưỡng các món ăn phổ biến</p>
+    </div>
+
+    <!-- Toolbar: Search Form -->
+    <form asp-action="Index" method="get" class="toolbar-section centered-toolbar">
+        <div class="search-wrapper large-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" name="search" placeholder="Tìm món phở, cơm, healthy..." value="@Context.Request.Query["search"]">
+        </div>
+    </form>
+
+    <!-- Dynamic Filter Tags -->
+    <div class="filter-tags-container" id="filterContainer">
+        @{
+            var currentCategory = Context.Request.Query["category"].ToString();
+        }
+        <a asp-action="Index" class="filter-tag @(string.IsNullOrEmpty(currentCategory) ? "active" : "")">Tất cả</a>
+        @foreach (var category in ViewBag.Categories)
+        {
+            <a asp-action="Index" asp-route-category="@category" class="filter-tag @(currentCategory == category ? "active" : "")">@category</a>
+        }
+    </div>
+
+    <!-- Meal Grid -->
+    <div class="food-grid" id="foodGrid">
+        @if (Model.Count == 0)
+        {
+            <div style="text-align:center; grid-column: 1/-1; padding: 40px; color:#999;">
+                <i class="fas fa-utensils" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.5;"></i>
+                <p>Không tìm thấy món ăn nào phù hợp.</p>
+            </div>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <div class="food-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <h3>@item.Name</h3>
+                        </div>
+                    </div>
+                    <p class="card-desc">@item.Description</p>
+
+                    <div class="nutrition-box">
+                        <div class="nutri-col">
+                            <span class="nutri-label">Calo</span>
+                            <span class="nutri-val" style="color: #ff6347;">@item.Nutrition.Calories</span>
+                        </div>
+                        <div class="nutri-col">
+                            <span class="nutri-label">Pro</span>
+                            <span class="nutri-val" style="color: #1e90ff;">@item.Nutrition.Protein</span>
+                        </div>
+                        <div class="nutri-col">
+                            <span class="nutri-label">Carb</span>
+                            <span class="nutri-val" style="color: #ffc107;">@item.Nutrition.Carbs</span>
+                        </div>
+                        <div class="nutri-col">
+                            <span class="nutri-label">Fat</span>
+                            <span class="nutri-val" style="color: #6c757d;">@item.Nutrition.Fats</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="/FoodDetail?id=@item.Id" class="btn-view-detail">
+                            Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<!-- Không còn Modal Thêm/Sửa vì đây là trang dành cho Customer -->
+
+<link rel="stylesheet" href="~/css/meal-management.css">
+
+@section Scripts {
+    @* <script src="~/js/meal-management.js"></script> *@
+    <!-- Không cần file meal-management.js nữa -->
+}

@@ -7,4 +7,8 @@
     <RootNamespace>DietAdviceWebsite_MongoDb</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="3.5.1" />
+  </ItemGroup>
+
 </Project>
