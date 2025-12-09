@@ -1,15 +1,14 @@
-﻿@model DietAdviceWebsite_MongoDb.Models.DailyLog
+﻿@using System.Text.Json
+@model DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels.MealPlanViewModel
 @{
     ViewData["Title"] = "Kế hoạch ăn uống thông minh";
 
-    // 1. Lấy tất cả món ăn
-    var allMeals = Model?.MealsEaten ?? new List<DietAdviceWebsite_MongoDb.Models.MealEaten>();
-
-    // 2. Cấu hình cho 3 bữa ăn chính (Dùng mảng object để loop)
+    var allMeals = Model?.MealsEaten ?? new List<DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels.MealEatenViewModel>();
+        
     var mealConfigs = new[]
     {
-        new { Id = "breakfast", Title = "Bữa Sáng", Icon = "☕", Time = "06:00 - 10:00", Keyword = "sáng" },
-        new { Id = "lunch",     Title = "Bữa Trưa", Icon = "🍱", Time = "11:00 - 14:00", Keyword = "trưa" },
+        new { Id = "breakfast", Title = "Bữa Sáng", Icon = "☕", Time = "06:00 - 08:00", Keyword = "sáng" },
+        new { Id = "lunch",     Title = "Bữa Trưa", Icon = "🍱", Time = "11:00 - 13:00", Keyword = "trưa" },
         new { Id = "dinner",    Title = "Bữa Tối",  Icon = "🍲", Time = "18:00 - 20:00", Keyword = "tối" }
     };
 
@@ -72,9 +71,8 @@
                         foreach (var item in currentMeals)
                         {
                             <div class="meal-card selected">
-                                <span class="meal-name">@item.Name (@item.Quantity @item.Unit)</span>
+                                <span class="meal-name">@item.Name (@(item.Quantity == 1 ? "" : item.Quantity )@item.Unit)</span>
                                 <span class="meal-info">@item.CaloriesConsumed kcal</span>
-                                <span class="remove-item" onclick="removeItem('@config.Id', '@item.MealId')">&times;</span>
                             </div>
                         }
                     }
@@ -94,7 +92,7 @@
     <div class="snacks-section">
         <div class="section-header">
             <h3>🍿 Bữa Phụ / Ăn Vặt (Luôn mở)</h3>
-            <button class="btn-add-snack" onclick="openAddModal('snack')">+ Khai báo món ăn vặt</button>
+            <button class="btn-add-snack" onclick="openAddModal('Bửa phụ')">+ Khai báo món ăn vặt</button>
         </div>
         <div class="snack-list" id="snackList">
             @if (snackMeals.Any())
@@ -102,7 +100,7 @@
                 foreach (var item in snackMeals)
                 {
                     <div class="snack-chip">
-                        @item.Name (@item.Quantity @item.Unit) (@item.CaloriesConsumed kcal)
+                        @item.Name (@(item.Quantity == 1 ? "" : item.Quantity)@item.Unit) (@item.CaloriesConsumed kcal)
                         <span class="remove-snack" onclick="removeItem('snack', '@item.MealId')">&times;</span>
                     </div>
                 }
@@ -127,16 +125,19 @@
         <div id="selectedItemDetails" style="display: none;">
             <div class="selected-food-info">
                 <h4 id="selName" style="margin: 0 0 5px 0;">Tên món</h4>
+                <h4 id="seftId"></h4>
                 <div class="sel-nutrition" style="color: #666; font-size: 0.9rem;">
                     <span id="selCal" style="font-weight: bold; color: #27ae60;">0</span> kcal / 100g &bull;
                     <span id="selPro">0</span>g Pro / 100g
                 </div>
             </div>
             <div class="quantity-control" style="margin-top: 15px;">
-                <label>Khối lượng (gram):</label>
+                <label for="selQty">Số lượng &amp; Đơn vị:</label>
                 <div class="qty-inputs">
-                    <input type="number" id="selQty" value="100" min="10" step="10">
-                    <span class="unit-label" id="selUnit">gram</span>
+                    <input type="number" id="selQty" value="1" min="0.1" step="0.1" style="flex-grow: 1;">
+                    <select id="selUnit" name="unit" style="flex-grow: 2; margin-left: 8px; border: 1px solid #ddd; border-radius: 4px; padding: 6px 10px;">
+                        <!-- Options will be populated by JavaScript based on the selected food -->
+                    </select>
                 </div>
                 <p class="total-preview" style="margin-top: 10px; font-weight: bold;">
                     Tổng cộng: <span id="totalPreviewCal" style="color: #e67e22; font-size: 1.2rem;">0</span> kcal
@@ -184,7 +185,22 @@
 
 @section Scripts {
     <script>
-        const initialMealPlan = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model ?? new object()));
+        @{
+            var jsonOptions = new JsonSerializerOptions 
+            { 
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase 
+            };
+
+            object dataToSerialize = Model;
+            if (dataToSerialize == null)
+            {
+                dataToSerialize = new { mealsEaten = new object[] { } };
+            }
+        }
+
+        // Serialize dữ liệu với cấu hình đã tạo
+        const initialMealPlan = @Html.Raw(JsonSerializer.Serialize(dataToSerialize, jsonOptions));
     </script>
+
     <script src="~/js/meal-plan.js"></script>
 }

@@ -20,6 +20,12 @@
     "Món Việt",
     "Nhiều tinh bột",
     "Không dành cho keto"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô lớn",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -46,6 +52,12 @@
     "Không gluten",
     "Thuần chay",
     "Ít béo"
+  ],
+  "units": [
+    "Chén nhỏ",
+    "Chén đầy",
+    "Dĩa",
+    "Tô (Phần gia đình)"
   ]
 },
 {
@@ -71,6 +83,11 @@
     "Nhiều chất béo",
     "Giàu đạm",
     "Mặn"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Niêu đất"
   ]
 },
 {
@@ -95,6 +112,11 @@
     "Giảm cân",
     "Nhiều đạm",
     "Ít tinh bột"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -117,6 +139,11 @@
   "tags": [
     "Món Việt",
     "Nhiều năng lượng"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Mẹt tá lả"
   ]
 },
 {
@@ -140,6 +167,11 @@
   "tags": [
     "Giàu đạm",
     "Nhiều tinh bột"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa đặc biệt"
   ]
 },
 {
@@ -164,6 +196,11 @@
     "Giảm cân",
     "Nhiều đạm",
     "Healthy"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô vừa",
+    "Hộp mang về"
   ]
 },
 {
@@ -188,6 +225,11 @@
     "Ít tinh bột",
     "Giàu đạm",
     "Healthy"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -211,6 +253,11 @@
     "Healthy",
     "Nhiều chất xơ",
     "Tốt cho tiêu hóa"
+  ],
+  "units": [
+    "Chén nhỏ",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
@@ -233,6 +280,11 @@
   "tags": [
     "Món Việt",
     "Nhiều năng lượng"
+  ],
+  "units": [
+    "Nửa ổ",
+    "1 Ổ",
+    "1 Ổ đặc biệt (2 trứng)"
   ]
 },
 {
@@ -256,6 +308,11 @@
   "tags": [
     "Món Việt",
     "Nhiều tinh bột"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -278,6 +335,10 @@
   "tags": [
     "Healthy",
     "Ít tinh bột"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường"
   ]
 },
 {
@@ -300,6 +361,11 @@
   "tags": [
     "Giàu đạm",
     "Năng lượng cao"
+  ],
+  "units": [
+    "Phần 1 trứng",
+    "Phần 2 trứng",
+    "Chảo gang đặc biệt"
   ]
 },
 {
@@ -323,6 +389,11 @@
   "tags": [
     "Món Việt",
     "Món nước"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -345,6 +416,11 @@
   "tags": [
     "Rất nhiều năng lượng",
     "Không dành cho giảm cân"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường (Sườn bì)",
+    "Dĩa đặc biệt (Sườn bì chả trứng)"
   ]
 },
 {
@@ -369,6 +445,11 @@
     "Thuần chay",
     "Giảm cân",
     "Ít calo"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Tô lớn"
   ]
 },
 {
@@ -391,6 +472,11 @@
   "tags": [
     "Nhiều năng lượng",
     "Không phù hợp giảm cân"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -414,6 +500,11 @@
   "tags": [
     "Healthy",
     "Tốt cho tiêu hóa"
+  ],
+  "units": [
+    "Hũ nhỏ",
+    "Ly thường",
+    "Tô lớn"
   ]
 },
 {
@@ -436,6 +527,11 @@
   "tags": [
     "Nhiều chất béo tốt",
     "Tốt cho tăng cân"
+  ],
+  "units": [
+    "Ly nhỏ",
+    "Ly vừa",
+    "Ly lớn"
   ]
 },
 {
@@ -460,6 +556,11 @@
     "Nhiều đạm",
     "Ít tinh bột",
     "Phù hợp giảm cân"
+  ],
+  "units": [
+    "1 Miếng (Đùi/Cánh)",
+    "Nửa con",
+    "Nguyên con"
   ]
 },
 {
@@ -482,6 +583,11 @@
   "tags": [
     "Healthy",
     "Nhiều omega-3"
+  ],
+  "units": [
+    "100g (Nhỏ)",
+    "200g (Thường)",
+    "300g (Lớn)"
   ]
 },
 {
@@ -504,6 +610,11 @@
   "tags": [
     "Món Việt",
     "Nhẹ bụng"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa đặc biệt"
   ]
 },
 {
@@ -526,6 +637,11 @@
   "tags": [
     "Nhiều tinh bột",
     "Không phù hợp giảm cân"
+  ],
+  "units": [
+    "Chén nhỏ",
+    "Ly thường",
+    "Tô"
   ]
 },
 {
@@ -550,6 +666,11 @@
     "Món Việt",
     "Nhiều năng lượng",
     "Đặc sản miền Tây"
+  ],
+  "units": [
+    "1 Cái",
+    "Mẹt 2 cái",
+    "Mẹt gia đình (5 cái)"
   ]
 },
 {
@@ -572,6 +693,11 @@
   "tags": [
     "Món Việt",
     "Giàu đạm"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Thố đất"
   ]
 },
 {
@@ -594,6 +720,11 @@
   "tags": [
     "Ngon nhẹ",
     "Món Việt"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -617,6 +748,11 @@
   "tags": [
     "Đặc sản",
     "Giàu đạm"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -639,6 +775,11 @@
   "tags": [
     "Món biển",
     "Ít béo"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -661,6 +802,11 @@
   "tags": [
     "Đậm vị",
     "Đặc sản Huế"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
@@ -684,6 +830,11 @@
   "tags": [
     "Món Việt",
     "Tinh bột vừa"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -705,6 +856,11 @@
   },
   "tags": [
     "Đặc sản miền Trung"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -727,6 +883,11 @@
   "tags": [
     "Đặc sản Huế",
     "Nhiều tinh bột"
+  ],
+  "units": [
+    "Dĩa nhỏ (5 cái)",
+    "Dĩa thường (10 cái)",
+    "Dĩa lớn (20 cái)"
   ]
 },
 {
@@ -749,6 +910,11 @@
   "tags": [
     "Đặc sản",
     "Giàu đạm"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Mẹt đặc biệt"
   ]
 },
 {
@@ -770,6 +936,11 @@
   },
   "tags": [
     "Đặc sản miền Tây"
+  ],
+  "units": [
+    "Nồi nhỏ (2 người)",
+    "Nồi lớn (4 người)",
+    "Set đặc biệt"
   ]
 },
 {
@@ -792,6 +963,11 @@
   "tags": [
     "Giàu đạm",
     "Đậm vị"
+  ],
+  "units": [
+    "Góc tư (Đùi)",
+    "Nửa con",
+    "Nguyên con"
   ]
 },
 {
@@ -814,6 +990,11 @@
   "tags": [
     "Ngon nhẹ",
     "Healthy"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Thố lớn"
   ]
 },
 {
@@ -837,6 +1018,11 @@
   "tags": [
     "Healthy",
     "Ít dầu"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Hộp mang về"
   ]
 },
 {
@@ -859,6 +1045,11 @@
   "tags": [
     "Đậm vị",
     "Ăn chơi"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Mẹt lớn"
   ]
 },
 {
@@ -881,6 +1072,11 @@
   "tags": [
     "Món Việt",
     "Giàu đạm"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Niêu đất",
+    "Tộ lớn"
   ]
 },
 {
@@ -903,6 +1099,11 @@
   "tags": [
     "Nhẹ bụng",
     "Healthy"
+  ],
+  "units": [
+    "Tô nhỏ (Trẻ em)",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
@@ -925,6 +1126,11 @@
   "tags": [
     "Đậm vị",
     "Khá cay"
+  ],
+  "units": [
+    "Nồi nhỏ",
+    "Nồi lẩu gia đình",
+    "Set tiệc"
   ]
 },
 {
@@ -947,6 +1153,11 @@
   "tags": [
     "Nhiều calo",
     "Không phù hợp giảm cân"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Hộp mang về"
   ]
 },
 {
@@ -969,6 +1180,11 @@
   "tags": [
     "Đậm vị",
     "Món Việt"
+  ],
+  "units": [
+    "Khứa nhỏ",
+    "Khứa lớn",
+    "Nguyên con"
   ]
 },
 {
@@ -993,6 +1209,11 @@
     "Món nước",
     "Món Việt",
     "Ngon nhẹ"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -1016,6 +1237,11 @@
     "Món Việt",
     "Đặc sản",
     "Cay nhẹ"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô giò nạc"
   ]
 },
 {
@@ -1039,6 +1265,11 @@
   "tags": [
     "Nhiều tinh bột",
     "No lâu"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -1061,6 +1292,11 @@
   "tags": [
     "Giàu đạm",
     "Ăn với cơm"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Thố"
   ]
 },
 {
@@ -1083,6 +1319,11 @@
   "tags": [
     "Món Việt",
     "Đặc sản miền Nam"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -1105,6 +1346,11 @@
   "tags": [
     "Nhẹ bụng",
     "Healthy"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -1127,6 +1373,11 @@
   "tags": [
     "Nhiều năng lượng",
     "Món sáng quốc dân"
+  ],
+  "units": [
+    "1 Ổ",
+    "1 Ổ đặc biệt",
+    "Chảo gang (Bò né)"
   ]
 },
 {
@@ -1148,6 +1399,11 @@
   },
   "tags": [
     "Đặc sản Hà Nội"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Phần đặc biệt"
   ]
 },
 {
@@ -1171,6 +1427,11 @@
     "Đậm vị",
     "Mặn",
     "Truyền thống"
+  ],
+  "units": [
+    "Khứa nhỏ",
+    "Niêu nhỏ",
+    "Niêu lớn"
   ]
 },
 {
@@ -1196,6 +1457,11 @@
     "Đậm đà",
     "Nhiều năng lượng",
     "Giàu đạm"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -1218,6 +1484,11 @@
   "tags": [
     "Nhẹ nhàng",
     "Ít dầu mỡ"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
@@ -1239,6 +1510,11 @@
   },
   "tags": [
     "Đặc sản Hội An"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa gà xé đùi"
   ]
 },
 {
@@ -1261,6 +1537,11 @@
   "tags": [
     "Ngon rẻ",
     "Siêu nhanh"
+  ],
+  "units": [
+    "Dĩa nhỏ (1 gói)",
+    "Dĩa thường (2 gói)",
+    "Dĩa lớn (3 gói)"
   ]
 },
 {
@@ -1283,6 +1564,11 @@
   "tags": [
     "Đậm đà",
     "Ấm bụng"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
@@ -1305,6 +1591,11 @@
   "tags": [
     "Giảm cân",
     "Giàu đạm"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -1327,6 +1618,11 @@
   "tags": [
     "Healthy",
     "Thanh mát"
+  ],
+  "units": [
+    "Chén nhỏ (1 khoanh)",
+    "Tô thường (2 khoanh)",
+    "Tô lớn"
   ]
 },
 {
@@ -1349,6 +1645,11 @@
   "tags": [
     "Đậm vị",
     "Đưa cơm"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Niêu đất",
+    "Thố lớn"
   ]
 },
 {
@@ -1371,6 +1672,11 @@
   "tags": [
     "Ăn chơi",
     "Nhậu"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -1393,6 +1699,11 @@
   "tags": [
     "Giảm cân",
     "Món biển"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
@@ -1415,5 +1726,10 @@
   "tags": [
     "Đậm vị",
     "Giàu đạm"
+  ],
+  "units": [
+    "1 Miếng (Cốt lết)",
+    "Dĩa thường (2 miếng)",
+    "Dĩa lớn"
   ]
 }]

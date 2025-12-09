@@ -29,6 +29,9 @@ namespace DietAdviceWebsite_MongoDb.Models
 
         [BsonElement("tags")]
         public List<string> Tags { get; set; } = null!;
+
+        [BsonElement("units")]
+        public List<string> Units { get; set;} 
     }
 
     public class NutritionInfo

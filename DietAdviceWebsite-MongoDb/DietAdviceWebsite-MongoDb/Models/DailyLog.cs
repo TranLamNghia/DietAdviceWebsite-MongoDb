@@ -7,7 +7,7 @@ namespace DietAdviceWebsite_MongoDb.Models
     public class DailyLog
     {
         [BsonId]
-        [BsonRepresentation(BsonType.String)]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         [BsonElement("user_id")]
@@ -28,9 +28,6 @@ namespace DietAdviceWebsite_MongoDb.Models
         [BsonElement("meal_id")]
         public string MealId { get; set; }
 
-        [BsonElement("name")]
-        public string Name { get; set; }
-
         [BsonElement("time_slot")]
         public string TimeSlot { get; set; }
 
@@ -39,9 +36,6 @@ namespace DietAdviceWebsite_MongoDb.Models
 
         [BsonElement("unit")]
         public string Unit { get; set; }
-
-        [BsonElement("calories_consumed")]
-        public int CaloriesConsumed { get; set; }
     }
 
     public class DailyReview
