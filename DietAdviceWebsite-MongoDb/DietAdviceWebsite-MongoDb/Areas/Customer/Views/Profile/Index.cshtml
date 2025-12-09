@@ -1,4 +1,42 @@
-﻿<!doctype html>
+﻿@model DietAdviceWebsite_MongoDb.Models.User
+
+@{
+    var profile = Model.Profile ?? new DietAdviceWebsite_MongoDb.Models.Profile();
+
+    // Tuổi
+    var age = profile.BirthYear > 1900 ?
+              DateTime.UtcNow.Year - profile.BirthYear :
+              0;
+
+    // Chiều cao mét
+    double heightM = (profile.Height > 0 ? profile.Height : 160) / 100.0;
+
+    // BMI
+    var bmi = Math.Round(profile.Weight / (heightM * heightM), 1);
+
+    string bmiStatus;
+    if (bmi < 18.5)
+        bmiStatus = "Gầy";
+    else if (bmi < 23)
+        bmiStatus = "Bình thường";
+    else if (bmi < 25)
+        bmiStatus = "Thừa cân";
+    else
+        bmiStatus = "Béo phì";
+
+    // Cân nặng lý tưởng
+    var idealWeight = Math.Round(22 * heightM * heightM, 1);
+
+    // Mức cần tăng/giảm
+    var diffWeight = Math.Round(profile.Weight - idealWeight, 1);
+
+    // Mục tiêu
+    var goal = Model.CurrentGoal;
+}
+
+
+
+<!doctype html>
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
@@ -9,21 +47,26 @@
 
 <body>
     <div class="wrap">
+
+        <!-- Page title -->
         <div class="page-title">
             <h1>Trang cá nhân</h1>
             <p>Quản lý thông tin cá nhân và mục tiêu sức khỏe</p>
         </div>
 
+        <!-- Profile Card -->
         <div class="profile-card">
             <div class="avatar">
-                <img src="/img/avatar.png" alt="avatar" />
+                <img src="~/images/default-avatar.png" alt="avatar" />
             </div>
+
             <div class="profile-main">
-                <h2>Nguyễn Văn A</h2>
-                <div class="email">nguyenvana@example.com</div>
-                <div class="joined">Tham gia từ 15/1/2024</div>
+                <h2>@profile.FullName</h2>
+                <div class="email">@Model.Email</div>
+                <div class="joined">Tham gia từ @Model.CreatedAt.ToString("dd/MM/yyyy")</div>
             </div>
-            <button class="edit-btn">✎ Chỉnh sửa</button>
+
+            <a href="/customer/profile/edit" class="edit-btn">✎ Chỉnh sửa</a>
         </div>
 
         <!-- Tabs -->
@@ -33,72 +76,93 @@
             <div class="tab" data-tab="caidat">Cài đặt</div>
         </div>
 
-        <!-- Tab Contents -->
         <div class="tab-contents">
-            <!-- Thông tin -->
+
+            <!-- THÔNG TIN -->
             <div id="thongtin" class="tab-content active">
                 <div class="content-card">
                     <div class="section-title">Thông tin cá nhân</div>
+
                     <div class="info-grid">
                         <div>
-                            <div class="info-row"><div class="label">Tên</div><div class="value">Nguyễn Văn A</div></div>
-                            <div class="info-row"><div class="label">Tuổi</div><div class="value">28 tuổi</div></div>
-                            <div class="info-row"><div class="label">Cân nặng</div><div class="value">75 kg</div></div>
-                            <div class="info-row"><div class="label">Chiều cao</div><div class="value">175 cm</div></div>
+                            <div class="info-row"><div class="label">Tên</div><div class="value">@profile.FullName</div></div>
+                            <div class="info-row"><div class="label">Tuổi</div><div class="value">@age tuổi</div></div>
+                            <div class="info-row"><div class="label">Cân nặng</div><div class="value">@profile.Weight kg</div></div>
+                            <div class="info-row"><div class="label">Chiều cao</div><div class="value">@profile.Height cm</div></div>
                         </div>
+
                         <div>
-                            <div class="info-row"><div class="label">Email</div><div class="value">nguyenvana@example.com</div></div>
-                            <div class="info-row"><div class="label">Giới tính</div><div class="value">Nam</div></div>
-                            <div class="info-row"><div class="label">Số điện thoại</div><div class="value">(0123) 456-789</div></div>
-                            <div class="info-row"><div class="label">Địa chỉ</div><div class="value">Hà Nội, Việt Nam</div></div>
+                            <div class="info-row"><div class="label">Email</div><div class="value">@Model.Email</div></div>
+                            <div class="info-row"><div class="label">Giới tính</div><div class="value">@profile.Gender</div></div>
+                            <div class="info-row">
+                                <div class="label">Dị ứng</div>
+                                <div class="value">
+                                    @string.Join(", ", profile.Allergies ?? new List<string>())
+                                </div>
+                            </div>
+                            <div class="info-row">
+                                <div class="label">Sức khỏe</div>
+                                <div class="value">@(!string.IsNullOrWhiteSpace(profile.HealthCondition) ? profile.HealthCondition : "Không có")</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Mục tiêu -->
+            <!-- MỤC TIÊU -->
             <div id="muctieu" class="tab-content">
                 <div class="goal-card">
                     <div class="section-title">Mục tiêu sức khỏe</div>
-                    <div class="goal-main">Giảm cân</div>
-                    <div class="activity-level">Mức độ hoạt động <span class="green">Vừa phải</span></div>
+                    <div class="goal-main">@((goal?.GoalType) ?? "Chưa có mục tiêu")</div>
+                    <div class="activity-level">
+                        Mức độ hoạt động:
+                        <span class="green">@profile.ActivityLevel</span>
+                    </div>
                 </div>
 
                 <div class="stats-card">
                     <div class="heart-icon">❤ Chỉ số sức khỏe</div>
+
                     <div class="stats-grid">
                         <div class="stat-item">
                             <div class="label">BMI</div>
-                            <div class="big-value green">24.5</div>
-                            <div class="small">Bình thường</div>
+                            <div class="big-value green">@bmi</div>
+                            <div class="small">@bmiStatus</div>
                         </div>
+
                         <div class="stat-item">
                             <div class="label">Cân nặng lý tưởng</div>
-                            <div class="big-value">67 kg</div>
-                            <div class="small">Cần giảm 8 kg</div>
+                            <div class="big-value">@idealWeight kg</div>
+                            <div class="small">
+                                @(diffWeight > 0 ? $"Cần giảm {diffWeight} kg" : $"Cần tăng {Math.Abs(diffWeight)} kg")
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Cài đặt -->
+            <!-- CÀI ĐẶT -->
             <div id="caidat" class="tab-content">
                 <div class="content-card settings">
+
                     <div class="setting-item">
-                        <div>Thông báo hàng ngày<br><small>Nhận nhắc nhở về bữa ăn</small></div>
+                        <div>Thông báo hàng ngày<br /><small>Nhắc nhở bữa ăn</small></div>
                         <label class="switch">
                             <input type="checkbox" checked />
                             <span class="slider"></span>
                         </label>
                     </div>
+
                     <div class="setting-item">
-                        <div>Báo cáo hàng tuần<br><small>Nhận báo cáo tiến độ hàng tuần</small></div>
+                        <div>Báo cáo hàng tuần<br /><small>Tiến độ sức khỏe</small></div>
                         <label class="switch">
                             <input type="checkbox" checked />
+                            <span class="slider"></span>
                         </label>
                     </div>
+
                     <div class="setting-item">
-                        <div>Chia sẻ dữ liệu<br><small>Cho phép chia sẻ dữ liệu ẩn danh</small></div>
+                        <div>Chia sẻ dữ liệu<br /><small>Dữ liệu ẩn danh</small></div>
                         <label class="switch">
                             <input type="checkbox" />
                             <span class="slider"></span>
@@ -106,14 +170,17 @@
                     </div>
 
                     <div class="setting-links">
-                        <div >Đổi mật khẩu</div>
-                        <div >Tải xuống dữ liệu</div>
+                        <div>Đổi mật khẩu</div>
+                        <div>Tải dữ liệu</div>
                         <button class="delete-btn">Xóa tài khoản</button>
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
+
     <script>
         document.querySelectorAll('.tab').forEach(tab => {
             tab.addEventListener('click', () => {
@@ -121,10 +188,10 @@
                 document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
                 tab.classList.add('active');
-                const tabId = tab.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
             });
         });
     </script>
+
 </body>
 </html>
