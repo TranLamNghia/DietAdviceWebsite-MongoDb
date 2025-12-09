@@ -151,3 +151,28 @@ function saveToDailyMenu() {
         btn.disabled = false;
     }, 1000);
 }
+function saveToDailyMenu() {
+
+    const data = {
+        userId: "user123",
+        fullName: "Nguyen Van A",
+        age: parseInt(document.getElementById("age").value),
+        height: parseInt(document.getElementById("height").value),
+        weight: parseFloat(document.getElementById("weight").value),
+        gender: document.getElementById("gender").value,
+        activityLevel: document.getElementById("activity").value,
+
+        goalType: document.getElementById("goal").value,
+        targetWeight: 65,
+        dailyCalorieTarget: parseInt(document.getElementById("targetCalories").innerText)
+    };
+
+    fetch("/customer/diet-calculator/save", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+    })
+        .then(res => res.json())
+        .then(res => alert(res.message))
+        .catch(err => console.error(err));
+}
