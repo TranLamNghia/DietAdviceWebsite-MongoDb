@@ -496,3 +496,17 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+    /* Khi chưa đến giờ ăn */
+.meal-card.pending {
+    border-color: #ccc;      /* Viền màu xám thay vì xanh */
+    background-color: #f9f9f9;
+    opacity: 0.7;            /* Làm mờ nhẹ */
+    color: #666;
+}
+
+/* Ẩn dấu tích mặc định của class selected nếu đang ở trạng thái pending */
+.meal-card.pending::after {
+    content: none !important; /* Ẩn dấu check V */
+    display: none;
+}
