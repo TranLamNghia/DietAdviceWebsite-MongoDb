@@ -1,4 +1,6 @@
-﻿// Biến lưu trữ kết quả
+﻿const currentUserId = window.appData.userId;
+
+// Biến lưu trữ kết quả
 let currentResult = {};
 
 // Database món ăn mẫu (Giả lập)
@@ -145,17 +147,15 @@ function saveToDailyMenu() {
     btn.innerText = "Đang lưu...";
     btn.disabled = true;
 
-    setTimeout(() => {
-        alert("Đã lưu thực đơn thành công!");
-        btn.innerText = oldText;
-        btn.disabled = false;
-    }, 1000);
+    Toast.fire({
+        icon: 'success',
+        title: 'Đã lưu thực đơn thành công!'
+    });
 }
-function saveToDailyMenu() {
 
+async function saveToDailyMenu() {
     const data = {
-        userId: "user123",
-        fullName: "Nguyen Van A",
+        userId: currentUserId,
         age: parseInt(document.getElementById("age").value),
         height: parseInt(document.getElementById("height").value),
         weight: parseFloat(document.getElementById("weight").value),
@@ -167,12 +167,32 @@ function saveToDailyMenu() {
         dailyCalorieTarget: parseInt(document.getElementById("targetCalories").innerText)
     };
 
-    fetch("/customer/diet-calculator/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-        .then(res => res.json())
-        .then(res => alert(res.message))
-        .catch(err => console.error(err));
+    try {
+        const response = await fetch("/customer/diet-calculator/save", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json(); 
+
+        if (response.status !== 201) {
+            return Toast.fire({
+                icon: 'error',
+                title: result.message || 'Có lỗi xảy ra'
+            });
+        }
+
+        return Toast.fire({
+            icon: 'success',
+            title: result.message 
+        });
+
+    } catch (error) {
+        console.error("Lỗi kết nối:", error);
+        return Toast.fire({
+            icon: 'error',
+            title: 'Không thể kết nối tới server'
+        });
+    }
 }

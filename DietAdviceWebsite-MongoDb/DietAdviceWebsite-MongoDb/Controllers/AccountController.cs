@@ -73,6 +73,7 @@ namespace DietAdviceWebsite_MongoDb.Controllers
             else
                 return RedirectToAction("Index", "Home", new { area = "Customer" });
         }
+        
         [HttpGet]
         public async Task<IActionResult> Logout()
         {

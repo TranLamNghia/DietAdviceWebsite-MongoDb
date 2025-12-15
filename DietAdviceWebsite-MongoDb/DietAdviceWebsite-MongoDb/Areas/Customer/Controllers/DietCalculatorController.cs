@@ -27,26 +27,14 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
         public async Task<IActionResult> SaveDietData([FromBody] DietSaveViewModel vm)
         {
             if (!ModelState.IsValid)
-                return BadRequest("Dữ liệu không hợp lệ.");
+            return BadRequest("Dữ liệu không hợp lệ.");
 
             // Lấy user trong DB (nếu chưa có → tạo mới)
             var user = await _userService.GetUserByIdAsync(vm.UserId);
 
-            if (user == null)
-            {
-                user = new User
-                {
-                    Id = vm.UserId,
-                    Username = vm.FullName.Replace(" ", "").ToLower(),
-                    Email = "unknown@example.com", // Có thể đổi theo hệ thống của bạn
-                    CreatedAt = DateTime.UtcNow
-                };
-            }
-
             // Gán lại profile
             user.Profile = new Profile
             {
-                FullName = vm.FullName,
                 Height = vm.Height,
                 Weight = vm.Weight,
                 Gender = vm.Gender,
@@ -68,13 +56,20 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
             };
 
             // Lưu vào MongoDB
-            await _userService.SaveUserAsync(user);
+            try {
+                await _userService.SaveUserAsync(user);
 
-            return Ok(new
+                return StatusCode(201, new
+                {
+                    message = "Đã lưu dữ liệu chế độ ăn thành công!"
+                });
+            } catch(Exception ex)
             {
-                message = "Đã lưu dữ liệu chế độ ăn thành công!",
-                userId = user.Id
-            });
+                return StatusCode(400, new
+                {
+                    message = ex,
+                });
+            }
         }
     }
 }
