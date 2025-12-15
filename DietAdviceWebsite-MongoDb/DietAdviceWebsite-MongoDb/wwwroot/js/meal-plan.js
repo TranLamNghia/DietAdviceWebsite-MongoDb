@@ -259,7 +259,6 @@ function removeItem(type, id) {
 
             renderAllMeals();
 
-            // Hiện thông báo thành công (Toast)
             Toast.fire({
                 icon: 'success',
                 title: 'Đã xóa món ăn thành công'

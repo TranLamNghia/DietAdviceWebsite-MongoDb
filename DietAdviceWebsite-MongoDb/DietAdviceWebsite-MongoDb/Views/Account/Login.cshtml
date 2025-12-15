@@ -14,8 +14,8 @@
 
             <form method="post" asp-action="Login">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Tên đăng nhập</label>
-                    <input type="text" class="form-control" id="username" name="username" required />
+                    <label for="email" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="email" name="email" required />
                 </div>
 
                 <div class="mb-3">
@@ -23,7 +23,7 @@
                     <input type="password" class="form-control" id="password" name="password" required />
                 </div>
 
-                <button type="submit" class="btn btn-success w-100">Đăng nhập</button>
+                <button type="submit" class="btn btn-success w-100" asp-controller="Account" asp-action="Login" >Đăng nhập</button>
 
                 <div class="text-center mt-3">
                     <span>Bạn chưa có tài khoản?</span>
