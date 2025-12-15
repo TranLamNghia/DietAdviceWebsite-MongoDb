@@ -29,7 +29,7 @@
         <div class="calorie-budget-card">
             <div class="budget-item target">
                 <span class="label">Mục tiêu</span>
-                <span class="value" id="goalCalories">2000</span>
+                <span class="value" id="goalCalories">@Model.DailyCalorieTarget</span>
                 <span class="unit">kcal</span>
             </div>
             <div class="budget-divider">-</div>
@@ -40,7 +40,7 @@
             <div class="budget-divider">=</div>
             <div class="budget-item remaining">
                 <span class="label">Còn lại</span>
-                <span class="value" id="remainingCalories">@(2000 - allMeals.Sum(m => m.CaloriesConsumed))</span>
+                <span class="value" id="remainingCalories">@(@Model.DailyCalorieTarget - allMeals.Sum(m => m.CaloriesConsumed))</span>
                 <span class="unit">kcal</span>
             </div>
             <div class="status-badge" id="dayStatus">Đang tính...</div>
@@ -71,7 +71,7 @@
                         foreach (var item in currentMeals)
                         {
                             <div class="meal-card selected">
-                                <span class="meal-name">@item.Name (@(item.Quantity == 1 ? "" : item.Quantity )@item.Unit)</span>
+                                <span class="meal-name">@item.Name (@(item.Quantity == 1 ? "" : item.Quantity + " ")@item.Unit)</span>
                                 <span class="meal-info">@item.CaloriesConsumed kcal</span>
                             </div>
                         }
@@ -100,7 +100,7 @@
                 foreach (var item in snackMeals)
                 {
                     <div class="snack-chip">
-                        @item.Name (@(item.Quantity == 1 ? "" : item.Quantity)@item.Unit) (@item.CaloriesConsumed kcal)
+                        @item.Name (@(item.Quantity == 1 ? "" : item.Quantity + " ")@item.Unit) (@item.CaloriesConsumed kcal)
                         <span class="remove-snack" onclick="removeItem('snack', '@item.MealId')">&times;</span>
                     </div>
                 }
@@ -202,5 +202,5 @@
         const initialMealPlan = @Html.Raw(JsonSerializer.Serialize(dataToSerialize, jsonOptions));
     </script>
 
-    <script src="~/js/meal-plan.js"></script>
+    <script src="~/js/meal-plan.js" asp-append-version="true"></script>
 }

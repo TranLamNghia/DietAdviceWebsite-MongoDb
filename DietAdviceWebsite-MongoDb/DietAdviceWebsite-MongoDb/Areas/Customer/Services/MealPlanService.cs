@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using MongoDB.Bson;
 using System.Security.Claims;
@@ -16,7 +16,8 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
         private readonly IMongoCollection<Meal> _mealsCollection;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        private readonly string _userId;
+        private string userId;
+        private string today;
 
         public MealPlanService(IMongoDatabase database, IOptions<MongoDbSettings> settings, IHttpContextAccessor httpContextAccessor)
         {
@@ -24,28 +25,26 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
             _usersCollection = database.GetCollection<User>(settings.Value.UsersCollectionName);
             _mealsCollection = database.GetCollection<Meal>(settings.Value.MealsCollectionName);
             _httpContextAccessor = httpContextAccessor;
-
-            //_userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            _userId = "69324f2f1d64e3ff440446cf";
         }
 
         public async Task<DailyLog> GetTodayMealPlanAsync()
         {
-            if (string.IsNullOrEmpty(_userId))
+            userId = _httpContextAccessor.HttpContext?.User.FindFirstValue("UserId");
+
+            var todayDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"));
+            today = todayDate.ToString("yyyy-MM-dd");
+
+            if (string.IsNullOrEmpty(userId))
             {
                 return null;
             }
 
-            var todayDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"));
-            // var today = todayDate.ToString("yyyy-MM-dd");
-            var today = "2025-11-20";
-
-            return await _dailyLogsCollection.Find(log => log.UserId == _userId && log.Date == today).FirstOrDefaultAsync();
+            return await _dailyLogsCollection.Find(log => log.UserId == userId && log.Date == today).FirstOrDefaultAsync();
         }
 
         private double CalculateCalories(Meal meal, double quantity, string unit)
         {
-           if (meal == null) return 0;
+            if (meal == null) return 0;
 
             return meal.Nutrition.Calories * quantity;
         }
@@ -55,17 +54,12 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
             var dailyLog = await GetTodayMealPlanAsync();
             if (dailyLog == null)
             {
-                return new MealPlanViewModel
-                {
-                    Id = null, // Hoặc một giá trị mặc định
-                    UserId = _userId,
-                    Date = "2025-11-20", // Ngày hardcode hiện tại
-                    MealsEaten = new List<MealEatenViewModel>()
-                };
+                dailyLog = await InsertMealPlanAsync();
             }
-            
+
+            var user = await _usersCollection.Find(u => u.Id == userId).FirstOrDefaultAsync();
+
             var mealIds = dailyLog.MealsEaten.Select(m => m.MealId).ToList();
-            //lấy bữa ăn từ id
             var mealsFilter = Builders<Meal>.Filter.In(m => m.Id, mealIds);
             var meals = await _mealsCollection.Find(mealsFilter).ToListAsync();
             var mealsDictionary = meals.ToDictionary(m => m.Id);
@@ -84,6 +78,7 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
             {
                 Id = dailyLog.Id,
                 UserId = dailyLog.UserId,
+                DailyCalorieTarget = user.CurrentGoal.DailyCalorieTarget,
                 Date = dailyLog.Date,
                 MealsEaten = mealsEatenViewModel
             };
@@ -94,9 +89,20 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
             return await _mealsCollection.Find(meal => meal.Nutrition.Calories <= maxCalories).ToListAsync();
         }
 
-        public async Task InsertMealPlanAsync(DailyLog newLog)
+        public async Task<DailyLog> InsertMealPlanAsync()
         {
+            DailyLog newLog = new DailyLog
+            {
+                Id = ObjectId.GenerateNewId().ToString(),
+                UserId = userId,
+                Date = today,
+                MealsEaten = new List<MealEaten>(),
+                DailyReview = new DailyReview()
+            };
+
             await _dailyLogsCollection.InsertOneAsync(newLog);
+
+            return newLog;
         }
 
         public async Task UpdateMealPlanAsync(string logId, DailyLog updatedLog)
@@ -106,14 +112,14 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
 
         public async Task AddMealToPlanAsync(string mealId, string timeslot, double quantity, string unit)
         {
-            if (string.IsNullOrEmpty(_userId)) return;
-        
+            if (string.IsNullOrEmpty(userId)) return;
+
             var mealToAdd = await _mealsCollection.Find(m => m.Id == mealId).FirstOrDefaultAsync();
             if (mealToAdd == null)
             {
                 return; // Meal not found
             }
-        
+
             var mealEaten = new MealEaten
             {
                 MealId = mealToAdd.Id,
@@ -121,45 +127,35 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
                 Quantity = quantity,
                 Unit = unit
             };
-        
-            // Lấy log của ngày hôm nay
+
             var dailyLog = await GetTodayMealPlanAsync();
-        
-            if (dailyLog != null)
+
+            if (dailyLog == null)
             {
-                var filter = Builders<DailyLog>.Filter.Eq(log => log.Id, dailyLog.Id);
-                var update = Builders<DailyLog>.Update.Push(log => log.MealsEaten, mealEaten);
-                await _dailyLogsCollection.UpdateOneAsync(filter, update);
+                dailyLog = await InsertMealPlanAsync();
             }
-            else
-            {
-                var today = "2025-11-20"; // Sử dụng lại ngày hardcode
-                var newLog = new DailyLog
-                {
-                    UserId = _userId,
-                    Date = today,
-                    MealsEaten = new List<MealEaten> { mealEaten },
-                    DailyReview = new DailyReview()
-                };
-                await _dailyLogsCollection.InsertOneAsync(newLog);
-            }
+
+            var filter = Builders<DailyLog>.Filter.Eq(log => log.Id, dailyLog.Id);
+            var update = Builders<DailyLog>.Update.Push(log => log.MealsEaten, mealEaten);
+            await _dailyLogsCollection.UpdateOneAsync(filter, update);
         }
 
-        // Delete a food item from a meal plan
-        public async Task DeleteFoodItemAsync(string mealId)
+        public async Task<UpdateResult> DeleteFoodItemAsync(string mealId, string timeSlot)
         {
-            if (string.IsNullOrEmpty(_userId))
+            var currentUserId = _httpContextAccessor.HttpContext?.User.FindFirstValue("UserId");
+            if (string.IsNullOrEmpty(currentUserId))
             {
-                return;
+                return null;
             }
-            var todayDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"));
-            var today = todayDate.ToString("yyyyMMdd");
-            var logId = $"log_{today}_{_userId}";
 
-            var filter = Builders<DailyLog>.Filter.Eq(log => log.Id, logId);
-            var update = Builders<DailyLog>.Update.PullFilter(log => log.MealsEaten, meal => meal.MealId == mealId);
+            var filter = Builders<DailyLog>.Filter.And(
+                Builders<DailyLog>.Filter.Eq(log => log.UserId, currentUserId),
+                Builders<DailyLog>.Filter.Eq(log => log.Date, today)
+            );
 
-            await _dailyLogsCollection.UpdateOneAsync(filter, update);
+            var update = Builders<DailyLog>.Update.PullFilter(log => log.MealsEaten, m => m.MealId == mealId && m.TimeSlot == "Bửa phụ");
+
+            return await _dailyLogsCollection.UpdateOneAsync(filter, update);
         }
 
         // Generate a menu for all users based on calorie targets.
