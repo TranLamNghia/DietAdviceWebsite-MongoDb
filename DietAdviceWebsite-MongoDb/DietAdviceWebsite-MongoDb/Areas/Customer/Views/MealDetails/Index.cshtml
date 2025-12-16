@@ -1,0 +1,127 @@
+﻿@model DietAdviceWebsite_MongoDb.Models.Meal
+<div class="container py-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <div class="col-md-6">
+            <div class="food-image-container">
+                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow-sm w-100"
+                     onerror="this.src='https://via.placeholder.com/600x400?text=No+Image'">
+
+                <div class="mt-3">
+                    @if (Model.Tags != null)
+                    {
+                        foreach (var tag in Model.Tags)
+                        {
+                            <span class="badge rounded-pill bg-light text-dark border me-1">#@tag</span>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="food-info">
+                <span class="badge bg-primary mb-2">@Model.Category</span>
+                <h1 class="display-5 fw-bold text-dark">@Model.Name</h1>
+                <p class="lead text-muted">@Model.Description</p>
+
+                <hr class="my-4">
+
+                <h5 class="fw-bold mb-3"><i class="fas fa-chart-pie me-2"></i>Giá trị dinh dưỡng (Gốc)</h5>
+                <div class="row text-center mb-4">
+                    <div class="col-3">
+                        <div class="nutrition-card bg-danger-subtle text-danger">
+                            <span class="d-block fw-bold h4 mb-0">@Model.Nutrition.Calories</span>
+                            <small>Calories</small>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="nutrition-card bg-primary-subtle text-primary">
+                            <span class="d-block fw-bold h4 mb-0">@Model.Nutrition.Protein</span>
+                            <small>Protein (g)</small>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="nutrition-card bg-warning-subtle text-warning">
+                            <span class="d-block fw-bold h4 mb-0">@Model.Nutrition.Carbs</span>
+                            <small>Carbs (g)</small>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="nutrition-card bg-success-subtle text-success">
+                            <span class="d-block fw-bold h4 mb-0">@Model.Nutrition.Fats</span>
+                            <small>Fat (g)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm bg-light">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold text-success mb-3">
+                            <i class="fas fa-calculator me-2"></i>Tính toán khẩu phần ăn
+                        </h5>
+
+                        <div class="row g-3 align-items-end">
+                            <div class="col-md-4">
+                                <label for="calQty" class="form-label fw-bold">Số lượng</label>
+                                <input type="number" id="calQty" class="form-control form-control-lg" value="1" min="0.1" step="0.1">
+                            </div>
+
+                            <div class="col-md-8">
+                                <label for="calUnit" class="form-label fw-bold">Đơn vị</label>
+                                <select id="calUnit" class="form-select form-select-lg">
+                                    @if (Model.Units != null && Model.Units.Count > 0)
+                                    {
+                                        for (int i = 0; i < Model.Units.Count; i++)
+                                        {
+                                            <option value="@i">@Model.Units[i]</option>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <option value="-1">Gram (mặc định)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+                            <span class="text-muted">Tổng năng lượng nạp vào:</span>
+                            <div class="text-end">
+                                <span id="totalResult" class="display-4 fw-bold text-success">@Model.Nutrition.Calories</span>
+                                <span class="fs-5 text-muted">kcal</span>
+                            </div>
+                        </div>
+
+                        <div class="text-end text-muted small mt-1">
+                            Tương đương: <span id="totalPro">@Model.Nutrition.Protein</span>g Protein
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="~/css/meal-details.css">
+
+@section Scripts {
+    <script>
+        const baseNutrition = {
+            calories: @Model.Nutrition.Calories,
+            protein: @Model.Nutrition.Protein,
+            carbs: @Model.Nutrition.Carbs,
+            fats: @Model.Nutrition.Fats
+        };
+
+        // Kiểm tra xem món ăn có units không
+        const hasUnits = @(Model.Units != null && Model.Units.Count > 0 ? "true" : "false");
+    </script>
+
+    <script src="~/js/meal-details.js"></script>
+}

@@ -1,0 +1,21 @@
+﻿.nutrition-card {
+    border-radius: 12px;
+    padding: 15px 5px;
+    transition: transform 0.2s;
+}
+
+    .nutrition-card:hover {
+        transform: translateY(-3px);
+    }
+
+.food-image-container img {
+    border-radius: 16px;
+    object-fit: cover;
+    max-height: 500px;
+}
+
+/* Tùy chỉnh input số lượng cho to rõ */
+#calQty {
+    font-weight: bold;
+    color: #333;
+}

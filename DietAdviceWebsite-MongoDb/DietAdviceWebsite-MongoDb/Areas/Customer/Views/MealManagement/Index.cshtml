@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <a href="/FoodDetail?id=@item.Id" class="btn-view-detail">
+                        <a asp-area="Customer" asp-controller="MealDetails" asp-action="Index" asp-route-id="@item.Id">
                             Xem chi tiết
                         </a>
                     </div>
