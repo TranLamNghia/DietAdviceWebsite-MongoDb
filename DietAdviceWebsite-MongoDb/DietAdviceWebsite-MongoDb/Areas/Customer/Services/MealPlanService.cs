@@ -16,8 +16,16 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
         private readonly IMongoCollection<Meal> _mealsCollection;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        private string userId;
-        private string today;
+        private string userId => _httpContextAccessor.HttpContext?.User?.FindFirstValue("UserId");
+
+        private string today
+        {
+            get
+            {
+                var todayDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"));
+                return todayDate.ToString("yyyy-MM-dd");
+            }
+        }
 
         public MealPlanService(IMongoDatabase database, IOptions<MongoDbSettings> settings, IHttpContextAccessor httpContextAccessor)
         {
@@ -29,11 +37,6 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
 
         public async Task<DailyLog> GetTodayMealPlanAsync()
         {
-            userId = _httpContextAccessor.HttpContext?.User.FindFirstValue("UserId");
-
-            var todayDate = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time"));
-            today = todayDate.ToString("yyyy-MM-dd");
-
             if (string.IsNullOrEmpty(userId))
             {
                 return null;
