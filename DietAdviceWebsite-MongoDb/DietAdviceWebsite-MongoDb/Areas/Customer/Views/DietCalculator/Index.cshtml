@@ -1,4 +1,6 @@
-﻿<div class="container main-content">
+﻿@model DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels.DietCalculatorViewModel
+
+<div class="container main-content">
     <div class="page-header text-center">
         <h1>Tính toán chế độ ăn</h1>
         <p class="page-subtitle">Xác định nhu cầu calo và dinh dưỡng cá nhân hóa của bạn</p>
@@ -139,7 +141,21 @@
 
 <!-- CSS Riêng -->
 <link rel="stylesheet" href="~/css/diet-calculator.css">
+<script>
+    window.mealDB = @Html.Raw(
+        System.Text.Json.JsonSerializer.Serialize(
+            Model.Meals,
+            new System.Text.Json.JsonSerializerOptions
+            {
+                PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase
+            }
+        )
+    );
 
-@section Scripts {
-    <script src="~/js/diet-calculator.js"></script>
-}
+    window.appData = {
+        userId: '@User.FindFirst("UserId")?.Value',
+        fullName: '@User.Identity.Name'
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="~/js/diet-calculator.js"></script>

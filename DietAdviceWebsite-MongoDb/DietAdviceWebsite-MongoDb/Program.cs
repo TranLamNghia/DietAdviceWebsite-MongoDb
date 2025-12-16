@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<UserService>();
 
 
 builder.Services.AddHttpContextAccessor();
@@ -25,6 +24,8 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 });
 
 // 3. Đăng ký các service của bạn
+builder.Services.AddSingleton<UserService>();
+builder.Services.AddScoped<MealService>();
 builder.Services.AddSingleton<MealManagementService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddSingleton<MealPlanService>();
