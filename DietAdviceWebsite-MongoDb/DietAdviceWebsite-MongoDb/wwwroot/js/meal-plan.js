@@ -1,4 +1,5 @@
-﻿// --- 1. CONFIG & DATA ---
+﻿let selectedComboFood = null;
+let itemsToDelete = [];
 let foodDatabase = []; // Danh sách món ăn mẫu để tìm kiếm
 let currentModalType = '';
 let selectedFood = null; // Món ăn đang chọn trong Modal
@@ -70,7 +71,7 @@ function syncDataFromModel(mealPlanData) {
         const newItem = {
             id: mealEaten.mealId,
             originalId: mealEaten.mealId,
-            name: `${mealEaten.name} (${mealEaten.quantity == 1 ? "" : mealEaten.quantity}${mealEaten.unit})`,
+            name: `${mealEaten.name} (${mealEaten.quantity == 1 ? "" : mealEaten.quantity + " "}${mealEaten.unit})`,
             calories: mealEaten.caloriesConsumed,
             protein: mealEaten.protein || 0
         };
@@ -282,7 +283,40 @@ async function removeItem(type, id) {
     });
 }
 
-// --- 6. MODAL UTILITIES (Phải ở Global Scope) ---
+function onComboSelectionChange() {
+    const selectBox = document.getElementById("mealSelectBox");
+    const unitSelect = document.getElementById("comboUnit");
+    const selectedId = selectBox.value;
+
+    // Reset
+    selectedComboFood = null;
+    unitSelect.innerHTML = "";
+
+    if (!selectedId) return;
+
+    // Tìm món ăn trong database
+    const food = foodDatabase.find(f => f.id === selectedId);
+    if (!food) return;
+
+    selectedComboFood = food; // Lưu lại để dùng cho nút Thêm
+
+    // --- Cập nhật Dropdown Đơn vị ---
+    if (food.units && food.units.length > 0) {
+        // Nếu món có danh sách đơn vị (Tô, Dĩa...)
+        food.units.forEach(unit => {
+            const option = document.createElement("option");
+            option.value = unit;
+            option.text = unit;
+            unitSelect.appendChild(option);
+        });
+    } else {
+        // Nếu không có, mặc định là Gram
+        const option = document.createElement("option");
+        option.value = "gram";
+        option.text = "Gram";
+        unitSelect.appendChild(option);
+    }
+}
 
 function openAddModal(type) {
     currentModalType = type;
@@ -304,8 +338,56 @@ function openAddModal(type) {
     }
 }
 
-function openChangeModal(type) {
-    currentEditingType = type;
+function addFromControlPanel() {
+    if (!selectedComboFood) return;
+
+    const qtyInput = document.getElementById("comboQty");
+    const unitSelect = document.getElementById("comboUnit");
+    const quantity = parseFloat(qtyInput.value) || 0;
+    const unit = unitSelect.value;
+    const idx = unitSelect.index;
+
+    if (quantity <= 0) {
+        alert("Số lượng phải lớn hơn 0");
+        return;
+    }
+
+    const baseCal = selectedComboFood.nutrition ? selectedComboFood.nutrition.calories : 0;
+    let totalCal = 0;
+
+    if (selectedComboFood.units && selectedComboFood.units.length > 0) {
+        const unitIndex = selectedComboFood.units.indexOf(unit);        
+        const multiplier = getUnitMultiplier(unitIndex);
+
+        totalCal = Math.round(baseCal * multiplier * quantity);
+    } else {
+        totalCal = Math.round((baseCal / 100) * quantity);
+    }
+
+    const newItem = {
+        id: selectedComboFood.id,
+        originalId: selectedComboFood.id,
+        name: `${selectedComboFood.name} (${quantity} ${unit})`,
+        calories: totalCal,
+        protein: selectedComboFood.nutrition ? selectedComboFood.nutrition.protein : 0,
+        
+        quantity: quantity,
+        unit: unit,
+        isNew: true // <--- Đánh dấu là món mới thêm
+    };
+
+    tempMealList.push(newItem);
+    renderModalList();
+    
+    // Reset form
+    document.getElementById("mealSelectBox").value = "";
+    document.getElementById("comboQty").value = 1;
+    document.getElementById("comboUnit").innerHTML = "";
+    selectedComboFood = null;
+}
+
+function openChangeModal(type, title) {
+    currentEditingType = title;
     document.getElementById("changeMealModal").classList.add("show");
     document.getElementById("targetCalInput").value = ""; // Reset filter
 
@@ -320,35 +402,201 @@ function openChangeModal(type) {
         document.getElementById("modalTitle").innerText = `Thay đổi ${title}`;
     }
 
+    itemsToDelete = [];
+
     renderModalList();
     filterMealOptions(); // Init dropdown
 }
 
 function renderModalList() {
     const listContainer = document.getElementById("modalCurrentList");
-    if (!listContainer) {
-        console.error("Error: Element with ID 'modalCurrentList' not found for rendering modal list.");
-        return;
-    }
+    const totalEl = document.getElementById("modalTotalCal"); // Thẻ <p> hiển thị tổng
+
+    if (!listContainer) return;
 
     listContainer.innerHTML = "";
+    
+    let currentTotalCal = 0; // Biến tính tổng
+
     if (!tempMealList || tempMealList.length === 0) {
-        listContainer.innerHTML = "<p>Không có món ăn nào trong danh sách tạm thời.</p>";
+        listContainer.innerHTML = "<p style='color:#777; font-style:italic;'>Chưa có món nào trong bữa này.</p>";
+    } else {
+        tempMealList.forEach((item, index) => {
+            // Cộng dồn calo
+            currentTotalCal += (item.calories || 0);
+
+            const itemEl = document.createElement("div");
+            itemEl.className = "h-item"; // Class CSS cho item nằm ngang
+            // Style inline nhẹ để demo nếu chưa có CSS class
+            itemEl.style.display = "inline-flex";
+            itemEl.style.alignItems = "center";
+            itemEl.style.marginRight = "10px";
+            itemEl.style.background = "#f0f0f0";
+            itemEl.style.padding = "5px 10px";
+            itemEl.style.borderRadius = "15px";
+
+            itemEl.innerHTML = `
+                <span>${item.name} - <b>${item.calories} kcal</b></span>
+                <span 
+                    style="margin-left:8px; cursor:pointer; color:red; font-weight:bold;" 
+                    onclick="removeFromTempList(${index})"
+                >&times;</span>
+            `;
+            listContainer.appendChild(itemEl);
+        });
+    }
+
+    // Hiển thị tổng calo ra màn hình Modal
+    if (totalEl) {
+        totalEl.innerText = `Tổng: ${currentTotalCal} kcal`;
+        // Đổi màu nếu vượt quá mức nào đó (ví dụ logic tùy chọn)
+        totalEl.style.color = currentTotalCal > 800 ? "red" : "#333"; 
+    }
+}
+
+async function saveMealChanges() {
+    // 1. Lọc ra các món MỚI cần thêm
+    const itemsToAdd = tempMealList.filter(item => item.isNew === true);
+
+    // 2. Danh sách các món cần xóa đã có trong itemsToDelete
+    
+    // Nếu không có thay đổi gì thì đóng luôn
+    if (itemsToAdd.length === 0 && itemsToDelete.length === 0) {
+        closeModal();
         return;
     }
 
-    tempMealList.forEach((item, index) => {
-        const itemEl = document.createElement("div");
-        itemEl.className = "h-item";
-        itemEl.innerHTML = `
-            <span>${item.name} (${item.calories} kcal)</span>
-            <button class="h-remove" onclick="removeFromTempList(${index})">&times;</button>
-        `;
-        listContainer.appendChild(itemEl);
+    // Hiển thị loading (nếu muốn)
+    const btnSave = document.querySelector('.btn-confirm-save');
+    const oldText = btnSave.innerText;
+    btnSave.innerText = "Đang lưu...";
+    btnSave.disabled = true;
+
+    try {
+        const promises = [];
+
+        itemsToDelete.forEach(id => {
+            const formData = new FormData();
+            formData.append('mealId', id);
+            formData.append('timeSlot', currentEditingType); 
+
+            // Đẩy promise vào mảng
+            promises.push(
+                fetch(`/customer/meal-plan/delete-meal?mealId=${id}&timeSlot=${currentEditingType}`, {
+                    method: 'DELETE'
+                }).then(res => res.json())
+            );
+        });
+
+        // --- TẠO REQUEST THÊM ---
+        itemsToAdd.forEach(item => {
+            const formData = new FormData();
+            formData.append('MealId', item.id); // ID món ăn
+            formData.append('TimeSlot', currentEditingType);
+            formData.append('Quantity', item.quantity);
+            formData.append('Unit', item.unit);
+
+            // Đẩy promise vào mảng
+            promises.push(
+                fetch('/customer/meal-plan/add-meal', {
+                    method: 'POST',
+                    body: formData
+                }).then(res => res.json())
+            );
+        });
+
+        // --- CHẠY TẤT CẢ REQUEST CÙNG LÚC ---
+        // Promise.all sẽ đợi tất cả request xong hết mới chạy tiếp
+        const results = await Promise.all(promises);
+
+        // Kiểm tra xem có lỗi nào không
+        const hasError = results.some(res => !res.success);
+
+        if (hasError) {
+            Swal.fire('Cảnh báo', 'Một số thay đổi có thể chưa được lưu. Vui lòng kiểm tra lại.', 'warning');
+        } else {
+            Toast.fire({ icon: 'success', title: 'Đã cập nhật thực đơn!' });
+        }
+
+        const lastSuccessResult = results.reverse().find(r => r.success && r.data);
+        
+        if (lastSuccessResult) {
+            syncDataFromModel(lastSuccessResult.data);
+        } else {
+            location.reload();
+        }
+
+        renderAllMeals();
+        closeModal();
+
+    } catch (error) {
+        console.error(error);
+        Swal.fire('Lỗi', 'Có lỗi xảy ra khi lưu thay đổi.', 'error');
+    } finally {
+        // Trả lại trạng thái nút
+        btnSave.innerText = oldText;
+        btnSave.disabled = false;
+    }
+}
+
+function filterMealOptions() {
+    const inputVal = document.getElementById("targetCalInput").value;
+    const maxCal = inputVal ? parseFloat(inputVal) : Infinity; // Nếu để trống thì lấy tất cả (Infinity)
+    const selectBox = document.getElementById("mealSelectBox");
+
+    // Reset ComboBox, chỉ giữ lại option mặc định
+    selectBox.innerHTML = '<option value="">-- Chọn món ăn --</option>';
+
+    // Duyệt qua foodDatabase (đã fetch từ API khi load trang)
+    foodDatabase.forEach(food => {
+        const calories = food.nutrition ? food.nutrition.calories : 0;
+
+        // Kiểm tra điều kiện Calo
+        if (calories <= maxCal) {
+            const option = document.createElement("option");
+            option.value = food.id; // Lưu ID vào value để lúc chọn tìm lại được object
+            option.text = `${food.name} (${calories} kcal)`; // Text hiển thị: Tên (Calo)
+            selectBox.appendChild(option);
+        }
     });
 }
 
-// [File: meal-plan.js]
+function addFromSelectBox() {
+    const selectBox = document.getElementById("mealSelectBox");
+    const selectedId = selectBox.value;
+
+    // Nếu chọn option mặc định thì không làm gì
+    if (!selectedId) return;
+
+    // Tìm object món ăn trong foodDatabase dựa vào ID
+    const food = foodDatabase.find(f => f.id === selectedId);
+    if (!food) return;
+
+    // --- Xử lý Logic mặc định ---
+    // Vì đây là chức năng "Add nhanh", ta sẽ mặc định số lượng là 1
+    // Lấy đơn vị đầu tiên trong mảng units, nếu không có thì để là 'Phần'
+    const defaultUnit = (food.units && food.units.length > 0) ? food.units[0] : 'Phần';
+    const calories = food.nutrition ? food.nutrition.calories : 0;
+    const protein = food.nutrition ? food.nutrition.protein : 0;
+
+    // Tạo item mới theo đúng cấu trúc của tempMealList
+    const newItem = {
+        id: food.id, 
+        originalId: food.id,
+        name: `${food.name} (1 ${defaultUnit})`, // Format tên hiển thị kèm đơn vị
+        calories: calories,
+        protein: protein
+    };
+
+    // Thêm vào danh sách tạm
+    tempMealList.push(newItem);
+
+    // Render lại danh sách và tính lại tổng calo
+    renderModalList();
+
+    // Reset ComboBox về trạng thái chưa chọn để người dùng có thể chọn tiếp món khác
+    selectBox.value = "";
+}
 
 async function confirmAddFood() { // Thêm async để dùng await
     if (!selectedFood) return;
@@ -390,14 +638,18 @@ async function confirmAddFood() { // Thêm async để dùng await
     }
 }
 
-
 function removeFromTempList(index) {
     if (index > -1 && index < tempMealList.length) {
+        const item = tempMealList[index];
+
+        if (!item.isNew) {
+            itemsToDelete.push(item.id);
+        }
+
         tempMealList.splice(index, 1);
-        renderModalList(); // Re-render the list
+        renderModalList(); 
     }
 }
-
 function closeModal() {
     const addModal = document.getElementById("addFoodModal");
     if (addModal) addModal.classList.remove("show");
@@ -484,14 +736,23 @@ function updatePreview() {
     if (!selectedFood) return;
 
     const quantity = parseFloat(document.getElementById("selQty").value) || 0;
+    const unitSelect = document.getElementById("selUnit");
+    const currentUnit = unitSelect.value;
+    
     const calBase = selectedFood.nutrition ? selectedFood.nutrition.calories : 0;
     let total = 0;
 
-    // Check if the food has predefined units, assume calories are per serving.
     if (selectedFood.units && selectedFood.units.length > 0) {
-        total = Math.round(calBase * quantity);
+        // Tìm index của unit đang chọn
+        const unitIndex = selectedFood.units.indexOf(currentUnit);
+        
+        // Lấy hệ số
+        const multiplier = getUnitMultiplier(unitIndex);
+        
+        // Tính toán
+        total = Math.round(calBase * multiplier * quantity);
     } else {
-        // Fallback to per-100g calculation if no units are defined.
+        // Logic cho Gram (mặc định)
         total = Math.round((calBase / 100) * quantity);
     }
 
@@ -505,4 +766,10 @@ window.onclick = function (event) {
     if (event.target == addModal || event.target == changeModal) {
         closeModal();
     }
+}
+
+function getUnitMultiplier(index) {
+    const rates = [0.8, 1, 1.3, 1.5, 1.7, 2];
+    
+    return (index >= 0 && index < rates.length) ? rates[index] : 1.0;
 }

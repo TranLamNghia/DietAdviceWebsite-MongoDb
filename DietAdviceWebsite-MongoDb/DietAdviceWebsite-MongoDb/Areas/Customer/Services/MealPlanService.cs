@@ -153,7 +153,7 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
                 Builders<DailyLog>.Filter.Eq(log => log.Date, today)
             );
 
-            var update = Builders<DailyLog>.Update.PullFilter(log => log.MealsEaten, m => m.MealId == mealId && m.TimeSlot == "Bửa phụ");
+            var update = Builders<DailyLog>.Update.PullFilter(log => log.MealsEaten, m => m.MealId == mealId && m.TimeSlot == timeSlot);
 
             return await _dailyLogsCollection.UpdateOneAsync(filter, update);
         }
