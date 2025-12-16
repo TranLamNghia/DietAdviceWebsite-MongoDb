@@ -29,14 +29,9 @@ namespace DietAdviceWebsite_MongoDb.Models
 
         [BsonElement("tags")]
         public List<string> Tags { get; set; } = null!;
-<<<<<<< HEAD
 
         [BsonElement("units")]
         public List<string> Units { get; set;} 
-=======
-        [BsonElement("units")]
-        public List<string> Units { get; set; }
->>>>>>> feat/DietCaculator
     }
 
     public class NutritionInfo

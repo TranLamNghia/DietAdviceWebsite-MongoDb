@@ -73,7 +73,8 @@ function syncDataFromModel(mealPlanData) {
             originalId: mealEaten.mealId,
             name: `${mealEaten.name} (${mealEaten.quantity == 1 ? "" : mealEaten.quantity + " "}${mealEaten.unit})`,
             calories: mealEaten.caloriesConsumed,
-            protein: mealEaten.protein || 0
+            protein: mealEaten.protein || 0,
+            timeSlot: mealEaten.timeSlot
         };
 
         const timeSlotLower = (mealEaten.timeSlot || '').toLowerCase();
@@ -142,9 +143,10 @@ function renderSnacks() {
         chip.className = "snack-chip";
         chip.innerHTML = `
             ${snack.name} (${snack.calories} kcal)
-            <span class="remove-snack" onclick="removeItem('snack', '${snack.id}')">&times;</span>
+            <span class="remove-snack" onclick="removeItem('${snack.timeSlot}', '${snack.id}')">&times;</span>
         `;
         list.appendChild(chip);
+
     });
 }
 
@@ -250,9 +252,9 @@ async function removeItem(type, id) {
     }).then(async (result) => {
         if (result.isConfirmed) {
 
-            if (type === 'snack' || type === 'Snack') {
-                serverTimeSlot = 'Bữa phụ';
-            }
+            //if (type === 'snack' || type === 'Snack') {
+            //    type = 'Bữa phụ';
+            //}
 
             try {
                 const response = await fetch(`/customer/meal-plan/delete-meal?mealId=${id}&timeSlot=${type}`, {

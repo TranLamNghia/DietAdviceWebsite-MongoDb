@@ -4,18 +4,21 @@ using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels;
+using MongoDB.Bson;
 
 namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
 {
     [Area("Customer")]
     public class DietCalculatorController : Controller
     {
+        private readonly DailyLogService _dailyLogService;
         private readonly UserService _userService;
         private readonly MealService _mealService;
-        public DietCalculatorController(UserService userService, MealService mealService)
+        public DietCalculatorController(UserService userService, MealService mealService, DailyLogService dailyLogService)
         {
             _userService = userService;
             _mealService = mealService;
+            _dailyLogService = dailyLogService;
         }
         [HttpGet]
         [Route("customer/diet-calculator/index")]
@@ -36,15 +39,9 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
         public async Task<IActionResult> SaveDietData([FromBody] DietSaveViewModel vm)
         {
             if (!ModelState.IsValid)
-<<<<<<< HEAD
-            return BadRequest("Dữ liệu không hợp lệ.");
-=======
-
             {
-
                 return BadRequest(ModelState);
             }
->>>>>>> feat/DietCaculator
 
             // Lấy user trong DB (nếu chưa có → tạo mới)
             var user = await _userService.GetUserByIdAsync(vm.UserId);
@@ -57,18 +54,18 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
                 _ => "Rất năng động"
             };
 
-            // Gán lại profile
-            user.Profile = new Profile
+            // Ensure profile exists before updating
+            if (user.Profile == null)
             {
-                Height = vm.Height,
-                Weight = vm.Weight,
-                Gender = vm.Gender == "male" ? "Nam" : "Nữ",
-                BirthYear = DateTime.UtcNow.Year - vm.Age,
-                ActivityLevel = activityText,
-                DietPreference = "normal",
-                HealthCondition = "none",
-                Allergies = new List<string>()
-            };
+                user.Profile = new Profile();
+            }
+
+            // Update specific profile properties
+            user.Profile.Height = vm.Height;
+            user.Profile.Weight = vm.Weight;
+            user.Profile.Gender = vm.Gender == "male" ? "Nam" : "Nữ";
+            user.Profile.BirthYear = DateTime.UtcNow.Year - vm.Age;
+            user.Profile.ActivityLevel = activityText;
 
             // Gán mục tiêu
             user.CurrentGoal = new CurrentGoal
@@ -86,19 +83,50 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
             };
 
             // Lưu vào MongoDB
-            try {
-                await _userService.SaveUserAsync(user);
+            await _userService.SaveUserAsync(user);
 
-                return StatusCode(201, new
-                {
-                    message = "Đã lưu dữ liệu chế độ ăn thành công!"
-                });
-            } catch(Exception ex)
+            return Ok(new
             {
-                return StatusCode(400, new
+                message = "Đã lưu thông tin người dùng thành công!",
+                userId = user.Id
+            });
+        }
+        [HttpPost]
+        [Route("customer/diet-calculator/save-daily-log")]
+        public async Task<IActionResult> SaveDailyLog([FromBody] DailyLogSaveViewModel vm)
+        {
+            if (vm == null || vm.Meals == null || !vm.Meals.Any())
+                return BadRequest("Danh sách món ăn trống");
+
+            var tomorrow = DateTime.Now.AddDays(1);
+            var dateString = tomorrow.ToString("yyyy-MM-dd");
+
+            var existingLog = await _dailyLogService.GetByUserIdAndDateAsync(vm.UserId, dateString);
+
+            var newMeals = vm.Meals.Select(m => new MealEaten
+            {
+                MealId = m.MealId,
+                TimeSlot = m.TimeSlot,
+                Quantity = m.Quantity,
+                Unit = m.Unit
+            }).ToList();
+
+            if (existingLog != null)
+            {
+                existingLog.MealsEaten = newMeals;
+                await _dailyLogService.SaveAsync(existingLog);
+                return Ok(new { message = "Đã cập nhật thực đơn cho ngày mai" });
+            }
+            else
+            {
+                var newLog = new DailyLog
                 {
-                    message = ex,
-                });
+                    UserId = vm.UserId,
+                    Date = dateString,
+                    MealsEaten = newMeals
+                };
+                await _dailyLogService.SaveAsync(newLog);
+                return Ok(new { message = "Đã lưu thực đơn cho ngày mai" });
             }
         }
     }

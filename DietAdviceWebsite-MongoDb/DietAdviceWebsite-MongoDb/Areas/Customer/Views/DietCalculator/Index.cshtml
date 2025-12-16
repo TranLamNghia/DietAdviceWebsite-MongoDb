@@ -132,9 +132,11 @@
                 </div>
             </div>
 
-            <button class="btn-save-menu" onclick="saveToDailyMenu()">
+            <!-- Action Button -->
+            <button class="btn-save-menu" onclick="saveAll()">
                 Lưu thực đơn này
             </button>
+
         </div>
     </div>
 </div>
@@ -156,6 +158,8 @@
         userId: '@User.FindFirst("UserId")?.Value',
         fullName: '@User.Identity.Name'
     };
+
+    const saveDailyLogUrl = '@Url.Action("SaveDailyLog", "DietCalculator", new { area = "Customer" })';
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="~/js/diet-calculator.js"></script>
+<script src="~/js/diet-calculator.js" asp-append-version="true"></script>
