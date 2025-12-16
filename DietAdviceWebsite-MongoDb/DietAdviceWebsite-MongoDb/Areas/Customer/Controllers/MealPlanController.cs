@@ -37,7 +37,7 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
 
         [HttpPost]
         [Route("customer/meal-plan/add-meal")]
-        public async Task<IActionResult> AddMeal(string MealId, string TimeSlot, double Quantity, string Unit) 
+        public async Task<IActionResult> AddMeal(string MealId, string TimeSlot, double Quantity, string Unit)
         {
             if (!ModelState.IsValid)
             {
@@ -53,7 +53,34 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
             }
             catch (System.Exception ex)
             {
-                // Log the exception
+                return StatusCode(500, new { success = false, message = ex.Message });
+            }
+        }
+
+        [HttpDelete]
+        [Route("customer/meal-plan/delete-meal")]
+        public async Task<IActionResult> DeleteMeal(string mealId, string timeSlot)
+        {
+            if (string.IsNullOrEmpty(mealId))
+            {
+                return Json(new { success = false, message = "Meal ID is required." });
+            }
+
+            try
+            {
+                // Truyền thêm timeSlot vào Service
+                var result = await _mealPlanService.DeleteFoodItemAsync(mealId, timeSlot);
+
+                if (result == null || result.ModifiedCount == 0)
+                {
+                    return Json(new { success = false, message = "Item not found or already deleted." });
+                }
+
+                var updatedViewModel = await _mealPlanService.GetTodayMealPlanViewModelAsync();
+                return Json(new { success = true, data = updatedViewModel });
+            }
+            catch (System.Exception ex)
+            {
                 return StatusCode(500, new { success = false, message = ex.Message });
             }
         }

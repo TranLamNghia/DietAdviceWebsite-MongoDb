@@ -23,12 +23,12 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
     return client.GetDatabase(settings.DatabaseName);
 });
 
+builder.Services.AddHttpContextAccessor();
+
 // 3. Đăng ký các service của bạn
-builder.Services.AddSingleton<UserService>();
-builder.Services.AddScoped<MealService>();
-builder.Services.AddSingleton<MealManagementService>();
+builder.Services.AddScoped<MealManagementService>();
 builder.Services.AddScoped<AuthService>();
-builder.Services.AddSingleton<MealPlanService>();
+builder.Services.AddScoped<MealPlanService>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

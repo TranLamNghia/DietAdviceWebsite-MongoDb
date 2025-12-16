@@ -6,6 +6,7 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels
     {
         public string Id { get; set; }
         public string UserId { get; set; }
+        public int DailyCalorieTarget { get; set; }
         public string Date { get; set; }
         public List<MealEatenViewModel> MealsEaten { get; set; }
     }
