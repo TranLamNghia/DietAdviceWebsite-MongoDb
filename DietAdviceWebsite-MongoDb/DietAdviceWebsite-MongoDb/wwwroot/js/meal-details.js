@@ -1,50 +1,116 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
-    const qtyInput = document.getElementById("calQty");
-    const unitSelect = document.getElementById("calUnit");
+﻿let baseNutrition = {
+    calories: 0,
+    protein: 0,
+    carbs: 0,
+    fats: 0,
+}
 
-    const displayCal = document.getElementById("totalResult");
-    const displayPro = document.getElementById("totalPro");
+let currentMeal = null
 
-    // Hàm lấy hệ số nhân (Logic chuẩn bạn đã duyệt)
-    function getUnitMultiplier(index) {
-        const rates = [0.8, 1, 1.3, 1.5, 1.7, 2];
+function loadMealDetails() {
+    const mealId = Number.parseInt(localStorage.getItem("selectedMealId"))
+    const meals = JSON.parse(localStorage.getItem("meals") || "[]")
+    const meal = meals.find((m) => m.id === mealId)
 
-        if (index < 0 || index >= rates.length) return 1.0;
-
-        return rates[index];
+    if (!meal) {
+        alert("Không tìm thấy món ăn")
+        window.location.href = "meal-management.html"
+        return
     }
 
-    function calculateRealTime() {
-        const quantity = parseFloat(qtyInput.value) || 0;
-        const unitIndex = parseInt(unitSelect.value); // Lấy index (0, 1, 2...)
+    currentMeal = meal
 
-        let multiplier = 1.0;
-        let finalCalories = 0;
-        let finalProtein = 0;
-
-        if (hasUnits && unitIndex >= 0) {
-            // Trường hợp có đơn vị (Tô nhỏ, Tô lớn...)
-            multiplier = getUnitMultiplier(unitIndex);
-
-            // Công thức: Base * Hệ Số * Số Lượng
-            finalCalories = Math.round(baseNutrition.calories * multiplier * quantity);
-            finalProtein = Math.round(baseNutrition.protein * multiplier * quantity);
-        } else {
-            // Trường hợp Gram (tính theo 100g)
-            // Giả sử baseNutrition là cho 100g
-            finalCalories = Math.round((baseNutrition.calories / 100) * quantity);
-            finalProtein = Math.round((baseNutrition.protein / 100) * quantity);
-        }
-
-        // Cập nhật giao diện (Hiệu ứng đếm số nhẹ nếu thích)
-        displayCal.innerText = finalCalories;
-        displayPro.innerText = finalProtein;
+    // Set base nutrition
+    baseNutrition = {
+        calories: meal.calories,
+        protein: meal.protein,
+        carbs: meal.carbs,
+        fats: meal.fats,
     }
 
-    // Gắn sự kiện lắng nghe thay đổi
-    qtyInput.addEventListener("input", calculateRealTime);
-    unitSelect.addEventListener("change", calculateRealTime);
+    // Update page elements
+    document.getElementById("mealName").textContent = meal.name
+    document.getElementById("mealCategory").textContent = getCategoryName(meal.category)
+    document.getElementById("mealDescription").textContent = meal.description || "Món ăn ngon và bổ dưỡng"
 
-    // Chạy lần đầu
-    calculateRealTime();
-});
+    // Set image
+    const imgElement = document.getElementById("mealImage")
+    if (meal.image) {
+        imgElement.src = meal.image
+        imgElement.alt = meal.name
+    } else {
+        imgElement.src = "https://via.placeholder.com/600x400?text=" + encodeURIComponent(meal.name)
+        imgElement.alt = meal.name
+    }
+
+    // Set tags (if available)
+    const tagsContainer = document.getElementById("tagsContainer")
+    if (meal.tags && meal.tags.length > 0) {
+        tagsContainer.innerHTML = meal.tags
+            .map((tag) => `<span class="badge bg-light text-dark border">#${tag}</span>`)
+            .join("")
+    } else {
+        tagsContainer.innerHTML = `<span class="badge bg-light text-dark border">#healthy</span>`
+    }
+
+    // Set base nutrition values
+    document.getElementById("baseCalories").textContent = meal.calories
+    document.getElementById("baseProtein").textContent = meal.protein.toFixed(1)
+    document.getElementById("baseCarbs").textContent = meal.carbs.toFixed(1)
+    document.getElementById("baseFats").textContent = meal.fats.toFixed(1)
+
+    // Set units (if available)
+    const unitSelect = document.getElementById("calUnit")
+    if (meal.units && meal.units.length > 0) {
+        unitSelect.innerHTML = meal.units
+            .map((unit, index) => `<option value="${unit.multiplier || 1}">${unit.name || unit}</option>`)
+            .join("")
+    } else {
+        unitSelect.innerHTML = '<option value="1">Gram (mặc định)</option>'
+    }
+
+    // Calculate initial values
+    calculateNutrition()
+
+    // Add event listeners
+    document.getElementById("calQty").addEventListener("input", calculateNutrition)
+    document.getElementById("calUnit").addEventListener("change", calculateNutrition)
+}
+
+function calculateNutrition() {
+    const quantity = Number.parseFloat(document.getElementById("calQty").value) || 1
+    const multiplier = Number.parseFloat(document.getElementById("calUnit").value) || 1
+
+    const totalMultiplier = quantity * multiplier
+
+    // Calculate totals
+    const totalCalories = Math.round(baseNutrition.calories * totalMultiplier)
+    const totalProtein = (baseNutrition.protein * totalMultiplier).toFixed(1)
+    const totalCarbs = (baseNutrition.carbs * totalMultiplier).toFixed(1)
+    const totalFats = (baseNutrition.fats * totalMultiplier).toFixed(1)
+
+    // Update display
+    document.getElementById("totalResult").textContent = totalCalories
+    document.getElementById("totalPro").textContent = totalProtein
+    document.getElementById("totalCarbs").textContent = totalCarbs
+    document.getElementById("totalFats").textContent = totalFats
+}
+
+function getCategoryName(category) {
+    const names = {
+        carbs: "Carbs",
+        protein: "Protein",
+        vegetables: "Vegetables",
+        fruits: "Fruits",
+        nuts: "Nuts",
+        dairy: "Dairy",
+        breakfast: "Sáng",
+        lunch: "Trưa",
+        dinner: "Tối",
+        snack: "Ăn vặt",
+    }
+    return names[category] || category
+}
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", loadMealDetails)

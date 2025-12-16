@@ -1,21 +1,378 @@
-﻿.nutrition-card {
+﻿/* Meal Details Specific Styles */
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+    .back-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateX(-4px);
+    }
+
+    .back-btn svg {
+        transition: transform 0.3s ease;
+    }
+
+    .back-btn:hover svg {
+        transform: translateX(-4px);
+    }
+
+/* Container */
+.py-5 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.75rem;
+}
+
+.g-5 {
+    gap: 3rem;
+}
+
+.col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 0.75rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Food Image Container */
+.food-image-container {
+    position: relative;
+}
+
+    .food-image-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        object-fit: cover;
+        max-height: 400px;
+    }
+
+        .food-image-container img[src="/placeholder.svg"] {
+            display: none;
+        }
+
+/* Tags */
+#tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 20px;
+}
+
+    .badge.bg-primary {
+        background: var(--primary);
+        color: white;
+    }
+
+    .badge.bg-light {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        border: 1px solid var(--border-color);
+    }
+
+/* Food Info */
+.food-info {
+    height: 100%;
+}
+
+.display-5 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.lead {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.my-4 {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Nutrition Cards */
+.text-center {
+    text-align: center;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+.nutrition-card {
+    padding: 1.25rem 0.75rem;
     border-radius: 12px;
-    padding: 15px 5px;
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
 }
 
     .nutrition-card:hover {
-        transform: translateY(-3px);
+        transform: translateY(-4px);
     }
 
-.food-image-container img {
-    border-radius: 16px;
-    object-fit: cover;
-    max-height: 500px;
+    .nutrition-card .h4 {
+        font-size: 1.75rem;
+        margin: 0;
+    }
+
+    .nutrition-card small {
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+/* Color variants */
+.bg-danger-subtle {
+    background: rgba(239, 68, 68, 0.1);
 }
 
-/* Tùy chỉnh input số lượng cho to rõ */
-#calQty {
-    font-weight: bold;
-    color: #333;
+.text-danger {
+    color: #ef4444;
+}
+
+.bg-primary-subtle {
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.text-primary {
+    color: #3b82f6;
+}
+
+.bg-warning-subtle {
+    background: rgba(251, 191, 36, 0.1);
+}
+
+.text-warning {
+    color: #f59e0b;
+}
+
+.bg-success-subtle {
+    background: rgba(34, 197, 94, 0.1);
+}
+
+.text-success {
+    color: #22c55e;
+}
+
+/* Calculator Card */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+    .card.border-0 {
+        border: none;
+    }
+
+    .card.shadow-sm {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .card.bg-light {
+        background: var(--bg-secondary);
+    }
+
+.card-body {
+    padding: 1rem;
+}
+
+    .card-body.p-4 {
+        padding: 1.5rem;
+    }
+
+.card-title {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+/* Form Controls */
+.g-3 {
+    gap: 1rem;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+.col-md-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+}
+
+.col-md-8 {
+    flex: 0 0 66.666%;
+    max-width: 66.666%;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+}
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+    .form-control:focus,
+    .form-select:focus {
+        outline: none;
+        border-color: var(--primary);
+    }
+
+.form-control-lg,
+.form-select-lg {
+    padding: 0.875rem 1.125rem;
+    font-size: 1.125rem;
+}
+
+/* Total Result */
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.pt-3 {
+    padding-top: 1rem;
+}
+
+.border-top {
+    border-top: 1px solid var(--border-color);
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.display-4 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.fs-5 {
+    font-size: 1.25rem;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .col-md-6,
+    .col-md-4,
+    .col-md-8 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .display-5 {
+        font-size: 2rem;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+    }
+
+    .row.g-5 {
+        gap: 2rem;
+    }
+
+    .nutrition-card {
+        padding: 1rem 0.5rem;
+    }
+
+        .nutrition-card .h4 {
+            font-size: 1.5rem;
+        }
+}
+
+@media (max-width: 480px) {
+    .back-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .display-5 {
+        font-size: 1.75rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .card-body.p-4 {
+        padding: 1rem;
+    }
 }
