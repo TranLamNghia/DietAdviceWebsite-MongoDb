@@ -4,7 +4,7 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels
 {
     public class DietSaveViewModel
     {
-        public string UserId { get; set; } = null!;
+        public string UserId { get; set; } = null!;        
         public int Height { get; set; }
         public int Weight { get; set; }
         public string Gender { get; set; } = null!;

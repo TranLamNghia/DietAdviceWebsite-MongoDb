@@ -10,7 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpContextAccessor();
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services
+    .AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
 builder.Services.AddSession();
 
 builder.Services.Configure<MongoDbSettings>(
@@ -29,6 +34,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<MealManagementService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<MealPlanService>();
+builder.Services.AddScoped<DailyLogService>();
+builder.Services.AddScoped<MealService>();
+builder.Services.AddScoped<UserService>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

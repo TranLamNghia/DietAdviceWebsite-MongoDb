@@ -9,25 +9,25 @@
       "meal_id": "69325b5b1d64e3ff44044706",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Bát lớn"
+      "unit": "Tô lớn"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Bát vừa (150g)"
+      "unit": "Chén đầy"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044708",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Đĩa nhỏ (100g thịt)"
+      "unit": "Dĩa nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044728",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Phần đầy đủ"
+      "unit": "Góc tư (Đùi)"
     }
   ],
   "daily_review": {}
@@ -43,25 +43,25 @@
       "meal_id": "69325b5b1d64e3ff44044706",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Bát lớn"
+      "unit": "Tô lớn"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044721",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Tô vừa"
+      "unit": "Tô thường"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044734",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Đĩa nhỏ"
+      "unit": "Dĩa nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g"
+      "unit": "Hũ nhỏ"
     }
   ],
   "daily_review": {
@@ -80,25 +80,25 @@
       "meal_id": "69325b5b1d64e3ff44044737",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Ổ lớn"
+      "unit": "1 Ổ đặc biệt"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g"
+      "unit": "Hũ nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404470a",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần đầy đủ"
+      "unit": "Phần thường"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044718",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Ly 350ml"
+      "unit": "Ly vừa"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044733",
@@ -123,37 +123,37 @@
       "meal_id": "69325b5b1d64e3ff4404470f",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Ổ lớn"
+      "unit": "1 Ổ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044734",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần tiêu chuẩn"
+      "unit": "Dĩa thường"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Bát 200g"
+      "unit": "Chén đầy"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g"
+      "unit": "Hũ nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044724",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô đầy"
+      "unit": "Tô đặc biệt"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044718",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Ly 350ml"
+      "unit": "Ly vừa"
     }
   ],
   "daily_review": {}
@@ -169,19 +169,19 @@
       "meal_id": "69325b5b1d64e3ff4404470f",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Ổ lớn"
+      "unit": "1 Ổ"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404470d",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Dĩa tiêu chuẩn"
+      "unit": "Dĩa thường"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "200g"
+      "unit": "Chén đầy"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404470c",
@@ -193,19 +193,19 @@
       "meal_id": "69325b5b1d64e3ff44044718",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Ly 350ml"
+      "unit": "Ly vừa"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044728",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Phần lớn"
+      "unit": "Nửa con"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044719",
       "time_slot": "Bữa Phụ",
       "quantity": 1.4,
-      "unit": "200g"
+      "unit": "1 Miếng (Đùi/Cánh)"
     }
   ],
   "daily_review": {
@@ -224,43 +224,61 @@
       "meal_id": "69325b5b1d64e3ff44044712",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Phần đầy đủ"
+      "unit": "Phần 2 trứng"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044724",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Tô đầy"
+      "unit": "Tô đặc biệt"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404470c",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Tô trung bình"
+      "unit": "Tô vừa"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044734",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Phần tiêu chuẩn"
+      "unit": "Dĩa thường"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "200g"
+      "unit": "Chén đầy"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404471a",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "150g"
+      "unit": "100g (Nhỏ)"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ"
+      "unit": "Hũ nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044714",
+      "time_slot": "Bửa phụ",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470a",
+      "time_slot": "Bửa phụ",
+      "quantity": 2,
+      "unit": "Phần nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bửa phụ",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
     }
   ],
   "daily_review": {}
@@ -276,31 +294,31 @@
       "meal_id": "69325b5b1d64e3ff4404471b",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Đĩa nhỏ"
+      "unit": "Dĩa nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044743",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần tiêu chuẩn"
+      "unit": "Dĩa thường"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 0.5,
-      "unit": "100g"
+      "unit": "Chén nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g"
+      "unit": "Hũ nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044740",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ"
+      "unit": "Chén nhỏ (1 khoanh)"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044742",
@@ -312,7 +330,7 @@
       "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Tối",
       "quantity": 0.2,
-      "unit": "50g"
+      "unit": "Chén nhỏ"
     }
   ],
   "daily_review": {
@@ -331,31 +349,31 @@
       "meal_id": "69325b5b1d64e3ff4404472d",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Tô nhỏ"
+      "unit": "Tô nhỏ (Trẻ em)"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044735",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần nhỏ"
+      "unit": "Tô nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g"
+      "unit": "Hũ nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044741",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "120g"
+      "unit": "Niêu đất"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404470e",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ"
+      "unit": "Chén nhỏ"
     }
   ],
   "daily_review": {}
@@ -371,31 +389,119 @@
       "meal_id": "69325b5b1d64e3ff4404472d",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Tô nhỏ"
+      "unit": "Tô nhỏ (Trẻ em)"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044735",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần nhỏ"
+      "unit": "Tô nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044717",
       "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g"
+      "unit": "Hũ nhỏ"
     },
     {
       "meal_id": "69325b5b1d64e3ff44044741",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "120g"
+      "unit": "Niêu đất"
     },
     {
       "meal_id": "69325b5b1d64e3ff4404470e",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ"
+      "unit": "Chén nhỏ"
+    }
+  ],
+  "daily_review": {}
+},
+{
+  "_id": {
+    "$oid": "69404e97764982ee0a4f7062"
+  },
+  "user_id": null,
+  "date": "2025-12-16",
+  "meals_eaten": [],
+  "daily_review": {
+    "rating": 0,
+    "comment": null
+  }
+},
+{
+  "_id": {
+    "$oid": "6940cc37de9f72b3152cd3e9"
+  },
+  "user_id": "693fcb15425d1b20f2a5b403",
+  "date": "2025-12-16",
+  "meals_eaten": [
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bữa Sáng",
+      "quantity": 1,
+      "unit": "Bát lớn"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bửa phụ",
+      "quantity": 1,
+      "unit": "Ly thường"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bửa phụ",
+      "quantity": 2,
+      "unit": "Tô thường"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Trưa",
+      "quantity": 1,
+      "unit": "Chén nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044709",
+      "time_slot": "Bữa Trưa",
+      "quantity": 2,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470d",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044742",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Ly nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Chén nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044743",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470b",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
     }
   ],
   "daily_review": {}

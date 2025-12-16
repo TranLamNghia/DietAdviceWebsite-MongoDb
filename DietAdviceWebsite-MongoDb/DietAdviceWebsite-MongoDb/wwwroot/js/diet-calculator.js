@@ -1,15 +1,9 @@
 // Biến lưu trữ kết quả
 
 let currentResult = {};
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'top-end',
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true
-});
 
 const currentUserId = window.appData?.userId || null;
+window.generatedMenu = [];
 
 function calculateDiet() {
     // 1. Lấy input
@@ -101,10 +95,10 @@ function renderMenuFromDB(targetCalories) {
     const container = document.getElementById("menuPreviewList");
     container.innerHTML = "";
 
+    window.generatedMenu = [];
 
     let totalCal = 0, totalP = 0, totalC = 0, totalF = 0;
 
-    // Lấy các mealType thực sự tồn tại trong DB
     const availableMealTypes = [...new Set(
         window.mealDB.flatMap(m => m.mealTypes || [])
     )];
@@ -127,10 +121,13 @@ function renderMenuFromDB(targetCalories) {
         if (!meals.length) return;
 
         const selected = meals.reduce((prev, curr) =>
-            Math.abs(curr.nutrition.calories - maxCal) < Math.abs(prev.nutrition.calories - maxCal) ? curr : prev
+            Math.abs(curr.nutrition.calories - maxCal) <
+                Math.abs(prev.nutrition.calories - maxCal)
+                ? curr : prev
         );
+
         const n = selected.nutrition;
-        const units = pickOneUnit(selected.units);
+        const unit = pickOneUnit(selected.units);
 
         totalCal += n.calories;
         totalP += n.protein;
@@ -143,7 +140,7 @@ function renderMenuFromDB(targetCalories) {
                 <div class="menu-item-row">
                     <div class="menu-item-name">
                         ${selected.name}
-                        <span class="meal-unit">(${units})</span>
+                        <span class="meal-unit">(${unit})</span>
                     </div>
                     <div class="menu-item-macros">
                         ${n.calories} kcal |
@@ -152,32 +149,29 @@ function renderMenuFromDB(targetCalories) {
                         F ${n.fats}g
                     </div>
                 </div>
-            `;
+            </div>
+        `;
+
+        window.generatedMenu.push({
+            mealId: selected.id,
+            name: selected.name,
+            timeSlot: mealType,
+            quantity: 1,
+            unit: unit,
+            caloriesConsumed: n.calories
+        });
     });
 
-    // Update Footer Summary
     document.getElementById('totalMenuCal').innerText = totalCal + " kcal";
     document.getElementById('totalMenuPro').innerText = totalP + "g";
     document.getElementById('totalMenuCarb').innerText = totalC + "g";
     document.getElementById('totalMenuFat').innerText = totalF + "g";
 }
 
-//function saveToDailyMenu() {
-//    const btn = document.querySelector('.btn-save-menu');
-//    const oldText = btn.innerText;
-//    btn.innerText = "Đang lưu...";
-//    btn.disabled = true;
-
-//    Toast.fire({
-//        icon: 'success',
-//        title: 'Đã lưu thực đơn thành công!'
-//    });
-//}
 
 async function saveToDailyMenu() {
     const data = {
         userId: window.appData?.userId,
-        fullName: window.appData?.fullName,
         age: parseInt(document.getElementById("age").value),
         height: parseInt(document.getElementById("height").value),
         weight: parseFloat(document.getElementById("weight").value),
@@ -187,6 +181,7 @@ async function saveToDailyMenu() {
         targetWeight: 65,
         dailyCalorieTarget: parseInt(document.getElementById("targetCalories").innerText)
     };
+    console.log(data);
     try {
         const response = await fetch("/customer/diet-calculator/save", {
             method: "POST",
@@ -219,3 +214,35 @@ async function saveToDailyMenu() {
         });
     }
 }
+async function saveDailyLog() {
+    if (!window.generatedMenu?.length) {
+        alert("Chưa có thực đơn");
+        return;
+    }
+
+    const payload = {
+        userId: window.appData.userId,
+        date: new Date().toISOString().split("T")[0],
+        meals: window.generatedMenu
+    };
+
+    const res = await fetch("/customer/diet-calculator/save-daily-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+        Toast.fire({ icon: "success", title: data.message });
+    } else {
+        Toast.fire({ icon: "error", title: data });
+        console.error(title.data);
+    }
+}
+async function saveAll() {
+    await saveToDailyMenu(); // lưu user + goal
+    await saveDailyLog();    // lưu thực đơn
+}
+

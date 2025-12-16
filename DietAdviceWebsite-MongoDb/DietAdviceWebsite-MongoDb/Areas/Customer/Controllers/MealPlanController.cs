@@ -68,7 +68,6 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
 
             try
             {
-                // Truyền thêm timeSlot vào Service
                 var result = await _mealPlanService.DeleteFoodItemAsync(mealId, timeSlot);
 
                 if (result == null || result.ModifiedCount == 0)
