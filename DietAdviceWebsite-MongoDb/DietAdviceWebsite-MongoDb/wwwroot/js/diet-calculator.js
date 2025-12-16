@@ -1,11 +1,13 @@
-<<<<<<< Updated upstream
 ﻿// Biến lưu trữ kết quả
-=======
-﻿
 
-// Biến lưu trữ kết quả
->>>>>>> Stashed changes
 let currentResult = {};
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top-end',
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true
+});
 
 const currentUserId = window.appData?.userId || null;
 
@@ -138,16 +140,8 @@ function renderMenuFromDB(targetCalories) {
                         F ${n.fats}g
                     </div>
                 </div>
-<<<<<<< Updated upstream
             `;
         });
-        html += `</div>`;
-        return html;
-    };
-
-    container.innerHTML += renderMealGroup("Sáng", sampleMenuDB.breakfast);
-    container.innerHTML += renderMealGroup("Trưa", sampleMenuDB.lunch);
-    container.innerHTML += renderMealGroup("Tối", sampleMenuDB.dinner);
 
     // Update Footer Summary
     document.getElementById('totalMenuCal').innerText = totalCal + " kcal";
@@ -155,33 +149,6 @@ function renderMenuFromDB(targetCalories) {
     document.getElementById('totalMenuCarb').innerText = totalC + "g";
     document.getElementById('totalMenuFat').innerText = totalF + "g";
 }
-
-function saveToDailyMenu() {
-    const btn = document.querySelector('.btn-save-menu');
-    const oldText = btn.innerText;
-    btn.innerText = "Đang lưu...";
-    btn.disabled = true;
-
-    setTimeout(() => {
-        alert("Đã lưu thực đơn thành công!");
-        btn.innerText = oldText;
-        btn.disabled = false;
-    }, 1000);
-=======
-            </div>
-        `;
-    });
-
-    document.getElementById("totalMenuCal").innerText = Math.round(totalCal) + " kcal";
-    document.getElementById("totalMenuPro").innerText = Math.round(totalP) + "g";
-    document.getElementById("totalMenuCarb").innerText = Math.round(totalC) + "g";
-    document.getElementById("totalMenuFat").innerText = Math.round(totalF) + "g";
->>>>>>> Stashed changes
-}
-function saveToDailyMenu() {
-
-<<<<<<< Updated upstream
-=======
 
 //function saveToDailyMenu() {
 //    const btn = document.querySelector('.btn-save-menu');
@@ -196,7 +163,6 @@ function saveToDailyMenu() {
 //}
 
 async function saveToDailyMenu() {
->>>>>>> Stashed changes
     const data = {
         userId: "user123",
         fullName: "Nguyen Van A",
@@ -209,17 +175,6 @@ async function saveToDailyMenu() {
         targetWeight: 65,
         dailyCalorieTarget: parseInt(document.getElementById("targetCalories").innerText)
     };
-
-<<<<<<< Updated upstream
-    fetch("/customer/diet-calculator/save", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-    })
-        .then(res => res.json())
-        .then(res => alert(res.message))
-        .catch(err => console.error(err));
-=======
     try {
         const response = await fetch("/customer/diet-calculator/save", {
             method: "POST",
@@ -227,9 +182,8 @@ async function saveToDailyMenu() {
             body: JSON.stringify(data)
         });
 
-        // 🔴 QUAN TRỌNG
         if (!response.ok) {
-            const errorText = await response.text(); // 👈 KHÔNG json()
+            const errorText = await response.text();
             console.error("Server error:", errorText);
 
             return Toast.fire({
@@ -238,7 +192,7 @@ async function saveToDailyMenu() {
             });
         }
 
-        const result = await response.json(); // ✅ CHỈ parse khi OK
+        const result = await response.json();
 
         return Toast.fire({
             icon: 'success',
@@ -252,6 +206,5 @@ async function saveToDailyMenu() {
             title: 'Không thể kết nối tới server'
         });
     }
->>>>>>> Stashed changes
 }
 
