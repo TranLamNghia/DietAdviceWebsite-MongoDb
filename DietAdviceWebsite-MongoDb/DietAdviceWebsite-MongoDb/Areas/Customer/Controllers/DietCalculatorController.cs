@@ -4,6 +4,7 @@ using DietAdviceWebsite_MongoDb.Models;
 using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels;
 
 namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
 {
@@ -36,14 +37,11 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
         public async Task<IActionResult> SaveDietData([FromBody] DietSaveViewModel vm)
         {
             if (!ModelState.IsValid)
-<<<<<<< Updated upstream
-                return BadRequest("Dữ liệu không hợp lệ.");
-=======
+
             {
 
                 return BadRequest(ModelState);
             }
->>>>>>> Stashed changes
 
             // Lấy user trong DB (nếu chưa có → tạo mới)
             var user = await _userService.GetUserByIdAsync(vm.UserId);

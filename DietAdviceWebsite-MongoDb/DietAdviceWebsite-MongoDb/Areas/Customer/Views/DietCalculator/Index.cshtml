@@ -146,15 +146,17 @@
     window.mealDB = @Html.Raw(
         System.Text.Json.JsonSerializer.Serialize(
             Model.Meals,
-            new System.Text.Json.JsonSerializerOptions {
+            new System.Text.Json.JsonSerializerOptions
+            {
                 PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase
             }
         )
     );
 
     window.appData = {
-        userId: '@User.FindFirst("UserId")?.Value'
+        userId: '@User.FindFirst("UserId")?.Value',
+        fullName: '@User.Identity.Name'
     };
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="~/js/diet-calculator.js"></script>
