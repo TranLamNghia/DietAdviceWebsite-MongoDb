@@ -202,6 +202,12 @@
     color: #95a5a6;
 }
 
+.meal-unit {
+    font-size: 13px;
+    color: #666;
+    margin-left: 6px;
+    font-style: italic;
+}
 /* Summary Footer inside Menu */
 .menu-footer-summary {
     background: #f8f9fa;

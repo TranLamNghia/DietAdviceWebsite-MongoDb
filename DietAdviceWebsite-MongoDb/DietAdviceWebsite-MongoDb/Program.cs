@@ -6,7 +6,6 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<UserService>();
 
 
 builder.Services.AddHttpContextAccessor();

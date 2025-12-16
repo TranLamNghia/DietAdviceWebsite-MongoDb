@@ -11,15 +11,24 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
     public class DietCalculatorController : Controller
     {
         private readonly UserService _userService;
-        public DietCalculatorController(UserService userService)
+        private readonly MealService _mealService;
+        public DietCalculatorController(UserService userService, MealService mealService)
         {
             _userService = userService;
+            _mealService = mealService;
         }
         [HttpGet]
         [Route("customer/diet-calculator/index")]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var meals = await _mealService.GetAllAsync();
+
+            var vm = new DietCalculatorViewModel
+            {
+                Meals = meals
+            };
+
+            return View(vm);
         }
         // POST: Lưu dữ liệu tính toán vào MongoDB
         [HttpPost]
@@ -27,19 +36,35 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
         public async Task<IActionResult> SaveDietData([FromBody] DietSaveViewModel vm)
         {
             if (!ModelState.IsValid)
+<<<<<<< HEAD
             return BadRequest("Dữ liệu không hợp lệ.");
+=======
+
+            {
+
+                return BadRequest(ModelState);
+            }
+>>>>>>> feat/DietCaculator
 
             // Lấy user trong DB (nếu chưa có → tạo mới)
             var user = await _userService.GetUserByIdAsync(vm.UserId);
+            string activityText = vm.ActivityLevel switch
+            {
+                <= 1.2 => "Ít vận động",
+                <= 1.375 => "Vận động nhẹ",
+                <= 1.55 => "Vận động vừa",
+                <= 1.725 => "Năng động",
+                _ => "Rất năng động"
+            };
 
             // Gán lại profile
             user.Profile = new Profile
             {
                 Height = vm.Height,
                 Weight = vm.Weight,
-                Gender = vm.Gender,
+                Gender = vm.Gender == "male" ? "Nam" : "Nữ",
                 BirthYear = DateTime.UtcNow.Year - vm.Age,
-                ActivityLevel = vm.ActivityLevel,
+                ActivityLevel = activityText,
                 DietPreference = "normal",
                 HealthCondition = "none",
                 Allergies = new List<string>()
@@ -48,7 +73,12 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
             // Gán mục tiêu
             user.CurrentGoal = new CurrentGoal
             {
-                GoalType = vm.GoalType,
+                GoalType = vm.GoalType switch
+                {
+                    "lose" => "Giảm cân",
+                    "gain" => "Tăng cân",
+                    _ => "Giữ cân"
+                },
                 TargetWeight = vm.TargetWeight,
                 DailyCalorieTarget = vm.DailyCalorieTarget,
                 TargetDate = DateTime.UtcNow.AddMonths(2),
