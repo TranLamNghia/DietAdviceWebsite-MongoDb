@@ -7,12 +7,16 @@ using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddSingleton<UserService>();
 
 
 builder.Services.AddHttpContextAccessor();
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services
+    .AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
 builder.Services.AddSession();
 
 builder.Services.Configure<MongoDbSettings>(
@@ -25,13 +29,18 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
     return client.GetDatabase(settings.DatabaseName);
 });
 
+builder.Services.AddHttpContextAccessor();
+
 // 3. Đăng ký các service của bạn
+
 builder.Services.AddSingleton<AccountAdminService>();
 builder.Services.AddSingleton<UserAdminService>();
 builder.Services.AddSingleton<MealAdminService>();
-builder.Services.AddSingleton<MealManagementService>();
 builder.Services.AddScoped<AuthService>();
-builder.Services.AddSingleton<MealPlanService>();
+builder.Services.AddScoped<MealPlanService>();
+builder.Services.AddScoped<DailyLogService>();
+builder.Services.AddScoped<MealService>();
+builder.Services.AddScoped<UserService>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

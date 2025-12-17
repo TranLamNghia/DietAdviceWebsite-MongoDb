@@ -17,9 +17,8 @@
     "fats": 12
   },
   "tags": [
-    "Món Việt",
-    "Nhiều tinh bột",
-    "Không dành cho keto"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -48,10 +47,9 @@
     "fats": 0.5
   },
   "tags": [
-    "Cơ bản",
-    "Không gluten",
     "Thuần chay",
-    "Ít béo"
+    "Không chứa Gluten",
+    "Ít Calo"
   ],
   "units": [
     "Chén nhỏ",
@@ -79,10 +77,10 @@
     "fats": 28
   },
   "tags": [
-    "Món Việt",
-    "Nhiều chất béo",
-    "Giàu đạm",
-    "Mặn"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten",
+    "Ít Calo"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -109,9 +107,12 @@
     "fats": 12
   },
   "tags": [
-    "Giảm cân",
-    "Nhiều đạm",
-    "Ít tinh bột"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -137,8 +138,8 @@
     "fats": 18
   },
   "tags": [
-    "Món Việt",
-    "Nhiều năng lượng"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Phần nhỏ",
@@ -166,7 +167,7 @@
   },
   "tags": [
     "Giàu đạm",
-    "Nhiều tinh bột"
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -193,9 +194,11 @@
     "fats": 14
   },
   "tags": [
-    "Giảm cân",
-    "Nhiều đạm",
-    "Healthy"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -222,9 +225,12 @@
     "fats": 18
   },
   "tags": [
-    "Ít tinh bột",
+    "Lành mạnh",
     "Giàu đạm",
-    "Healthy"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -250,9 +256,9 @@
     "fats": 6
   },
   "tags": [
-    "Healthy",
-    "Nhiều chất xơ",
-    "Tốt cho tiêu hóa"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Ít Calo"
   ],
   "units": [
     "Chén nhỏ",
@@ -278,8 +284,7 @@
     "fats": 16
   },
   "tags": [
-    "Món Việt",
-    "Nhiều năng lượng"
+    "Giàu đạm"
   ],
   "units": [
     "Nửa ổ",
@@ -306,8 +311,8 @@
     "fats": 20
   },
   "tags": [
-    "Món Việt",
-    "Nhiều tinh bột"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -333,8 +338,12 @@
     "fats": 14
   },
   "tags": [
-    "Healthy",
-    "Ít tinh bột"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -360,7 +369,7 @@
   },
   "tags": [
     "Giàu đạm",
-    "Năng lượng cao"
+    "Ăn chay có trứng/sữa"
   ],
   "units": [
     "Phần 1 trứng",
@@ -387,8 +396,8 @@
     "fats": 14
   },
   "tags": [
-    "Món Việt",
-    "Món nước"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -414,8 +423,8 @@
     "fats": 28
   },
   "tags": [
-    "Rất nhiều năng lượng",
-    "Không dành cho giảm cân"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -442,9 +451,11 @@
     "fats": 6
   },
   "tags": [
+    "Lành mạnh",
     "Thuần chay",
-    "Giảm cân",
-    "Ít calo"
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -470,8 +481,7 @@
     "fats": 18
   },
   "tags": [
-    "Nhiều năng lượng",
-    "Không phù hợp giảm cân"
+    "Giàu đạm"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -498,8 +508,10 @@
     "fats": 4
   },
   "tags": [
-    "Healthy",
-    "Tốt cho tiêu hóa"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Hũ nhỏ",
@@ -525,8 +537,10 @@
     "fats": 24
   },
   "tags": [
-    "Nhiều chất béo tốt",
-    "Tốt cho tăng cân"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Ly nhỏ",
@@ -553,9 +567,12 @@
     "fats": 12
   },
   "tags": [
-    "Nhiều đạm",
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
     "Ít tinh bột",
-    "Phù hợp giảm cân"
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "1 Miếng (Đùi/Cánh)",
@@ -581,8 +598,11 @@
     "fats": 26
   },
   "tags": [
-    "Healthy",
-    "Nhiều omega-3"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
   ],
   "units": [
     "100g (Nhỏ)",
@@ -608,8 +628,8 @@
     "fats": 8
   },
   "tags": [
-    "Món Việt",
-    "Nhẹ bụng"
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -635,8 +655,9 @@
     "fats": 6
   },
   "tags": [
-    "Nhiều tinh bột",
-    "Không phù hợp giảm cân"
+    "Thuần chay",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Chén nhỏ",
@@ -663,9 +684,8 @@
     "fats": 20
   },
   "tags": [
-    "Món Việt",
-    "Nhiều năng lượng",
-    "Đặc sản miền Tây"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "1 Cái",
@@ -691,8 +711,8 @@
     "fats": 16
   },
   "tags": [
-    "Món Việt",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -718,8 +738,8 @@
     "fats": 14
   },
   "tags": [
-    "Ngon nhẹ",
-    "Món Việt"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -746,8 +766,9 @@
     "fats": 10
   },
   "tags": [
-    "Đặc sản",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -773,8 +794,8 @@
     "fats": 12
   },
   "tags": [
-    "Món biển",
-    "Ít béo"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -800,8 +821,8 @@
     "fats": 16
   },
   "tags": [
-    "Đậm vị",
-    "Đặc sản Huế"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -828,8 +849,8 @@
     "fats": 14
   },
   "tags": [
-    "Món Việt",
-    "Tinh bột vừa"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -855,7 +876,8 @@
     "fats": 16
   },
   "tags": [
-    "Đặc sản miền Trung"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -881,8 +903,8 @@
     "fats": 5
   },
   "tags": [
-    "Đặc sản Huế",
-    "Nhiều tinh bột"
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ (5 cái)",
@@ -908,8 +930,8 @@
     "fats": 18
   },
   "tags": [
-    "Đặc sản",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Phần nhỏ",
@@ -935,7 +957,8 @@
     "fats": 24
   },
   "tags": [
-    "Đặc sản miền Tây"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Nồi nhỏ (2 người)",
@@ -961,8 +984,11 @@
     "fats": 28
   },
   "tags": [
+    "Lành mạnh",
     "Giàu đạm",
-    "Đậm vị"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
   ],
   "units": [
     "Góc tư (Đùi)",
@@ -988,8 +1014,11 @@
     "fats": 8
   },
   "tags": [
-    "Ngon nhẹ",
-    "Healthy"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -1016,8 +1045,9 @@
     "fats": 8
   },
   "tags": [
-    "Healthy",
-    "Ít dầu"
+    "Lành mạnh",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1043,8 +1073,7 @@
     "fats": 20
   },
   "tags": [
-    "Đậm vị",
-    "Ăn chơi"
+    "Không chứa Gluten"
   ],
   "units": [
     "Phần nhỏ",
@@ -1070,8 +1099,11 @@
     "fats": 12
   },
   "tags": [
-    "Món Việt",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1097,8 +1129,8 @@
     "fats": 8
   },
   "tags": [
-    "Nhẹ bụng",
-    "Healthy"
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ (Trẻ em)",
@@ -1124,8 +1156,8 @@
     "fats": 24
   },
   "tags": [
-    "Đậm vị",
-    "Khá cay"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Nồi nhỏ",
@@ -1151,8 +1183,8 @@
     "fats": 32
   },
   "tags": [
-    "Nhiều calo",
-    "Không phù hợp giảm cân"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1178,8 +1210,8 @@
     "fats": 22
   },
   "tags": [
-    "Đậm vị",
-    "Món Việt"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Khứa nhỏ",
@@ -1206,9 +1238,7 @@
     "fats": 14
   },
   "tags": [
-    "Món nước",
-    "Món Việt",
-    "Ngon nhẹ"
+    "Giàu đạm"
   ],
   "units": [
     "Tô nhỏ",
@@ -1234,9 +1264,8 @@
     "fats": 22
   },
   "tags": [
-    "Món Việt",
-    "Đặc sản",
-    "Cay nhẹ"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -1263,8 +1292,8 @@
     "fats": 22
   },
   "tags": [
-    "Nhiều tinh bột",
-    "No lâu"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1291,7 +1320,9 @@
   },
   "tags": [
     "Giàu đạm",
-    "Ăn với cơm"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1317,8 +1348,8 @@
     "fats": 16
   },
   "tags": [
-    "Món Việt",
-    "Đặc sản miền Nam"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -1344,8 +1375,9 @@
     "fats": 8
   },
   "tags": [
-    "Nhẹ bụng",
-    "Healthy"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -1371,8 +1403,7 @@
     "fats": 24
   },
   "tags": [
-    "Nhiều năng lượng",
-    "Món sáng quốc dân"
+    "Giàu đạm"
   ],
   "units": [
     "1 Ổ",
@@ -1398,7 +1429,8 @@
     "fats": 24
   },
   "tags": [
-    "Đặc sản Hà Nội"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Phần nhỏ",
@@ -1424,9 +1456,10 @@
     "fats": 16
   },
   "tags": [
-    "Đậm vị",
-    "Mặn",
-    "Truyền thống"
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
   ],
   "units": [
     "Khứa nhỏ",
@@ -1453,9 +1486,6 @@
     "fats": 26
   },
   "tags": [
-    "Món Việt",
-    "Đậm đà",
-    "Nhiều năng lượng",
     "Giàu đạm"
   ],
   "units": [
@@ -1482,8 +1512,8 @@
     "fats": 8
   },
   "tags": [
-    "Nhẹ nhàng",
-    "Ít dầu mỡ"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -1509,7 +1539,8 @@
     "fats": 18
   },
   "tags": [
-    "Đặc sản Hội An"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1535,8 +1566,7 @@
     "fats": 22
   },
   "tags": [
-    "Ngon rẻ",
-    "Siêu nhanh"
+    "Giàu đạm"
   ],
   "units": [
     "Dĩa nhỏ (1 gói)",
@@ -1562,8 +1592,8 @@
     "fats": 16
   },
   "tags": [
-    "Đậm đà",
-    "Ấm bụng"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "Tô nhỏ",
@@ -1589,8 +1619,12 @@
     "fats": 12
   },
   "tags": [
-    "Giảm cân",
-    "Giàu đạm"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1616,8 +1650,11 @@
     "fats": 4
   },
   "tags": [
-    "Healthy",
-    "Thanh mát"
+    "Lành mạnh",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Chén nhỏ (1 khoanh)",
@@ -1643,8 +1680,10 @@
     "fats": 28
   },
   "tags": [
-    "Đậm vị",
-    "Đưa cơm"
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1670,8 +1709,9 @@
     "fats": 12
   },
   "tags": [
-    "Ăn chơi",
-    "Nhậu"
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1697,8 +1737,12 @@
     "fats": 10
   },
   "tags": [
-    "Giảm cân",
-    "Món biển"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
   ],
   "units": [
     "Dĩa nhỏ",
@@ -1724,8 +1768,8 @@
     "fats": 22
   },
   "tags": [
-    "Đậm vị",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Không chứa Gluten"
   ],
   "units": [
     "1 Miếng (Cốt lết)",
