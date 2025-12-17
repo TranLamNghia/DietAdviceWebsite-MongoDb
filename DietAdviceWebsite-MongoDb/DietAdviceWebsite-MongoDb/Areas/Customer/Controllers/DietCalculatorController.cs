@@ -121,9 +121,11 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
             {
                 var newLog = new DailyLog
                 {
+                    Id = ObjectId.GenerateNewId().ToString(),
                     UserId = vm.UserId,
                     Date = dateString,
-                    MealsEaten = newMeals
+                    MealsEaten = newMeals,
+                    DailyReview = new DailyReview()
                 };
                 await _dailyLogService.SaveAsync(newLog);
                 return Ok(new { message = "Đã lưu thực đơn cho ngày mai" });
