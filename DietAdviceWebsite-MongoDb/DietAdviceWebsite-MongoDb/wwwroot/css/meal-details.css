@@ -27,24 +27,40 @@ body {
    ========================================= */
 
 /* --- XỬ LÝ ẢNH --- */
-.food-image-wrapper {
-    width: 100%;
-    /* Tạo khung tỷ lệ 16:9 hoặc 4:3 để ảnh luôn đẹp */
-    aspect-ratio: 16/9; 
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    background-color: #eee; /* Màu nền chờ khi ảnh chưa load */
-    margin-bottom: 15px;
-    position: relative;
+.meal-header {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
 }
 
-.food-image-wrapper img {
+/* Ảnh 30% */
+.meal-image {
+    flex: 0 0 30%;
+    max-width: 380px;
+}
+
+/* Info 70% */
+.meal-info {
+    flex: 1;
+}
+
+/* Ảnh không tràn */
+.food-image-wrapper {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cắt ảnh vừa khung, KHÔNG kéo dãn */
-    object-position: center;
-    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+    .food-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+@media (max-width: 768px) {
+    .meal-header {
+        flex-direction: column;
+    }
 }
 
 /* Badge Category/Type ngay dưới ảnh */
@@ -52,9 +68,41 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+}
+/* Category */
+.badge-category {
+    background: linear-gradient(135deg, #198754, #20c997);
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
 }
 
+/* Group bữa ăn */
+.meal-types {
+    display: flex;
+    gap: 6px;
+}
+
+/* Badge bữa trưa / tối */
+.badge-meal-type {
+    background-color: #eef4ff;
+    color: #0d6efd;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid #dbe7ff;
+}
+
+    .badge-meal-type i {
+        font-size: 0.65rem;
+    }
 /* Thông tin chữ */
 .food-title {
     font-weight: 800;
@@ -72,7 +120,7 @@ body {
 /* --- GRID DINH DƯỠNG --- */
 .nutrition-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Chia 4 cột đều nhau */
+    grid-template-columns: repeat(2, 1fr); /* Chia 2 cột đều nhau */
     gap: 10px;
     margin-bottom: 30px;
 }
@@ -112,13 +160,24 @@ body {
 .n-fat { background-color: #f0fff4; color: #198754; }
 
 /* Tags */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.tag-cloud h6 {
+    width: 100%;
+    margin-bottom: 6px;
+}
+
 .tag-cloud .badge {
     font-size: 0.85rem;
-    padding: 8px 12px;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    padding: 8px;
     background-color: #e9ecef;
     color: #495057;
+    margin-bottom:10px;
     font-weight: 600;
 }
 
@@ -126,29 +185,29 @@ body {
    3. CỘT PHẢI: CALCULATOR (STICKY)
    ========================================= */
 
-/* Đây là class quan trọng giúp cột phải trượt theo */
-.sticky-sidebar {
-    position: sticky;
-    top: 20px; /* Cách mép trên 20px khi cuộn */
-    z-index: 10;
-}
+
 
 .calculator-card {
+    max-width: 520px;
     background: #fff;
     border-radius: 16px;
     border: none;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    margin: 0 auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
     overflow: hidden;
 }
 
 .calc-header {
     background-color: #f8fff9;
     border-bottom: 1px solid #eef7f0;
-    padding: 20px;
+    padding: 14px 18px;
+}
+.calc-header h4 {
+    font-size: 1rem;
 }
 
 .calc-body {
-    padding: 20px;
+    padding: 16px;
 }
 
 /* Input Styles */
@@ -158,10 +217,10 @@ body {
 }
 
 .form-control-lg, .form-select-lg {
-    border-radius: 8px;
+    border-radius: 6px;
     border: 1px solid #dee2e6;
-    font-size: 1rem;
-    padding: 12px;
+    font-size: 0.9rem;
+    padding: 10px;
 }
 
 .form-control-lg:focus, .form-select-lg:focus {
@@ -174,20 +233,20 @@ body {
     background-color: #fcfcfc;
     border: 2px dashed #e0e0e0;
     border-radius: 12px;
-    padding: 20px;
+    padding: 14px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 16px;
 }
 
 #totalResult {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #e67e22;
     line-height: 1;
 }
 
 .macro-mini {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #6c757d;
     margin-top: 8px;
 }
