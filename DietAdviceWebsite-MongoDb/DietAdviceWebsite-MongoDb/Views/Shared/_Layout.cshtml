@@ -1,6 +1,17 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 
+@{
+    // 1. Lấy tên Controller và Action hiện tại
+    var currentController = ViewContext.RouteData.Values["Controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+
+    // 2. Kiểm tra xem có phải trang Login không
+    // Lưu ý: So sánh chuỗi phân biệt hoa thường, hãy chắc chắn tên Controller là "Account"
+    bool isHiddenPage = (currentController == "Account" &&
+                    (currentAction == "Login" || currentAction == "Register"));
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,57 +23,45 @@
     <link rel="stylesheet" href="~/DietAdviceWebsite_MongoDb.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-success" asp-area="" asp-controller="Home" asp-action="Index">
-                    Diet Advice
-                </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+    @if (!isHiddenPage)
+    {
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <a class="navbar-brand fw-bold text-success" asp-area="" asp-controller="Home" asp-action="Index">
+                        Diet Advice
+                    </a>
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Advice" asp-action="Index">Tính toán chế độ ăn</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Advice" asp-action="Index">Thực đơn hôm nay</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Quản lý món ăn</a>
-                        </li>
-                    </ul>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                    <!--  Phần hiển thị bên phải -->
-                    <div class="d-flex ms-auto">
-                        @if (HttpContextAccessor.HttpContext.Session.GetString("Username") == null)
-                        {
-                            <!-- Khi CHƯA đăng nhập -->
-                            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success me-2">Đăng nhập</a>
-                            <a asp-controller="Account" asp-action="Register" class="btn btn-success">Đăng ký</a>
-                        }
-                        else
-                        {
-                            <!-- Khi ĐÃ đăng nhập -->
-                            <div class="d-flex align-items-center">
-                                <span class="me-3 text-success fw-bold">
-                                    👤 @HttpContextAccessor.HttpContext.Session.GetString("Username")
-                                </span>
-                                <a asp-controller="Account" asp-action="Logout" class="btn btn-outline-danger">Đăng xuất</a>
-                            </div>
-                        }
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <div class="d-flex ms-auto">
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success me-2">Đăng nhập</a>
+                                <a asp-controller="Account" asp-action="Register" class="btn btn-success">Đăng ký</a>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center">
+                                    <span class="me-3 text-success fw-bold">
+                                        @User.Identity.Name
+                                    </span>
+                                    <form asp-controller="Account" asp-action="Logout" method="get" class="d-inline">
+                                        <button type="submit" class="btn btn-outline-danger">Đăng xuất</button>
+                                    </form>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+            </nav>
+        </header>
+    }
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -70,11 +69,6 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - DietAdviceWebsite_MongoDb - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

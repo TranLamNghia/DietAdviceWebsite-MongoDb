@@ -1,79 +1,67 @@
 [{
-  "_id": "log_20251120_user001",
-  "user_id": "user_001",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff44044767"
+  },
+  "user_id": "69324f221d64e3ff440446cd",
   "date": "2025-11-20",
   "meals_eaten": [
     {
-      "meal_id": "meal_101",
-      "name": "Phở Bò Tái",
+      "meal_id": "69325b5b1d64e3ff44044706",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Bát lớn",
-      "calories_consumed": 450
+      "unit": "Tô lớn"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Bát vừa (150g)",
-      "calories_consumed": 200
+      "unit": "Chén đầy"
     },
     {
-      "meal_id": "meal_103",
-      "name": "Thịt Kho Tàu",
+      "meal_id": "69325b5b1d64e3ff44044708",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Đĩa nhỏ (100g thịt)",
-      "calories_consumed": 350
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_135",
-      "name": "Gà Nướng Muối Ớt",
+      "meal_id": "69325b5b1d64e3ff44044728",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Phần đầy đủ",
-      "calories_consumed": 520
+      "unit": "Góc tư (Đùi)"
     }
   ],
   "daily_review": {}
 },
 {
-  "_id": "log_20251119_user001",
-  "user_id": "user_001",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff44044768"
+  },
+  "user_id": "69324f221d64e3ff440446cd",
   "date": "2025-11-19",
   "meals_eaten": [
     {
-      "meal_id": "meal_101",
-      "name": "Phở Bò Tái",
+      "meal_id": "69325b5b1d64e3ff44044706",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Bát lớn",
-      "calories_consumed": 450
+      "unit": "Tô lớn"
     },
     {
-      "meal_id": "meal_128",
-      "name": "Bún Chả Cá Nha Trang",
+      "meal_id": "69325b5b1d64e3ff44044721",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Tô vừa",
-      "calories_consumed": 380
+      "unit": "Tô thường"
     },
     {
-      "meal_id": "meal_147",
-      "name": "Gà Kho Sả Ớt",
+      "meal_id": "69325b5b1d64e3ff44044734",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Đĩa nhỏ",
-      "calories_consumed": 420
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g",
-      "calories_consumed": 200
+      "unit": "Hũ nhỏ"
     }
   ],
   "daily_review": {
@@ -82,49 +70,41 @@
   }
 },
 {
-  "_id": "log_20251119_user002",
-  "user_id": "user_002",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff44044769"
+  },
+  "user_id": "69324f2c1d64e3ff440446ce",
   "date": "2025-11-19",
   "meals_eaten": [
     {
-      "meal_id": "meal_150",
-      "name": "Bánh Mì Ốp La Thịt Nguội",
+      "meal_id": "69325b5b1d64e3ff44044737",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Ổ lớn",
-      "calories_consumed": 520
+      "unit": "1 Ổ đặc biệt"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Sáng",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g",
-      "calories_consumed": 180
+      "unit": "Hũ nhỏ"
     },
     {
-      "meal_id": "meal_105",
-      "name": "Bún Chả Hà Nội",
+      "meal_id": "69325b5b1d64e3ff4404470a",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần đầy đủ",
-      "calories_consumed": 520
+      "unit": "Phần thường"
     },
     {
-      "meal_id": "meal_119",
-      "name": "Sinh Tố Bơ",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Ly 350ml",
-      "calories_consumed": 300
+      "unit": "Ly vừa"
     },
     {
-      "meal_id": "meal_146",
-      "name": "Cơm Chiên Dương Châu",
+      "meal_id": "69325b5b1d64e3ff44044733",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Dĩa lớn",
-      "calories_consumed": 650
+      "unit": "Dĩa lớn"
     }
   ],
   "daily_review": {
@@ -133,121 +113,99 @@
   }
 },
 {
-  "_id": "log_20251120_user002",
-  "user_id": "user_002",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476a"
+  },
+  "user_id": "69324f2c1d64e3ff440446ce",
   "date": "2025-11-20",
   "meals_eaten": [
     {
-      "meal_id": "meal_110",
-      "name": "Bánh Mì Thịt Nướng",
+      "meal_id": "69325b5b1d64e3ff4404470f",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Ổ lớn",
-      "calories_consumed": 480
+      "unit": "1 Ổ"
     },
     {
-      "meal_id": "meal_147",
-      "name": "Gà Kho Sả Ớt",
+      "meal_id": "69325b5b1d64e3ff44044734",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần tiêu chuẩn",
-      "calories_consumed": 420
+      "unit": "Dĩa thường"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Bát 200g",
-      "calories_consumed": 260
+      "unit": "Chén đầy"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g",
-      "calories_consumed": 180
+      "unit": "Hũ nhỏ"
     },
     {
-      "meal_id": "meal_131",
-      "name": "Mì Quảng Gà",
+      "meal_id": "69325b5b1d64e3ff44044724",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô đầy",
-      "calories_consumed": 500
+      "unit": "Tô đặc biệt"
     },
     {
-      "meal_id": "meal_119",
-      "name": "Sinh Tố Bơ",
-      "time_slot": "Bữa Phụ Tối",
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Ly 350ml",
-      "calories_consumed": 320
+      "unit": "Ly vừa"
     }
   ],
   "daily_review": {}
 },
 {
-  "_id": "log_20251119_user003",
-  "user_id": "user_003",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476b"
+  },
+  "user_id": "69324f2f1d64e3ff440446cf",
   "date": "2025-11-19",
   "meals_eaten": [
     {
-      "meal_id": "meal_110",
-      "name": "Bánh Mì Thịt Nướng",
+      "meal_id": "69325b5b1d64e3ff4404470f",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Ổ lớn",
-      "calories_consumed": 480
+      "unit": "1 Ổ"
     },
     {
-      "meal_id": "meal_108",
-      "name": "Súp Lơ Xào Thịt Bò",
+      "meal_id": "69325b5b1d64e3ff4404470d",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Dĩa tiêu chuẩn",
-      "calories_consumed": 330
+      "unit": "Dĩa thường"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "200g",
-      "calories_consumed": 260
+      "unit": "Chén đầy"
     },
     {
-      "meal_id": "meal_107",
-      "name": "Salad Cá Ngừ",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff4404470c",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 320
+      "unit": "Tô nhỏ"
     },
     {
-      "meal_id": "meal_119",
-      "name": "Sinh Tố Bơ",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Ly 350ml",
-      "calories_consumed": 300
+      "unit": "Ly vừa"
     },
     {
-      "meal_id": "meal_135",
-      "name": "Gà Nướng Muối Ớt",
+      "meal_id": "69325b5b1d64e3ff44044728",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Phần lớn",
-      "calories_consumed": 520
+      "unit": "Nửa con"
     },
     {
-      "meal_id": "meal_120",
-      "name": "Gà Luộc",
-      "time_slot": "Bữa Phụ Tối",
+      "meal_id": "69325b5b1d64e3ff44044719",
+      "time_slot": "Bữa Phụ",
       "quantity": 1.4,
-      "unit": "200g",
-      "calories_consumed": 340
+      "unit": "1 Miếng (Đùi/Cánh)"
     }
   ],
   "daily_review": {
@@ -256,129 +214,123 @@
   }
 },
 {
-  "_id": "log_20251120_user003",
-  "user_id": "user_003",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476c"
+  },
+  "user_id": "69324f2f1d64e3ff440446cf",
   "date": "2025-11-20",
   "meals_eaten": [
     {
-      "meal_id": "meal_113",
-      "name": "Ốp La + Bánh Mì",
+      "meal_id": "69325b5b1d64e3ff44044712",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Phần đầy đủ",
-      "calories_consumed": 380
+      "unit": "Phần 2 trứng"
     },
     {
-      "meal_id": "meal_131",
-      "name": "Mì Quảng Gà",
+      "meal_id": "69325b5b1d64e3ff44044724",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Tô đầy",
-      "calories_consumed": 500
+      "unit": "Tô đặc biệt"
     },
     {
-      "meal_id": "meal_107",
-      "name": "Salad Cá Ngừ",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff4404470c",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Tô trung bình",
-      "calories_consumed": 320
+      "unit": "Tô vừa"
     },
     {
-      "meal_id": "meal_147",
-      "name": "Gà Kho Sả Ớt",
+      "meal_id": "69325b5b1d64e3ff44044734",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Phần tiêu chuẩn",
-      "calories_consumed": 420
+      "unit": "Dĩa thường"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "200g",
-      "calories_consumed": 260
+      "unit": "Chén đầy"
     },
     {
-      "meal_id": "meal_158",
-      "name": "Cá Hồi Áp Chảo",
-      "time_slot": "Bữa Phụ Tối",
+      "meal_id": "69325b5b1d64e3ff4404471a",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "150g",
-      "calories_consumed": 380
+      "unit": "100g (Nhỏ)"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Tối",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ",
-      "calories_consumed": 100
+      "unit": "Hũ nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044714",
+      "time_slot": "Bửa phụ",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470a",
+      "time_slot": "Bửa phụ",
+      "quantity": 2,
+      "unit": "Phần nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bửa phụ",
+      "quantity": 1,
+      "unit": "Tô nhỏ"
     }
   ],
   "daily_review": {}
 },
 {
-  "_id": "log_20251119_user004",
-  "user_id": "user_004",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476d"
+  },
+  "user_id": "69324f3a1d64e3ff440446d0",
   "date": "2025-11-19",
   "meals_eaten": [
     {
-      "meal_id": "meal_153",
-      "name": "Bánh Cuốn Nóng",
+      "meal_id": "69325b5b1d64e3ff4404471b",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Đĩa nhỏ",
-      "calories_consumed": 320
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_158",
-      "name": "Mực Xào Hành Cần",
+      "meal_id": "69325b5b1d64e3ff44044743",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần tiêu chuẩn",
-      "calories_consumed": 320
+      "unit": "Dĩa thường"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 0.5,
-      "unit": "100g",
-      "calories_consumed": 130
+      "unit": "Chén nhỏ"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g",
-      "calories_consumed": 190
+      "unit": "Hũ nhỏ"
     },
     {
-      "meal_id": "meal_159",
-      "name": "Canh Khổ Qua Nhồi Thịt",
+      "meal_id": "69325b5b1d64e3ff44044740",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 200
+      "unit": "Chén nhỏ (1 khoanh)"
     },
     {
-      "meal_id": "meal_158",
-      "name": "Nộm Tai Heo",
+      "meal_id": "69325b5b1d64e3ff44044742",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Dĩa nhỏ",
-      "calories_consumed": 260
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Tối",
       "quantity": 0.2,
-      "unit": "50g",
-      "calories_consumed": 60
+      "unit": "Chén nhỏ"
     }
   ],
   "daily_review": {
@@ -387,172 +339,169 @@
   }
 },
 {
-  "_id": "log_20251120_user004",
-  "user_id": "user_004",
+  "_id": {
+    "$oid": "69326a8a1d64e3ff4404476e"
+  },
+  "user_id": "69324f3a1d64e3ff440446d0",
   "date": "2025-11-20",
   "meals_eaten": [
     {
-      "meal_id": "meal_140",
-      "name": "Cháo Sườn",
+      "meal_id": "69325b5b1d64e3ff4404472d",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 300
+      "unit": "Tô nhỏ (Trẻ em)"
     },
     {
-      "meal_id": "meal_148",
-      "name": "Bún Thịt Nướng",
+      "meal_id": "69325b5b1d64e3ff44044735",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần nhỏ",
-      "calories_consumed": 480
+      "unit": "Tô nhỏ"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Chiều",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "Hũ 150g",
-      "calories_consumed": 150
+      "unit": "Hũ nhỏ"
     },
     {
-      "meal_id": "meal_160",
-      "name": "Thịt Kho Tiêu",
+      "meal_id": "69325b5b1d64e3ff44044741",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "120g",
-      "calories_consumed": 420
+      "unit": "Niêu đất"
     },
     {
-      "meal_id": "meal_109",
-      "name": "Cháo Yến Mạch",
+      "meal_id": "69325b5b1d64e3ff4404470e",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 250
+      "unit": "Chén nhỏ"
     }
   ],
   "daily_review": {}
 },
 {
-  "_id": "log_20251119_user005",
-  "user_id": "user_005",
-  "date": "2025-11-19",
+  "_id": {
+    "$oid": "69326c181d64e3ff44044780"
+  },
+  "user_id": "69324f3a1d64e3ff440446d0",
+  "date": "2025-12-06",
   "meals_eaten": [
     {
-      "meal_id": "meal_101",
-      "name": "Phở Bò Tái",
+      "meal_id": "69325b5b1d64e3ff4404472d",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Bát lớn",
-      "calories_consumed": 450
+      "unit": "Tô nhỏ (Trẻ em)"
     },
     {
-      "meal_id": "meal_158",
-      "name": "Mực Xào Hành Cần",
+      "meal_id": "69325b5b1d64e3ff44044735",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Dĩa nhỏ",
-      "calories_consumed": 320
+      "unit": "Tô nhỏ"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
-      "time_slot": "Bữa Trưa",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bữa Phụ",
       "quantity": 1,
-      "unit": "150g",
-      "calories_consumed": 200
+      "unit": "Hũ nhỏ"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Chiều",
-      "quantity": 1,
-      "unit": "Hũ nhỏ",
-      "calories_consumed": 140
-    },
-    {
-      "meal_id": "meal_159",
-      "name": "Canh Khổ Qua Nhồi Thịt",
+      "meal_id": "69325b5b1d64e3ff44044741",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 200
+      "unit": "Niêu đất"
     },
     {
-      "meal_id": "meal_121",
-      "name": "Cá Hồi Áp Chảo",
+      "meal_id": "69325b5b1d64e3ff4404470e",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "150g",
-      "calories_consumed": 380
+      "unit": "Chén nhỏ"
     }
   ],
+  "daily_review": {}
+},
+{
+  "_id": {
+    "$oid": "69404e97764982ee0a4f7062"
+  },
+  "user_id": null,
+  "date": "2025-12-16",
+  "meals_eaten": [],
   "daily_review": {
-    "rating": 5,
-    "comment": "Điều chỉnh bữa sáng nhiều calo hơn một chút giúp cả ngày đủ năng lượng. Bữa tối thanh đạm."
+    "rating": 0,
+    "comment": null
   }
 },
 {
-  "_id": "log_20251120_user005",
-  "user_id": "user_005",
-  "date": "2025-11-20",
+  "_id": {
+    "$oid": "6940cc37de9f72b3152cd3e9"
+  },
+  "user_id": "693fcb15425d1b20f2a5b403",
+  "date": "2025-12-16",
   "meals_eaten": [
     {
-      "meal_id": "meal_140",
-      "name": "Cháo Sườn",
+      "meal_id": "69325b5b1d64e3ff44044706",
       "time_slot": "Bữa Sáng",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 300
+      "unit": "Bát lớn"
     },
     {
-      "meal_id": "meal_152",
-      "name": "Cá Kho Làng Vũ Đại",
+      "meal_id": "69325b5b1d64e3ff44044717",
+      "time_slot": "Bửa phụ",
+      "quantity": 1,
+      "unit": "Ly thường"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044706",
+      "time_slot": "Bửa phụ",
+      "quantity": 2,
+      "unit": "Tô thường"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
       "time_slot": "Bữa Trưa",
       "quantity": 1,
-      "unit": "Phần nhỏ",
-      "calories_consumed": 380
+      "unit": "Chén nhỏ"
     },
     {
-      "meal_id": "meal_102",
-      "name": "Cơm Trắng",
+      "meal_id": "69325b5b1d64e3ff44044709",
       "time_slot": "Bữa Trưa",
-      "quantity": 0.5,
-      "unit": "100g",
-      "calories_consumed": 130
+      "quantity": 2,
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_118",
-      "name": "Sữa Chua Trái Cây",
-      "time_slot": "Bữa Phụ Chiều",
-      "quantity": 1,
-      "unit": "Hũ nhỏ",
-      "calories_consumed": 140
-    },
-    {
-      "meal_id": "meal_160",
-      "name": "Thịt Kho Tiêu",
+      "meal_id": "69325b5b1d64e3ff4404470d",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "100g",
-      "calories_consumed": 350
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_109",
-      "name": "Cháo Yến Mạch",
+      "meal_id": "69325b5b1d64e3ff44044742",
       "time_slot": "Bữa Tối",
       "quantity": 1,
-      "unit": "Tô nhỏ",
-      "calories_consumed": 250
+      "unit": "Dĩa nhỏ"
     },
     {
-      "meal_id": "meal_135",
-      "name": "Gà Nướng Muối Ớt",
-      "time_slot": "Bữa Phụ Tối",
-      "quantity": 0.5,
-      "unit": "Nửa phần",
-      "calories_consumed": 150
+      "meal_id": "69325b5b1d64e3ff44044718",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Ly nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044707",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Chén nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff44044743",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
+    },
+    {
+      "meal_id": "69325b5b1d64e3ff4404470b",
+      "time_slot": "Bữa Tối",
+      "quantity": 1,
+      "unit": "Dĩa nhỏ"
     }
   ],
   "daily_review": {}

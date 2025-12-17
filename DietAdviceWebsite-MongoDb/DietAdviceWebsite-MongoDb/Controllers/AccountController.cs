@@ -1,10 +1,46 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using DietAdviceWebsite_MongoDb.Models;
+using DietAdviceWebsite_MongoDb.Service;
+using DietAdviceWebsite_MongoDb.Models.ViewModels;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace DietAdviceWebsite_MongoDb.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly AuthService _authService;
+        public AccountController(AuthService authService)
+        {
+            _authService = authService;
+        }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
+        {
+            if (!ModelState.IsValid == true)
+            {
+                return View(registerViewModel);
+            }
+
+            var result = await _authService.RegisterAsync(registerViewModel.Email, registerViewModel.Password, registerViewModel.FullName);
+            if (result == "Success")
+            {
+                TempData["SuccessMessage"] = "Đăng ký thành công! Hãy đăng nhập.";
+                return RedirectToAction("Login");
+            }
+
+            ViewBag.Error = result;
+
+            return View(registerViewModel);
+        }
         [HttpGet]
         public IActionResult Login()
         {
@@ -12,46 +48,37 @@ namespace DietAdviceWebsite_MongoDb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
-            if (username == "admin" && password == "123") // kiểm tra demo
+            if (!ModelState.IsValid) return View(loginViewModel);
+            var account = await _authService.ValidateLoginAsync(loginViewModel.Email, loginViewModel.Password);
+            if (account == null)
             {
-                // Lưu tên người dùng vào session
-                HttpContext.Session.SetString("Username", username);
-
-                return RedirectToAction("Index", "Home");
+                ViewBag.Error = "Sai Email hoặc Mật khẩu";
+                return View(loginViewModel);
             }
 
-            ViewBag.Error = "Tên đăng nhập hoặc mật khẩu không đúng!";
-            return View();
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, account.Email),
+                new Claim(ClaimTypes.Role, account.Role),
+                new Claim("UserId", account.Id)
+            };
+
+            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
+
+            if (account.Role == "Admin")
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
+            else
+                return RedirectToAction("Index", "Home", new { area = "Customer" });
         }
-
-        public IActionResult Logout()
-        {
-            HttpContext.Session.Clear(); // Xóa session khi đăng xuất
-            return RedirectToAction("Index", "Home");
-        }
-
-
+        
         [HttpGet]
-        public IActionResult Register()
+        public async Task<IActionResult> Logout()
         {
-            return View();
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "Account");
         }
-
-        [HttpPost]
-        public IActionResult Register(string username, string email, string password, string confirmPassword)
-        {
-            if (password != confirmPassword)
-            {
-                ViewBag.Error = "Mật khẩu xác nhận không khớp!";
-                return View();
-            }
-
-            //  Lưu thông tin tài khoản vào MongoDB
-            ViewBag.Message = "Đăng ký tài khoản thành công!";
-            return RedirectToAction("Login");
-        }
-
     }
 }

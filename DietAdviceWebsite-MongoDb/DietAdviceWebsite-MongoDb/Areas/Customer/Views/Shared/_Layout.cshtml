@@ -1,0 +1,156 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriCare - Quản lý chế độ ăn uống</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+
+    <style>
+        /* Thêm style cho trạng thái active */
+        .navbar-menu li.active .nav-link {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .btn-logout {
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            margin-top:5px;
+            padding: 5px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+        }
+
+        .btn-logout:hover {
+            background-color: #c0392b;
+        }
+
+        .user-gmail {
+            background-color: #f1f1f1;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <a href="index.html" class="logo">🥗 NutriCare</a>
+            </div>
+            @{
+                var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+                var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+            }
+            <ul class="navbar-menu">
+                <li class="@(currentController == "Home" ? "active" : "")">
+                    <a href="@Url.Action("Index", "Home", new { area = "Customer" })" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="@(currentController == "DietCalculator" ? "active" : "")">
+                    <a href="@Url.Action("Index", "DietCalculator", new { area = "Customer" })" class="nav-link">Tính toán</a>
+                    </li>
+                <li class="@(currentController == "MealPlan" ? "active" : "")">
+                    <a href="@Url.Action("Index", "MealPlan", new { area = "Customer" })" class="nav-link">Thực đơn</a>
+                </li>
+                <li class="@(currentController == "MealManagement" ? "active" : "")">
+                    <a href="@Url.Action("Index", "MealManagement", new { area = "Customer" })" class="nav-link">Quản lý</a>
+                </li>
+                <li class="@(currentController == "FoodDiary" ? "active" : "")">
+                    <a href="@Url.Action("Index", "FoodDiary", new { area = "Customer" })" class="nav-link">Nhật ký</a>
+                </li>
+                <li class="@(currentController == "Profile" ? "active" : "")">
+                    <a href="@Url.Action("Index", "Profile", new { area = "Customer" })" class="nav-link">Cá nhân</a>
+                </li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="d-flex ms-auto">
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success me-2">Đăng nhập</a>
+                        <a asp-controller="Account" asp-action="Register" class="btn btn-success">Đăng ký</a>
+                    }
+                    else
+                    {
+                        <div class="d-flex align-items-center">
+                            <span class="user-gmail">
+                                @User.Identity.Name
+                            </span>
+                            <form asp-area="" asp-controller="Account" asp-action="Logout" method="get" class="d-inline">
+                                <button type="submit" class="btn btn-logout">Đăng xuất</button>
+                            </form>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>NutriCare</h4>
+                    <p>Ứng dụng quản lý chế độ ăn uống và lập kế hoạch bữa ăn cá nhân hóa</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="@Url.Action("Index", "Home", new { area = "" })">Trang chủ</a></li>
+                        <li><a href="@Url.Action("Index", "DietCalculator", new { area = "Customer" })">Tính toán</a></li>
+                        <li><a href="@Url.Action("Index", "MealPlan", new { area = "Customer" })">Thực đơn</a></li>
+                        <li><a href="@Url.Action("Index", "MealManagement", new { area = "Customer" })">Quản lý</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Theo dõi</h4>
+                    <div class="social-links">
+                        <a href="#">Facebook</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 NutriCare. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        window.appData = {
+            userId: '@User.FindFirst("UserId")?.Value'
+        };
+    </script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

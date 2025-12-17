@@ -1,0 +1,510 @@
+.date-navigation {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+    flex-wrap: wrap;
+}
+
+.date-input {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+}
+
+.evaluation-section {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-xl);
+    border-left: 4px solid var(--warning);
+}
+
+    .evaluation-section h2 {
+        margin-bottom: var(--spacing-md);
+    }
+
+.evaluation-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.meals-container {
+    display: grid;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.meal-box {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.meal-toggle {
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.meal-items {
+    padding: var(--spacing-lg);
+    display: none;
+}
+
+    .meal-items.expanded {
+        display: block;
+    }
+
+.meal-item {
+    background-color: var(--background);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-md);
+    border-left: 4px solid var(--accent);
+}
+
+.meal-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meal-item-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.meal-item-toggle {
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.meal-item-details {
+    display: none;
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+    .meal-item-details.expanded {
+        display: block;
+    }
+
+.meal-item-nutrition {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.nutrition-stat {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--card-bg);
+    border-radius: var(--radius-md);
+}
+
+    .nutrition-stat .label {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        display: block;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .nutrition-stat .value {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: var(--primary);
+    }
+
+.weekly-stats {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+}
+
+    .weekly-stats h2 {
+        margin-bottom: var(--spacing-xl);
+    }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+    .stat-card .day {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-bottom: var(--spacing-sm);
+    }
+
+    .stat-card .calories {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.date-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-btn {
+    background: none;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+    .nav-btn:hover {
+        background-color: #f3f4f6;
+    }
+
+.date-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+    .summary-card .label {
+        color: #6b7280;
+        font-size: 0.9rem;
+    }
+
+    .summary-card .value {
+        font-weight: bold;
+        font-size: 1.8rem;
+        margin: 8px 0;
+    }
+
+.meal-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 16px;
+    margin-bottom: 12px;
+    display: block;
+    grid-template-columns: 2fr 1fr;
+}
+
+    .meal-card h3 {
+        margin: 0 0 4px 0;
+    }
+
+    .meal-card p {
+        color: #6b7280;
+        font-size: 0.9rem;
+    }
+
+.meal-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.meal-toggle {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin: 10px;
+    width: 150px;
+    cursor: pointer;
+}
+
+    .meal-toggle:hover {
+        background-color: #f3f4f6;
+    }
+
+.weekly-section h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+}
+
+.history-list .history-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.history-card:hover {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.history-card p {
+    margin: 0;
+}
+
+.meal-details {
+    max-height: 0;
+    overflow: hidden;
+    background-color: #fafafa;
+    transition: max-height 0.5s ease, padding 0.4s ease;
+    padding: 0 16px;
+    border-top: 1px solid #eee;
+}
+
+    .meal-details.expanded {
+        padding: 12px 16px;
+    }
+
+
+/* Mỗi món ăn */
+.meal-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+    .meal-item:hover {
+        transform: scale(1.01);
+    }
+
+.text-muted {
+    color: #888;
+    font-style: italic;
+}
+
+
+.meal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* --- CUSTOM REVIEW SECTION --- */
+
+/* 1. Khung chứa chính */
+#reviewSection {
+    background: #ffffff;
+    border: none;
+    border-radius: 16px;
+    /* Đổ bóng nhẹ tạo độ nổi */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Viền trái màu vàng để nhấn mạnh khu vực Review */
+    border-left: 6px solid #ffc107;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    #reviewSection:hover {
+        transform: translateY(-5px); /* Nhấc nhẹ khi di chuột vào */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+/* 2. Tiêu đề và Header */
+.review-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(to right, #fff, #fffcf5); /* Gradient nhẹ */
+}
+
+.review-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.review-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+/* 3. Phần đánh giá Sao (Rating Stars) */
+.rating-container {
+    background-color: #fafafa;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rating-stars {
+    display: inline-flex;
+    gap: 15px; /* Khoảng cách giữa các ngôi sao */
+    cursor: pointer;
+}
+
+    .rating-stars i {
+        font-size: 2.2rem; /* Sao to rõ ràng */
+        color: #e9ecef; /* Màu xám khi chưa chọn */
+        transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy */
+    }
+
+        /* Khi hover hoặc đã chọn (class .fas) */
+        .rating-stars i.fas {
+            color: #ffc107; /* Màu vàng Gold */
+            filter: drop-shadow(0 2px 4px rgba(255, 193, 7, 0.3));
+        }
+
+        .rating-stars i:hover {
+            transform: scale(1.2); /* Phóng to khi di chuột */
+        }
+
+/* Text hiển thị trạng thái (Tốt, Tệ...) */
+#ratingText {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    height: 1.5rem; /* Giữ chỗ để không bị giật layout */
+}
+
+/* 4. Textarea nhập liệu */
+#commentInput {
+    border: 2px solid #eee;
+    border-radius: 12px;
+    padding: 15px;
+    font-size: 0.95rem;
+    background-color: #fff;
+    resize: none;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+    #commentInput:focus {
+        border-color: #ffc107;
+        box-shadow: 0 0 0 4px rgba(255, 193, 7, 0.1);
+        outline: none;
+    }
+
+/* 5. Nút Submit */
+#btnSubmitReview {
+    background: linear-gradient(135deg, #ffc107 0%, #ffca2c 100%);
+    border: none;
+    color: #212529;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    width: 100%;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    transition: all 0.3s ease;
+}
+
+    #btnSubmitReview:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+        filter: brightness(1.05);
+    }
+
+/* 6. Giao diện ĐÃ ĐÁNH GIÁ (Read-only) */
+#reviewDisplay {
+    background-color: #f8fff9; /* Nền xanh siêu nhạt */
+    border: 1px dashed #27ae60;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+}
+
+.review-badge {
+    background-color: #27ae60;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+#displayComment {
+    font-style: italic;
+    color: #555;
+    font-size: 1.1rem;
+    display: block;
+    margin: 15px 0;
+    position: relative;
+}
+
+    #displayComment::before {
+        content: '"';
+        font-size: 3rem;
+        color: #27ae60;
+        opacity: 0.2;
+        position: absolute;
+        top: -20px;
+        left: 45%;
+        font-family: serif;
+    }
+
+#reviewSection {
+    animation: slideUpFade 0.6s ease-out;
+}
+
+.rating-stars {
+    display: inline-flex;
+    gap: 10px;
+    min-height: 40px; 
+}
+
+    .rating-stars i {
+        font-size: 2rem;
+        color: #e9ecef;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+        .rating-stars i.fas,
+        .rating-stars i:hover,
+        .rating-stars i:hover ~ i {
+            color: #ffc107;
+        }

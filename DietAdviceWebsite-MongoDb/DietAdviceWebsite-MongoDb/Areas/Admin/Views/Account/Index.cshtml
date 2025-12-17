@@ -1,0 +1,119 @@
+﻿@model List<DietAdviceWebsite_MongoDb.Models.Account>
+
+@{
+    ViewData["Title"] = "Quản lý tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-styles.css" />
+
+<div class="page-container">
+    <div class="page-content active">
+
+        <div class="card-header" style="margin-bottom: 20px;">
+            <h2>👥 Quản lý phân quyền</h2>
+        </div>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success" style="padding: 10px; background: #d4edda; color: #155724; border-radius: 5px; margin-bottom: 20px;">
+                <i class="fas fa-check"></i> @TempData["Success"]
+            </div>
+        }
+
+        <div style="background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+            <table class="table" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background: #f8f9fa; border-bottom: 2px solid #eee; text-align: left;">
+                        <th style="padding: 12px;">Email tài khoản</th>
+                        <th style="padding: 12px; text-align: center;">Vai trò hiện tại</th>
+                        <th style="padding: 12px; text-align: right;">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        @foreach (var acc in Model)
+                        {
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 12px; vertical-align: middle;">
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div style="background:#eee; width:35px; height:35px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#666;">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div>
+                                            <strong>@acc.Email</strong>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td style="padding: 12px; text-align: center; vertical-align: middle;">
+                                    @if (acc.Role == "Admin")
+                                    {
+                                        <span style="background: #e74c3c; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 700;">
+                                            ADMIN
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span style="background: #2ecc71; color: white; padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600;">
+                                            CUSTOMER
+                                        </span>
+                                    }
+                                </td>
+
+                                <td style="padding: 12px; text-align: right; vertical-align: middle;">
+                                    <div style="display:flex; justify-content:flex-end; gap:5px;">
+
+                                        @if (acc.Role == "Customer")
+                                        {
+                                            <form asp-action="UpdateRole" method="post">
+                                                <input type="hidden" name="id" value="@acc.Id" />
+                                                <input type="hidden" name="role" value="Admin" />
+                                                <button type="submit" class="btn-sm" style="background: #fff; border: 1px solid #e74c3c; color: #e74c3c; cursor: pointer; padding: 6px 10px; border-radius: 4px;" title="Nâng lên Admin">
+                                                    <i class="fas fa-arrow-up"></i> Thăng chức
+                                                </button>
+                                            </form>
+                                        }
+                                        else
+                                        {
+                                            <form asp-action="UpdateRole" method="post">
+                                                <input type="hidden" name="id" value="@acc.Id" />
+                                                <input type="hidden" name="role" value="Customer" />
+                                                <button type="submit" class="btn-sm" style="background: #fff; border: 1px solid #f39c12; color: #f39c12; cursor: pointer; padding: 6px 10px; border-radius: 4px;" title="Hạ xuống Customer">
+                                                    <i class="fas fa-arrow-down"></i> Giáng chức
+                                                </button>
+                                            </form>
+                                        }
+
+                                        <button onclick="confirmDelete('@acc.Id', '@acc.Email')" class="btn-sm" style="background: #fff; border: 1px solid #999; color: #999; cursor: pointer; padding: 6px 10px; border-radius: 4px;" title="Xóa tài khoản">
+                                            🗑️
+                                        </button>
+                                        <form id="delete-form-@acc.Id" asp-action="Delete" method="post" style="display:none;">
+                                            <input type="hidden" name="id" value="@acc.Id">
+                                        </form>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="3" style="text-align:center; padding: 30px; color: #999;">Chưa có tài khoản nào.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete(id, email) {
+        if (confirm('Bạn có chắc chắn muốn xóa tài khoản ' + email + ' không?')) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    }
+</script>

@@ -1,0 +1,74 @@
+﻿@model List<DietAdviceWebsite_MongoDb.Models.Meal>
+
+<div class="container main-content">
+    <!-- Header Section -->
+    <div class="page-header-center">
+        <h1>Thư viện món ăn</h1>
+        <p class="page-subtitle">Khám phá thông tin dinh dưỡng các món ăn phổ biến</p>
+    </div>
+
+    <!-- Toolbar: Search Form -->
+    <form class="toolbar-section centered-toolbar" onsubmit="return false;">
+        <div class="search-wrapper large-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" name="search" placeholder="Tìm món phở, cơm, healthy..." oninput="handleSearch()">
+        </div>
+    </form>
+
+    <!-- Dynamic Filter Tags -->
+    <div class="filter-tags-container" id="filterContainer">
+        <button class="filter-tag active" onclick="filterByCategory('all', this)">Tất cả</button>
+        @foreach (var category in ViewBag.Categories)
+        {
+            <button class="filter-tag" onclick="filterByCategory('@category', this)">@category</button>
+        }
+    </div>
+
+    <!-- Meal Grid -->
+    <div class="food-grid" id="foodGrid">
+        @foreach (var item in Model)
+        {
+            <div class="food-card" data-name="@item.Name.ToLower()" data-category="@item.Category">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3>@item.Name</h3>
+                    </div>
+                </div>
+                <p class="card-desc">@item.Description</p>
+
+                <div class="nutrition-box">
+                    <div class="nutri-col">
+                        <span class="nutri-label">Calo</span>
+                        <span class="nutri-val" style="color: #ff6347;">@item.Nutrition.Calories</span>
+                    </div>
+                    <div class="nutri-col">
+                        <span class="nutri-label">Pro</span>
+                        <span class="nutri-val" style="color: #1e90ff;">@item.Nutrition.Protein</span>
+                    </div>
+                    <div class="nutri-col">
+                        <span class="nutri-label">Carb</span>
+                        <span class="nutri-val" style="color: #ffc107;">@item.Nutrition.Carbs</span>
+                    </div>
+                    <div class="nutri-col">
+                        <span class="nutri-label">Fat</span>
+                        <span class="nutri-val" style="color: #6c757d;">@item.Nutrition.Fats</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <a asp-area="Customer" asp-controller="MealDetails" asp-action="Index" asp-route-id="@item.Id" class="btn-view-detail">
+                        Xem chi tiết
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Không còn Modal Thêm/Sửa vì đây là trang dành cho Customer -->
+
+<link rel="stylesheet" href="~/css/meal-management.css">
+
+@section Scripts {
+    <script src="~/js/meal-management.js"></script>
+}

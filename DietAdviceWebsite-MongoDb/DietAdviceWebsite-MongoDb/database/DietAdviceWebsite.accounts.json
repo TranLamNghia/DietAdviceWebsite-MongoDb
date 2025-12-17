@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "69324f221d64e3ff440446cd"
+  },
+  "email": "doankimnghia1908@gmail.com",
+  "password_hash": "$2a$11$Pc0qR3TfeWibWtMpx/RZ3e1aZRHByprV6vlbFMk/Rm3Miu/3WOi6.",
+  "role": "Customer"
+},
+{
+  "_id": {
+    "$oid": "69324f2c1d64e3ff440446ce"
+  },
+  "email": "nhanvo@gmail.com",
+  "password_hash": "$2a$11$VzpGbKRhCGbFJlOV.LPLCuY.ILmqSgSeGCsedWk6xb9yWdYYP9tEe",
+  "role": "Customer"
+},
+{
+  "_id": {
+    "$oid": "69324f2f1d64e3ff440446cf"
+  },
+  "email": "dangquoce@example.com",
+  "password_hash": "$2a$11$QHQcxaKYhYxz/tICtydP.upMcX7KofScpZBrDSY825.VR9lwaCbLe",
+  "role": "Customer"
+},
+{
+  "_id": {
+    "$oid": "69324f3a1d64e3ff440446d0"
+  },
+  "email": "abc@gmail.com",
+  "password_hash": "$2a$11$cAPS8NPaclVVJd1b2ZnOc.nIdaJuBEmW6YPfIgZ0nkYigEFp9Xs2.",
+  "role": "Customer"
+}]

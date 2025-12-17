@@ -1,5 +1,7 @@
 [{
-  "_id": "meal_101",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044706"
+  },
   "name": "Phở Bò Tái",
   "description": "Món nước truyền thống, nước dùng trong, thịt bò tái mềm.",
   "image_url": "https://example.com/images/pho-bo.jpg",
@@ -15,13 +17,20 @@
     "fats": 12
   },
   "tags": [
-    "Món Việt",
-    "Nhiều tinh bột",
-    "Không dành cho keto"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô lớn",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_102",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044707"
+  },
   "name": "Cơm Trắng",
   "description": "Cơm gạo tẻ nấu chín, hạt mềm dẻo.",
   "image_url": "https://example.com/com-trang.jpg",
@@ -38,14 +47,21 @@
     "fats": 0.5
   },
   "tags": [
-    "Cơ bản",
-    "Không gluten",
     "Thuần chay",
-    "Ít béo"
+    "Không chứa Gluten",
+    "Ít Calo"
+  ],
+  "units": [
+    "Chén nhỏ",
+    "Chén đầy",
+    "Dĩa",
+    "Tô (Phần gia đình)"
   ]
 },
 {
-  "_id": "meal_103",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044708"
+  },
   "name": "Thịt Kho Tàu",
   "description": "Thịt ba chỉ kho mềm với trứng và nước dừa.",
   "image_url": "https://example.com/thit-kho.jpg",
@@ -61,14 +77,21 @@
     "fats": 28
   },
   "tags": [
-    "Món Việt",
-    "Nhiều chất béo",
-    "Giàu đạm",
-    "Mặn"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten",
+    "Ít Calo"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Niêu đất"
   ]
 },
 {
-  "_id": "meal_104",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044709"
+  },
   "name": "Gỏi Gà Xé",
   "description": "Ức gà xé trộn bắp cải, rau răm và hành phi.",
   "image_url": "https://example.com/goi-ga.jpg",
@@ -84,13 +107,23 @@
     "fats": 12
   },
   "tags": [
-    "Giảm cân",
-    "Nhiều đạm",
-    "Ít tinh bột"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_105",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470a"
+  },
   "name": "Bún Chả Hà Nội",
   "description": "Thịt nướng ăn kèm bún, nước mắm pha và rau sống.",
   "image_url": "https://example.com/bun-cha.jpg",
@@ -105,12 +138,19 @@
     "fats": 18
   },
   "tags": [
-    "Món Việt",
-    "Nhiều năng lượng"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Mẹt tá lả"
   ]
 },
 {
-  "_id": "meal_106",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470b"
+  },
   "name": "Cơm Gà Hải Nam",
   "description": "Cơm được nấu từ nước luộc gà, thịt gà mềm, ăn kèm nước chấm gừng.",
   "image_url": "https://example.com/com-ga.jpg",
@@ -127,11 +167,18 @@
   },
   "tags": [
     "Giàu đạm",
-    "Nhiều tinh bột"
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa đặc biệt"
   ]
 },
 {
-  "_id": "meal_107",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470c"
+  },
   "name": "Salad Cá Ngừ",
   "description": "Xà lách, cá ngừ, bắp, trứng luộc, sốt mè rang.",
   "image_url": "https://example.com/salad-ca-ngu.jpg",
@@ -147,13 +194,22 @@
     "fats": 14
   },
   "tags": [
-    "Giảm cân",
-    "Nhiều đạm",
-    "Healthy"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô vừa",
+    "Hộp mang về"
   ]
 },
 {
-  "_id": "meal_108",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470d"
+  },
   "name": "Súp Lơ Xào Thịt Bò",
   "description": "Thịt bò xào với súp lơ xanh, gừng và tỏi.",
   "image_url": "https://example.com/bo-xao-sup-lo.jpg",
@@ -169,13 +225,23 @@
     "fats": 18
   },
   "tags": [
-    "Ít tinh bột",
+    "Lành mạnh",
     "Giàu đạm",
-    "Healthy"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_109",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470e"
+  },
   "name": "Cháo Yến Mạch",
   "description": "Cháo nấu từ yến mạch, sữa và trái cây.",
   "image_url": "https://example.com/chao-yen-mach.jpg",
@@ -190,13 +256,20 @@
     "fats": 6
   },
   "tags": [
-    "Healthy",
-    "Nhiều chất xơ",
-    "Tốt cho tiêu hóa"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Ít Calo"
+  ],
+  "units": [
+    "Chén nhỏ",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_110",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404470f"
+  },
   "name": "Bánh Mì Thịt Nướng",
   "description": "Bánh mì kẹp thịt nướng, đồ chua, pate và rau.",
   "image_url": "https://example.com/banh-mi.jpg",
@@ -211,12 +284,18 @@
     "fats": 16
   },
   "tags": [
-    "Món Việt",
-    "Nhiều năng lượng"
+    "Giàu đạm"
+  ],
+  "units": [
+    "Nửa ổ",
+    "1 Ổ",
+    "1 Ổ đặc biệt (2 trứng)"
   ]
 },
 {
-  "_id": "meal_111",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044710"
+  },
   "name": "Bún Bò Huế",
   "description": "Bún bò cay nhẹ, nước dùng thơm sả.",
   "image_url": "https://example.com/bun-bo.jpg",
@@ -232,12 +311,19 @@
     "fats": 20
   },
   "tags": [
-    "Món Việt",
-    "Nhiều tinh bột"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_112",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044711"
+  },
   "name": "Salad Trứng",
   "description": "Xà lách, trứng luộc, cà chua bi, sốt chua ngọt.",
   "image_url": "https://example.com/salad-trung.jpg",
@@ -252,12 +338,22 @@
     "fats": 14
   },
   "tags": [
-    "Healthy",
-    "Ít tinh bột"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường"
   ]
 },
 {
-  "_id": "meal_113",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044712"
+  },
   "name": "Ốp La + Bánh Mì",
   "description": "Trứng ốp la với bánh mì.",
   "image_url": "https://example.com/op-la.jpg",
@@ -273,11 +369,18 @@
   },
   "tags": [
     "Giàu đạm",
-    "Năng lượng cao"
+    "Ăn chay có trứng/sữa"
+  ],
+  "units": [
+    "Phần 1 trứng",
+    "Phần 2 trứng",
+    "Chảo gang đặc biệt"
   ]
 },
 {
-  "_id": "meal_114",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044713"
+  },
   "name": "Hủ Tiếu Nam Vang",
   "description": "Sợi hủ tiếu dai, nước trong, tôm thịt ngọt.",
   "image_url": "https://example.com/hu-tieu.jpg",
@@ -293,12 +396,19 @@
     "fats": 14
   },
   "tags": [
-    "Món Việt",
-    "Món nước"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_115",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044714"
+  },
   "name": "Cơm Tấm Sườn",
   "description": "Cơm tấm sườn nướng, bì, chả.",
   "image_url": "https://example.com/com-tam.jpg",
@@ -313,12 +423,19 @@
     "fats": 28
   },
   "tags": [
-    "Rất nhiều năng lượng",
-    "Không dành cho giảm cân"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường (Sườn bì)",
+    "Dĩa đặc biệt (Sườn bì chả trứng)"
   ]
 },
 {
-  "_id": "meal_116",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044715"
+  },
   "name": "Salad Rau Củ",
   "description": "Salad rau củ luộc nhẹ với dầu oliu.",
   "image_url": "https://example.com/salad-rau.jpg",
@@ -334,13 +451,22 @@
     "fats": 6
   },
   "tags": [
+    "Lành mạnh",
     "Thuần chay",
-    "Giảm cân",
-    "Ít calo"
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_117",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044716"
+  },
   "name": "Mì Xào Hải Sản",
   "description": "Mì trứng xào với tôm, mực và rau.",
   "image_url": "https://example.com/mi-xao.jpg",
@@ -355,12 +481,18 @@
     "fats": 18
   },
   "tags": [
-    "Nhiều năng lượng",
-    "Không phù hợp giảm cân"
+    "Giàu đạm"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_118",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044717"
+  },
   "name": "Sữa Chua Trái Cây",
   "description": "Sữa chua ít béo với chuối, táo và dâu.",
   "image_url": "https://example.com/yogurt-fruit.jpg",
@@ -376,12 +508,21 @@
     "fats": 4
   },
   "tags": [
-    "Healthy",
-    "Tốt cho tiêu hóa"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Hũ nhỏ",
+    "Ly thường",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_119",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044718"
+  },
   "name": "Sinh Tố Bơ",
   "description": "Sinh tố bơ béo mịn.",
   "image_url": "https://example.com/sinh-to.jpg",
@@ -396,12 +537,21 @@
     "fats": 24
   },
   "tags": [
-    "Nhiều chất béo tốt",
-    "Tốt cho tăng cân"
+    "Lành mạnh",
+    "Ăn chay có trứng/sữa",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Ly nhỏ",
+    "Ly vừa",
+    "Ly lớn"
   ]
 },
 {
-  "_id": "meal_120",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044719"
+  },
   "name": "Gà Luộc",
   "description": "Gà luộc đơn giản, chấm muối tiêu chanh.",
   "image_url": "https://example.com/ga-luoc.jpg",
@@ -417,13 +567,23 @@
     "fats": 12
   },
   "tags": [
-    "Nhiều đạm",
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
     "Ít tinh bột",
-    "Phù hợp giảm cân"
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "1 Miếng (Đùi/Cánh)",
+    "Nửa con",
+    "Nguyên con"
   ]
 },
 {
-  "_id": "meal_121",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471a"
+  },
   "name": "Cá Hồi Áp Chảo",
   "description": "Cá hồi áp chảo với chanh và tiêu.",
   "image_url": "https://example.com/ca-hoi.jpg",
@@ -438,12 +598,22 @@
     "fats": 26
   },
   "tags": [
-    "Healthy",
-    "Nhiều omega-3"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "100g (Nhỏ)",
+    "200g (Thường)",
+    "300g (Lớn)"
   ]
 },
 {
-  "_id": "meal_122",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471b"
+  },
   "name": "Bánh Cuốn",
   "description": "Bánh cuốn nóng với chả và nước mắm.",
   "image_url": "https://example.com/banh-cuon.jpg",
@@ -458,12 +628,19 @@
     "fats": 8
   },
   "tags": [
-    "Món Việt",
-    "Nhẹ bụng"
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa đặc biệt"
   ]
 },
 {
-  "_id": "meal_123",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471c"
+  },
   "name": "Chè Đậu Đỏ",
   "description": "Chè đậu đỏ nước cốt dừa.",
   "image_url": "https://example.com/che-dau-do.jpg",
@@ -478,12 +655,20 @@
     "fats": 6
   },
   "tags": [
-    "Nhiều tinh bột",
-    "Không phù hợp giảm cân"
+    "Thuần chay",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Chén nhỏ",
+    "Ly thường",
+    "Tô"
   ]
 },
 {
-  "_id": "meal_124",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471d"
+  },
   "name": "Bánh Xèo Miền Tây",
   "description": "Bánh xèo vỏ giòn, nhân tôm thịt, ăn kèm rau sống và nước mắm chua ngọt.",
   "image_url": "https://example.com/banh-xeo.jpg",
@@ -499,13 +684,19 @@
     "fats": 20
   },
   "tags": [
-    "Món Việt",
-    "Nhiều năng lượng",
-    "Đặc sản miền Tây"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "1 Cái",
+    "Mẹt 2 cái",
+    "Mẹt gia đình (5 cái)"
   ]
 },
 {
-  "_id": "meal_125",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471e"
+  },
   "name": "Bánh Canh Cua",
   "description": "Bánh canh bột gạo dai, nước dùng sánh và thịt cua ngọt.",
   "image_url": "https://example.com/banh-canh-cua.jpg",
@@ -520,12 +711,19 @@
     "fats": 16
   },
   "tags": [
-    "Món Việt",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Thố đất"
   ]
 },
 {
-  "_id": "meal_126",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404471f"
+  },
   "name": "Bún Riêu Cua",
   "description": "Bún riêu cua đồng, cà chua, chả và huyết.",
   "image_url": "https://example.com/bun-rieu.jpg",
@@ -540,12 +738,19 @@
     "fats": 14
   },
   "tags": [
-    "Ngon nhẹ",
-    "Món Việt"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_127",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044720"
+  },
   "name": "Bánh Ướt Lòng Gà",
   "description": "Đặc sản Đà Lạt, bánh ướt ăn cùng lòng gà và rau thơm.",
   "image_url": "https://example.com/banh-uot-long-ga.jpg",
@@ -561,12 +766,20 @@
     "fats": 10
   },
   "tags": [
-    "Đặc sản",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_128",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044721"
+  },
   "name": "Bún Chả Cá Nha Trang",
   "description": "Chả cá dai, nước dùng thanh ngọt đặc trưng miền biển.",
   "image_url": "https://example.com/bun-cha-ca.jpg",
@@ -581,12 +794,19 @@
     "fats": 12
   },
   "tags": [
-    "Món biển",
-    "Ít béo"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_129",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044722"
+  },
   "name": "Cơm Hến Huế",
   "description": "Cơm trộn hến xào, tóp mỡ, rau sống và mắm ruốc.",
   "image_url": "https://example.com/com-hen.jpg",
@@ -601,12 +821,19 @@
     "fats": 16
   },
   "tags": [
-    "Đậm vị",
-    "Đặc sản Huế"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_130",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044723"
+  },
   "name": "Hủ Tiếu Sa Đéc",
   "description": "Hủ tiếu khô với nước sốt đậm đà và thịt xá xíu.",
   "image_url": "https://example.com/hu-tieu-sadec.jpg",
@@ -622,12 +849,19 @@
     "fats": 14
   },
   "tags": [
-    "Món Việt",
-    "Tinh bột vừa"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_131",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044724"
+  },
   "name": "Mì Quảng Gà",
   "description": "Sợi mì vàng, thịt gà, rau sống và đậu phộng rang.",
   "image_url": "https://example.com/mi-quang.jpg",
@@ -642,11 +876,19 @@
     "fats": 16
   },
   "tags": [
-    "Đặc sản miền Trung"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_132",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044725"
+  },
   "name": "Bánh Bột Lọc",
   "description": "Bánh bột lọc nhân tôm thịt, dai ngon.",
   "image_url": "https://example.com/banh-bot-loc.jpg",
@@ -661,12 +903,19 @@
     "fats": 5
   },
   "tags": [
-    "Đặc sản Huế",
-    "Nhiều tinh bột"
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ (5 cái)",
+    "Dĩa thường (10 cái)",
+    "Dĩa lớn (20 cái)"
   ]
 },
 {
-  "_id": "meal_133",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044726"
+  },
   "name": "Nem Nướng Nha Trang",
   "description": "Nem nướng ăn kèm bánh tráng và rau sống.",
   "image_url": "https://example.com/nem-nuong.jpg",
@@ -681,12 +930,19 @@
     "fats": 18
   },
   "tags": [
-    "Đặc sản",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Mẹt đặc biệt"
   ]
 },
 {
-  "_id": "meal_134",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044727"
+  },
   "name": "Lẩu Mắm",
   "description": "Lẩu đậm vị mắm cá linh, nhiều loại rau đồng.",
   "image_url": "https://example.com/lau-mam.jpg",
@@ -701,11 +957,19 @@
     "fats": 24
   },
   "tags": [
-    "Đặc sản miền Tây"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Nồi nhỏ (2 người)",
+    "Nồi lớn (4 người)",
+    "Set đặc biệt"
   ]
 },
 {
-  "_id": "meal_135",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044728"
+  },
   "name": "Gà Nướng Muối Ớt",
   "description": "Gà nướng cay nhẹ, da giòn thơm.",
   "image_url": "https://example.com/ga-nuong.jpg",
@@ -720,12 +984,22 @@
     "fats": 28
   },
   "tags": [
+    "Lành mạnh",
     "Giàu đạm",
-    "Đậm vị"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Góc tư (Đùi)",
+    "Nửa con",
+    "Nguyên con"
   ]
 },
 {
-  "_id": "meal_136",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044729"
+  },
   "name": "Canh Chua Cá Lóc",
   "description": "Cá lóc, bạc hà, cà chua, thơm; vị chua ngọt.",
   "image_url": "https://example.com/canh-chua.jpg",
@@ -740,12 +1014,22 @@
     "fats": 8
   },
   "tags": [
-    "Ngon nhẹ",
-    "Healthy"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Thố lớn"
   ]
 },
 {
-  "_id": "meal_137",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472a"
+  },
   "name": "Gỏi Đu Đủ",
   "description": "Đu đủ sợi trộn tôm thịt và đậu phộng.",
   "image_url": "https://example.com/goi-du-du.jpg",
@@ -761,12 +1045,20 @@
     "fats": 8
   },
   "tags": [
-    "Healthy",
-    "Ít dầu"
+    "Lành mạnh",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Hộp mang về"
   ]
 },
 {
-  "_id": "meal_138",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472b"
+  },
   "name": "Cơm Cháy Kho Quẹt",
   "description": "Cơm cháy giòn ăn kèm kho quẹt mặn ngọt.",
   "image_url": "https://example.com/com-chay.jpg",
@@ -781,12 +1073,18 @@
     "fats": 20
   },
   "tags": [
-    "Đậm vị",
-    "Ăn chơi"
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Mẹt lớn"
   ]
 },
 {
-  "_id": "meal_139",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472c"
+  },
   "name": "Cá Kèo Kho Tiêu",
   "description": "Cá kèo kho thơm mùi tiêu và nước màu.",
   "image_url": "https://example.com/ca-keo.jpg",
@@ -801,12 +1099,22 @@
     "fats": 12
   },
   "tags": [
-    "Món Việt",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Niêu đất",
+    "Tộ lớn"
   ]
 },
 {
-  "_id": "meal_140",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472d"
+  },
   "name": "Cháo Sườn",
   "description": "Cháo trắng nấu với sườn mềm và hành lá.",
   "image_url": "https://example.com/chao-suon.jpg",
@@ -821,12 +1129,19 @@
     "fats": 8
   },
   "tags": [
-    "Nhẹ bụng",
-    "Healthy"
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ (Trẻ em)",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_141",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472e"
+  },
   "name": "Lẩu Thái",
   "description": "Lẩu chua cay, hải sản và nấm.",
   "image_url": "https://example.com/lau-thai.jpg",
@@ -841,12 +1156,19 @@
     "fats": 24
   },
   "tags": [
-    "Đậm vị",
-    "Khá cay"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Nồi nhỏ",
+    "Nồi lẩu gia đình",
+    "Set tiệc"
   ]
 },
 {
-  "_id": "meal_142",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404472f"
+  },
   "name": "Cơm Gà Xối Mỡ",
   "description": "Gà chiên giòn vàng ăn kèm cơm thơm.",
   "image_url": "https://example.com/com-ga-xoi-mo.jpg",
@@ -861,12 +1183,19 @@
     "fats": 32
   },
   "tags": [
-    "Nhiều calo",
-    "Không phù hợp giảm cân"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Hộp mang về"
   ]
 },
 {
-  "_id": "meal_143",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044730"
+  },
   "name": "Cá Chiên Sốt Me",
   "description": "Cá chiên giòn dùng kèm sốt me chua ngọt.",
   "image_url": "https://example.com/ca-sot-me.jpg",
@@ -881,12 +1210,19 @@
     "fats": 22
   },
   "tags": [
-    "Đậm vị",
-    "Món Việt"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Khứa nhỏ",
+    "Khứa lớn",
+    "Nguyên con"
   ]
 },
 {
-  "_id": "meal_144",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044731"
+  },
   "name": "Hủ Tiếu Mì Sườn",
   "description": "Hủ tiếu mì nước trong, sườn non hầm mềm.",
   "image_url": "https://example.com/hu-tieu-mi-suon.jpg",
@@ -902,13 +1238,18 @@
     "fats": 14
   },
   "tags": [
-    "Món nước",
-    "Món Việt",
-    "Ngon nhẹ"
+    "Giàu đạm"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_145",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044732"
+  },
   "name": "Bún Bò Giò Heo",
   "description": "Bún bò Huế ăn cùng giò heo, nước dùng sả cay.",
   "image_url": "https://example.com/bun-bo-gio.jpg",
@@ -923,13 +1264,19 @@
     "fats": 22
   },
   "tags": [
-    "Món Việt",
-    "Đặc sản",
-    "Cay nhẹ"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô giò nạc"
   ]
 },
 {
-  "_id": "meal_146",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044733"
+  },
   "name": "Cơm Chiên Dương Châu",
   "description": "Cơm chiên trứng, lạp xưởng, tôm và đậu Hà Lan.",
   "image_url": "https://example.com/com-chien.jpg",
@@ -945,12 +1292,19 @@
     "fats": 22
   },
   "tags": [
-    "Nhiều tinh bột",
-    "No lâu"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_147",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044734"
+  },
   "name": "Gà Kho Sả Ớt",
   "description": "Gà kho hương sả, cay nhẹ và thơm.",
   "image_url": "https://example.com/ga-kho.jpg",
@@ -966,11 +1320,20 @@
   },
   "tags": [
     "Giàu đạm",
-    "Ăn với cơm"
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Thố"
   ]
 },
 {
-  "_id": "meal_148",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044735"
+  },
   "name": "Bún Thịt Nướng",
   "description": "Thịt nướng than hoa, bún, rau sống và mắm chua ngọt.",
   "image_url": "https://example.com/bun-thit-nuong.jpg",
@@ -985,12 +1348,19 @@
     "fats": 16
   },
   "tags": [
-    "Món Việt",
-    "Đặc sản miền Nam"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_149",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044736"
+  },
   "name": "Phở Gà",
   "description": "Phở gà nước trong, thịt gà xé, hành lá và rau thơm.",
   "image_url": "https://example.com/pho-ga.jpg",
@@ -1005,12 +1375,20 @@
     "fats": 8
   },
   "tags": [
-    "Nhẹ bụng",
-    "Healthy"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_150",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044737"
+  },
   "name": "Bánh Mì Ốp La Thịt Nguội",
   "description": "Bánh mì giòn, trứng ốp la, thịt nguội và pate.",
   "image_url": "https://example.com/banh-mi-op-la.jpg",
@@ -1025,12 +1403,18 @@
     "fats": 24
   },
   "tags": [
-    "Nhiều năng lượng",
-    "Món sáng quốc dân"
+    "Giàu đạm"
+  ],
+  "units": [
+    "1 Ổ",
+    "1 Ổ đặc biệt",
+    "Chảo gang (Bò né)"
   ]
 },
 {
-  "_id": "meal_151",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044738"
+  },
   "name": "Chả Cá Thăng Long",
   "description": "Cá chiên nghệ ăn cùng thì là và bún.",
   "image_url": "https://example.com/cha-ca.jpg",
@@ -1045,11 +1429,19 @@
     "fats": 24
   },
   "tags": [
-    "Đặc sản Hà Nội"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Phần nhỏ",
+    "Phần thường",
+    "Phần đặc biệt"
   ]
 },
 {
-  "_id": "meal_152",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044739"
+  },
   "name": "Cá Kho Làng Vũ Đại",
   "description": "Cá trắm kho niêu đất, đậm vị cổ truyền.",
   "image_url": "https://example.com/ca-kho-lang-vu-dai.jpg",
@@ -1064,13 +1456,21 @@
     "fats": 16
   },
   "tags": [
-    "Đậm vị",
-    "Mặn",
-    "Truyền thống"
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Khứa nhỏ",
+    "Niêu nhỏ",
+    "Niêu lớn"
   ]
 },
 {
-  "_id": "meal_153",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473a"
+  },
   "name": "Bò Kho Bánh Mì",
   "description": "Thịt bò hầm mềm với cà rốt, sả, hoa hồi, nước sốt đậm đà ăn kèm bánh mì giòn.",
   "image_url": "https://example.com/bo-kho.jpg",
@@ -1086,14 +1486,18 @@
     "fats": 26
   },
   "tags": [
-    "Món Việt",
-    "Đậm đà",
-    "Nhiều năng lượng",
     "Giàu đạm"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_154",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473b"
+  },
   "name": "Bún Mọc",
   "description": "Bún mọc viên giò sống mềm, nước dùng trong.",
   "image_url": "https://example.com/bun-moc.jpg",
@@ -1108,12 +1512,19 @@
     "fats": 8
   },
   "tags": [
-    "Nhẹ nhàng",
-    "Ít dầu mỡ"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_155",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473c"
+  },
   "name": "Cơm Gà Hội An",
   "description": "Cơm nghệ, gà xé, mỡ hành và đồ chua.",
   "image_url": "https://example.com/com-ga-hoi-an.jpg",
@@ -1128,11 +1539,19 @@
     "fats": 18
   },
   "tags": [
-    "Đặc sản Hội An"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa gà xé đùi"
   ]
 },
 {
-  "_id": "meal_156",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473d"
+  },
   "name": "Mì Gói Xào Bò",
   "description": "Mì gói xào bò, rau cải và trứng.",
   "image_url": "https://example.com/mi-xao.jpg",
@@ -1147,12 +1566,18 @@
     "fats": 22
   },
   "tags": [
-    "Ngon rẻ",
-    "Siêu nhanh"
+    "Giàu đạm"
+  ],
+  "units": [
+    "Dĩa nhỏ (1 gói)",
+    "Dĩa thường (2 gói)",
+    "Dĩa lớn (3 gói)"
   ]
 },
 {
-  "_id": "meal_157",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473e"
+  },
   "name": "Cháo Lòng",
   "description": "Cháo gạo tẻ ăn kèm lòng heo, hành và tiêu.",
   "image_url": "https://example.com/chao-long.jpg",
@@ -1167,12 +1592,19 @@
     "fats": 16
   },
   "tags": [
-    "Đậm đà",
-    "Ấm bụng"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Tô nhỏ",
+    "Tô thường",
+    "Tô đặc biệt"
   ]
 },
 {
-  "_id": "meal_158",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff4404473f"
+  },
   "name": "Gỏi Bò Bóp Thấu",
   "description": "Thịt bò tái trộn hành tây và rau thơm.",
   "image_url": "https://example.com/goi-bo.jpg",
@@ -1187,12 +1619,23 @@
     "fats": 12
   },
   "tags": [
-    "Giảm cân",
-    "Giàu đạm"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_159",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044740"
+  },
   "name": "Canh Khổ Qua Nhồi Thịt",
   "description": "Khổ qua nhồi thịt băm, nấu nước trong thanh mát.",
   "image_url": "https://example.com/kho-qua.jpg",
@@ -1207,12 +1650,22 @@
     "fats": 4
   },
   "tags": [
-    "Healthy",
-    "Thanh mát"
+    "Lành mạnh",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Chén nhỏ (1 khoanh)",
+    "Tô thường (2 khoanh)",
+    "Tô lớn"
   ]
 },
 {
-  "_id": "meal_160",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044741"
+  },
   "name": "Thịt Kho Tiêu",
   "description": "Thịt ba chỉ kho tiêu cay nhẹ, đưa cơm.",
   "image_url": "https://example.com/thit-kho-tieu.jpg",
@@ -1227,12 +1680,21 @@
     "fats": 28
   },
   "tags": [
-    "Đậm vị",
-    "Đưa cơm"
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Niêu đất",
+    "Thố lớn"
   ]
 },
 {
-  "_id": "meal_161",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044742"
+  },
   "name": "Nộm Tai Heo",
   "description": "Tai heo trộn chua ngọt, giòn sật.",
   "image_url": "https://example.com/nom-tai-heo.jpg",
@@ -1247,12 +1709,20 @@
     "fats": 12
   },
   "tags": [
-    "Ăn chơi",
-    "Nhậu"
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_162",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044743"
+  },
   "name": "Mực Xào Hành Cần",
   "description": "Mực tươi xào hành tây và cần tây.",
   "image_url": "https://example.com/muc-xao.jpg",
@@ -1267,12 +1737,23 @@
     "fats": 10
   },
   "tags": [
-    "Giảm cân",
-    "Món biển"
+    "Lành mạnh",
+    "Giàu đạm",
+    "Chế độ Keto",
+    "Ít tinh bột",
+    "Ít Calo",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "Dĩa nhỏ",
+    "Dĩa thường",
+    "Dĩa lớn"
   ]
 },
 {
-  "_id": "meal_163",
+  "_id": {
+    "$oid": "69325b5b1d64e3ff44044744"
+  },
   "name": "Sườn Nướng Mật Ong",
   "description": "Sườn heo nướng mật ong thơm ngọt.",
   "image_url": "https://example.com/suon-nuong.jpg",
@@ -1287,7 +1768,12 @@
     "fats": 22
   },
   "tags": [
-    "Đậm vị",
-    "Giàu đạm"
+    "Giàu đạm",
+    "Không chứa Gluten"
+  ],
+  "units": [
+    "1 Miếng (Cốt lết)",
+    "Dĩa thường (2 miếng)",
+    "Dĩa lớn"
   ]
 }]
