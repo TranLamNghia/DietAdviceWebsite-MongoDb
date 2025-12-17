@@ -1,0 +1,155 @@
+﻿@model IEnumerable<DietAdviceWebsite_MongoDb.Models.Meal>
+
+@{
+    ViewData["Title"] = "Quản lý Thực đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_Adminlayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="container" style="padding: 30px;">
+
+    <div class="page-header-center">
+        <h1>Danh Sách Món Ăn</h1>
+        <p class="page-subtitle">Quản lý kho dữ liệu món ăn và thông tin dinh dưỡng</p>
+    </div>
+
+    <div class="toolbar-section centered-toolbar">
+        <form asp-action="Index" method="get" class="search-wrapper large-search">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" name="searchString" placeholder="Tìm kiếm món ăn..." value="@ViewData["CurrentFilter"]">
+        </form>
+    </div>
+
+    <div class="filter-tags-container">
+        <div class="filter-tag active">
+            <a asp-area="Admin" asp-controller="Meal" asp-action="Index" style="color:white">Tất cả</a>
+        </div>
+        <div class="filter-tag">Món chính</div>
+        <div class="filter-tag">Tráng miệng</div>
+        <div class="filter-tag">Ăn sáng</div>
+        <div class="filter-tag">Ăn vặt</div>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+        <a asp-area="Admin" asp-controller="Meal" asp-action="Create" class="btn btn-primary" style="background: #2ecc71;text-decoration:none; border:none; padding: 10px 25px; border-radius: 50px;">
+            <i class="fas fa-plus"></i> Thêm món mới
+        </a>
+    </div>
+    <link rel="stylesheet" href="~/css/meal-management.css">
+    <div class="filter-sort-group" style="margin-left: 15px; margin-bottom:20px">
+        <select onchange="location = this.value;" class="form-select" style="padding: 8px; border-radius: 6px; border: 1px solid #ddd;">
+            <option value="">-- Sắp xếp --</option>
+
+            <option value="@Url.Action("Index", new { sortOrder = "newest", searchString = ViewData["CurrentFilter"], category = ViewData["CurrentCategory"] })"
+                    selected="@((string)ViewData["CurrentSort"] == "newest" ? "selected" : null)">
+                📅 Mới nhất
+            </option>
+
+            <option value="@Url.Action("Index", new { sortOrder = "oldest", searchString = ViewData["CurrentFilter"], category = ViewData["CurrentCategory"] })"
+                    selected="@((string)ViewData["CurrentSort"] == "oldest" ? "selected" : null)">
+                📅 Cũ nhất
+            </option>
+
+            <option value="@Url.Action("Index", new { sortOrder = "name_asc", searchString = ViewData["CurrentFilter"], category = ViewData["CurrentCategory"] })"
+                    selected="@((string)ViewData["CurrentSort"] == "name_asc" ? "selected" : null)">
+                🔤 Tên (A-Z)
+            </option>
+            <option value="@Url.Action("Index", new { sortOrder = "name_desc", searchString = ViewData["CurrentFilter"], category = ViewData["CurrentCategory"] })"
+                    selected="@((string)ViewData["CurrentSort"] == "name_desc" ? "selected" : null)">
+                🔤 Tên (Z-A)
+            </option>
+        </select>
+    </div>
+    <div class="food-grid">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="food-card">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <div style="height: 180px; overflow: hidden; border-bottom: 1px solid #f0f0f0;">
+                            <img src="@item.ImageUrl" alt="@item.Name" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="height: 180px; background: #eee; display: flex; align-items: center; justify-content: center; color: #aaa;">
+                            <i class="fas fa-utensils fa-3x"></i>
+                        </div>
+                    }
+
+                    <div class="card-tags-wrapper" style="padding: 15px 15px 0 15px;">
+                        <span class="mini-tag" style="background: #e8f5e9; color: #2ecc71;">@item.Category</span>
+
+                        @if (item.MealTypes != null && item.MealTypes.Any())
+                        {
+                            <span class="mini-tag">@item.MealTypes.First()</span>
+                        }
+                    </div>
+
+                    <div class="card-header" style="padding: 0 15px;">
+                        <div class="card-title">
+                            <h3>@item.Name</h3>
+                        </div>
+                    </div>
+
+                    <p class="card-desc" style="padding: 0 15px;">
+                        @if (!string.IsNullOrEmpty(item.Description) && item.Description.Length > 80)
+                        {
+                            @:@item.Description.Substring(0, 80)...
+                        }
+                        else
+                        {
+                            @item.Description
+                        }
+                    </p>
+
+                    <div class="nutrition-box" style="margin: 0 15px 15px 15px;">
+                        <div class="nutri-col">
+                            <span class="nutri-label">Calo</span>
+                            <span class="nutri-val">@(item.Nutrition?.Calories ?? 0)</span>
+                        </div>
+                        <div class="nutri-col">
+                            <span class="nutri-label">Đạm</span>
+                            <span class="nutri-val">@(item.Nutrition?.Protein ?? 0)g</span>
+                        </div>
+                        <div class="nutri-col">
+                            <span class="nutri-label">Béo</span>
+                            <span class="nutri-val">@(item.Nutrition?.Fats ?? 0)g</span>
+                        </div>
+                        <div class="nutri-col">
+                            <span class="nutri-label">Carb</span>
+                            <span class="nutri-val">@(item.Nutrition?.Carbs ?? 0)g</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer" style="padding: 15px; display: flex; gap: 10px;">
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn-view-detail">Chi tiết</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn-view-detail" style="border-color: #f39c12; color: #f39c12; flex: 0 0 50px; display:flex; align-items:center; justify-content:center;">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn-view-detail" style="border-color: #e74c3c; color: #e74c3c; flex: 0 0 50px; display:flex; align-items:center; justify-content:center;">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #7f8c8d;">
+                <h3>Chưa có dữ liệu món ăn nào.</h3>
+                <p>Hãy bấm nút "Thêm món mới" để bắt đầu.</p>
+            </div>
+        }
+    </div>
+</div>
+<script>
+    function confirmDelete(id, name) {
+        if (confirm('CẢNH BÁO: Bạn đang xóa món "' + name + '"!\nHành động này không thể hoàn tác.\nBạn có chắc chắn không?')) {
+            window.location.href = '/Admin/Meal/Delete/' + id;
+        }
+    }
+</script>

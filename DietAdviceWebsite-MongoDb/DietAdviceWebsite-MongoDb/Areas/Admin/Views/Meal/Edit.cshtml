@@ -1,0 +1,249 @@
+﻿@model DietAdviceWebsite_MongoDb.Models.Meal
+
+@{
+    ViewData["Title"] = "Cập nhật món ăn";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/admin-styles.css" />
+
+<style>
+    .checkbox-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        background: #fff;
+        padding: 20px;
+        border: 1px solid var(--border-color, #e0e0e0);
+        border-radius: 8px;
+    }
+
+    .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-primary, #333);
+        user-select: none;
+        padding: 5px;
+        border-radius: 4px;
+        transition: background 0.2s;
+    }
+
+        .checkbox-wrapper:hover {
+            background: var(--bg-secondary, #f8f9fa);
+        }
+
+        .checkbox-wrapper input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary, #2ECC71);
+        }
+
+        .checkbox-wrapper.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            text-decoration: line-through;
+            color: #999;
+        }
+</style>
+
+<div class="page-container">
+    <div class="page-content active">
+        <div class="dashboard-grid">
+            <div class="recent-activities" style="grid-column: 1 / -1;">
+
+                <div class="card-header">
+                    <h2>✏️ Cập nhật món: @Model.Name</h2>
+                </div>
+
+                <form asp-action="Edit" method="post" class="modal-form" style="padding: 0;">
+
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger" style="margin-bottom: 20px;"></div>
+
+                    <div class="detail-section">
+                        <h3>1. Thông tin chung</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label asp-for="Name">Tên món ăn <span style="color: var(--primary);">*</span></label>
+                                <input asp-for="Name" required />
+                                <span asp-validation-for="Name" style="color: #e74c3c;"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Category">Danh mục <span style="color: var(--primary);">*</span></label>
+                                <select asp-for="Category" class="form-control" style="height: 45px;" required>
+                                    <option value="">-- Vui lòng chọn loại món --</option>
+                                    <option value="Món Salad">🥗 Món Salad</option>
+                                    <option value="Món mặn">🍗 Món mặn</option>
+                                    <option value="Tinh bột">🍚 Tinh bột (Cơm/Bún)</option>
+                                    <option value="Món nước">🍜 Món nước (Canh/Súp)</option>
+                                    <option value="Tráng miệng">🍰 Tráng miệng</option>
+                                    <option value="Đồ uống">🥤 Đồ uống</option>
+                                </select>
+                                <span asp-validation-for="Category" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ImageUrl">Link hình ảnh (URL)</label>
+                            <input asp-for="ImageUrl" />
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Description">Mô tả chi tiết</label>
+                            <textarea asp-for="Description"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="detail-section" style="margin-top: 30px;">
+                        <h3>2. Thông tin dinh dưỡng (Trên 1 khẩu phần)</h3>
+                        <div class="nutrition-grid">
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Calories</span>
+                                <input asp-for="Nutrition.Calories" type="number" step="0.1" style="text-align: center; font-weight: bold; color: var(--primary);" />
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Protein</span>
+                                <input asp-for="Nutrition.Protein" type="number" step="0.1" style="text-align: center;" />
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Carbs</span>
+                                <input asp-for="Nutrition.Carbs" type="number" step="0.1" style="text-align: center;" />
+                            </div>
+                            <div class="nutrition-item">
+                                <span class="nutrition-label">Fats</span>
+                                <input asp-for="Nutrition.Fats" type="number" step="0.1" style="text-align: center;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section" style="margin-top: 30px;">
+                        <h3>3. Phân loại & Thuộc tính</h3>
+
+                        <div class="form-group">
+                            <label style="margin-bottom: 15px;">Bữa ăn phù hợp</label>
+                            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                                @{
+                                    var mealTypes = Model.MealTypes ?? new List<string>();
+                                }
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" name="selectedMealTypes" value="Bữa Sáng"
+                                           checked="@(mealTypes.Contains("Bữa Sáng") ? "checked" : null)"> 🍳 Bữa Sáng
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" name="selectedMealTypes" value="Bữa Trưa"
+                                           checked="@(mealTypes.Contains("Bữa Trưa") ? "checked" : null)"> 🍱 Bữa Trưa
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" name="selectedMealTypes" value="Bữa Tối"
+                                           checked="@(mealTypes.Contains("Bữa Tối") ? "checked" : null)"> 🍲 Bữa Tối
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 8px; font-weight: 500; cursor: pointer;">
+                                    <input type="checkbox" name="selectedMealTypes" value="Bữa Phụ"
+                                           checked="@(mealTypes.Contains("Bữa Phụ") ? "checked" : null)"> 🍎 Bữa Phụ
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 25px;">
+                            <label style="margin-bottom: 10px; display:block; font-weight:600;">Tags (Đặc điểm món ăn)</label>
+
+                            <div class="checkbox-grid">
+                                @{
+                                    var tags = Model.Tags ?? new List<string>();
+                                }
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Lành mạnh" checked="@(tags.Contains("Lành mạnh") ? "checked" : null)"> 🌿 Lành mạnh
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Ít tinh bột" checked="@(tags.Contains("Ít tinh bột") ? "checked" : null)"> 📉 Ít tinh bột
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Chế độ Keto" checked="@(tags.Contains("Chế độ Keto") ? "checked" : null)"> 🥓 Chế độ Keto
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Giàu đạm" checked="@(tags.Contains("Giàu đạm") ? "checked" : null)"> 💪 Giàu đạm
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Ít Calo" checked="@(tags.Contains("Ít Calo") ? "checked" : null)"> 🔥 Ít Calo
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Không chứa Gluten" checked="@(tags.Contains("Không chứa Gluten") ? "checked" : null)"> 🌾 Không chứa Gluten
+                                </label>
+
+                                <div style="grid-column: 1 / -1; height: 1px; background: #eee; margin: 5px 0;"></div>
+
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Thuần chay" id="tagVegan" checked="@(tags.Contains("Thuần chay") ? "checked" : null)"> 🥦 Thuần chay
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="selectedTags" value="Ăn chay có trứng/sữa" id="tagVegetarian" checked="@(tags.Contains("Ăn chay có trứng/sữa") ? "checked" : null)"> 🥚 Ăn chay (Trứng/Sữa)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 25px;">
+                            <label>Đơn vị tính (Units)</label>
+                            <input name="strUnits" placeholder="VD: Tô, Dĩa..." value="@(Model.Units != null ? string.Join(", ", Model.Units) : "")" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-actions" style="border-top: 1px solid #e0e0e0; padding-top: 20px; margin-top: 30px;">
+                        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cbVegan = document.getElementById('tagVegan');
+            const cbVegetarian = document.getElementById('tagVegetarian');
+
+            // Hàm xử lý chung để tái sử dụng
+            function updateState() {
+                if (cbVegan.checked) {
+                    cbVegetarian.checked = false;
+                    cbVegetarian.disabled = true;
+                    cbVegetarian.parentElement.classList.add('disabled');
+                } else {
+                    cbVegetarian.disabled = false;
+                    cbVegetarian.parentElement.classList.remove('disabled');
+                }
+
+                if (cbVegetarian.checked) {
+                    cbVegan.checked = false;
+                    cbVegan.disabled = true;
+                    cbVegan.parentElement.classList.add('disabled');
+                } else if (!cbVegan.checked) {
+                    // Chỉ mở lại nếu vegan không được check (tránh loop logic)
+                    cbVegan.disabled = false;
+                    cbVegan.parentElement.classList.remove('disabled');
+                }
+            }
+
+            if (cbVegan && cbVegetarian) {
+                // 1. Chạy ngay khi Load trang để khóa checkbox nếu dữ liệu cũ đã chọn
+                updateState();
+
+                // 2. Gán sự kiện Change
+                cbVegan.addEventListener('change', updateState);
+                cbVegetarian.addEventListener('change', updateState);
+            }
+        });
+    </script>
+}

@@ -1,4 +1,5 @@
 using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
+using DietAdviceWebsite_MongoDb.Areas.Admin.Services;
 using DietAdviceWebsite_MongoDb.Models;
 using DietAdviceWebsite_MongoDb.Service;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -31,7 +32,10 @@ builder.Services.AddSingleton<IMongoDatabase>(sp =>
 builder.Services.AddHttpContextAccessor();
 
 // 3. Đăng ký các service của bạn
-builder.Services.AddScoped<MealManagementService>();
+
+builder.Services.AddSingleton<AccountAdminService>();
+builder.Services.AddSingleton<UserAdminService>();
+builder.Services.AddSingleton<MealAdminService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<MealPlanService>();
 builder.Services.AddScoped<DailyLogService>();
@@ -62,11 +66,9 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapAreaControllerRoute(
-    name: "default",
-    areaName: "Customer",
-    pattern: "customer/{controller=Home}/{action=Index}/{id?}"
-);
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",
