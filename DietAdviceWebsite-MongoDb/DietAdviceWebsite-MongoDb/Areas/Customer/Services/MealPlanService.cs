@@ -94,12 +94,54 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
 
         public async Task<DailyLog> InsertMealPlanAsync()
         {
+            var user = await _usersCollection.Find(u => u.Id == userId).FirstOrDefaultAsync();
+            var targetCalories = user?.CurrentGoal?.DailyCalorieTarget;
+
+            var newMeals = new List<MealEaten>();
+
+            if (targetCalories.HasValue && targetCalories > 0)
+            {
+                var allMeals = await _mealsCollection.Find(Builders<Meal>.Filter.Empty).ToListAsync();
+                if (allMeals.Any())
+                {
+                    var mealTypes = allMeals.SelectMany(m => m.MealTypes).Distinct().ToList();
+                    if (mealTypes.Any())
+                    {
+                        var caloriesPerMealType = targetCalories.Value / mealTypes.Count;
+
+                        foreach (var mealType in mealTypes)
+                        {
+                            var candidateMeals = allMeals
+                                .Where(m => m.MealTypes.Contains(mealType) && m.Nutrition.Calories <= caloriesPerMealType * 1.2) // Allow 20% flexibility
+                                .ToList();
+
+                            if (candidateMeals.Any())
+                            {
+                                var bestMeal = candidateMeals
+                                    .OrderBy(m => Math.Abs(m.Nutrition.Calories - caloriesPerMealType))
+                                    .First();
+                                
+                                var unit = bestMeal.Units.Any() ? bestMeal.Units.First() : "phần";
+
+                                newMeals.Add(new MealEaten
+                                {
+                                    MealId = bestMeal.Id,
+                                    TimeSlot = mealType,
+                                    Quantity = 1, // Default quantity
+                                    Unit = unit,
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
             DailyLog newLog = new DailyLog
             {
                 Id = ObjectId.GenerateNewId().ToString(),
                 UserId = userId,
                 Date = today,
-                MealsEaten = new List<MealEaten>(),
+                MealsEaten = newMeals,
                 DailyReview = new DailyReview()
             };
 
