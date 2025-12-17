@@ -1,0 +1,40 @@
+﻿@{
+    // Gọi Layout vừa tạo
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-grid">
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-icon dishes">🍽️</div>
+            <div class="stat-info">
+                <p class="stat-label">Tổng Món ăn</p>
+                <h3 class="stat-value">@ViewBag.TotalMeals</h3>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon users">👥</div>
+            <div class="stat-info">
+                <p class="stat-label">Người dùng</p>
+                <h3 class="stat-value">@ViewBag.TotalUsers</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="recent-activities">
+        <div class="card-header">
+            <h2>Hoạt động Gần đây</h2>
+            <a href="#" class="link-more">Xem tất cả →</a>
+        </div>
+        <div class="activities-list">
+            <div class="activity-item">
+                <div class="activity-icon new">➕</div>
+                <div class="activity-content">
+                    <p class="activity-title">Thêm món ăn mới</p>
+                    <p class="activity-time">2 giờ trước</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -69,7 +69,7 @@ namespace DietAdviceWebsite_MongoDb.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
 
             if (account.Role == "Admin")
-                return RedirectToAction("Index", "Admin");
+                return RedirectToAction("Index", "Home", new { area = "Admin" });
             else
                 return RedirectToAction("Index", "Home", new { area = "Customer" });
         }
