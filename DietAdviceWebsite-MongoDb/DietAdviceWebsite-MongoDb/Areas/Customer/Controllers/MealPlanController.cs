@@ -11,7 +11,6 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
     {
         private readonly MealManagementService _mealManagementService;
         private readonly MealPlanService _mealPlanService;
-        // private readonly UserService _userService;
 
         public MealPlanController(MealManagementService mealManagementService, MealPlanService mealPlanService)
         {

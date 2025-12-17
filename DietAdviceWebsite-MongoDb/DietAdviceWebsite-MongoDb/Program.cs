@@ -37,6 +37,7 @@ builder.Services.AddScoped<MealPlanService>();
 builder.Services.AddScoped<DailyLogService>();
 builder.Services.AddScoped<MealService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<FoodDiaryService>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

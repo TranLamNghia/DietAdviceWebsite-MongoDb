@@ -1,0 +1,92 @@
+﻿@model DietAdviceWebsite_MongoDb.Areas.Customer.ViewModels.FoodDiaryViewModel
+@{
+    ViewData["Title"] = "Nhật ký ăn uống";
+}
+
+<div class="container main-content">
+    <header class="header">
+        <h1>Nhật ký ăn uống</h1>
+        <p class="page-subtitle">Theo dõi các bữa ăn hàng ngày và tiến độ dinh dưỡng</p>
+    </header>
+
+    <div class="card date-nav">
+        <button id="prevDay" class="nav-btn">◀</button>
+        <div class="date-text" id="dateDisplay">Đang tải...</div>
+        <button id="nextDay" class="nav-btn">▶</button>
+    </div>
+
+    <div class="grid" id="dailySummary">
+        <div class="summary-card">
+            <p class="label">Tổng calo</p>
+            <p class="value" id="totalCalories">0</p>
+            <p>kcal</p>
+        </div>
+        <div class="summary-card">
+            <p class="label">Protein</p>
+            <p class="value" id="totalProtein">0</p>
+            <p>g</p>
+        </div>
+        <div class="summary-card">
+            <p class="label">Carbs</p>
+            <p class="value" id="totalCarbs">0</p>
+            <p>g</p>
+        </div>
+        <div class="summary-card">
+            <p class="label">Fat</p>
+            <p class="value" id="totalFat">0</p>
+            <p>g</p>
+        </div>
+    </div>
+
+    <div id="mealList" class="meal-list">
+        <!-- Content will be loaded by JavaScript -->
+    </div>
+
+    <div id="reviewSection" class="card mt-4 mb-5 shadow-sm" style="display: none; border-left: 5px solid #ffc107;">
+        <div class="card-body p-4">
+            <h4 class="card-title fw-bold text-dark mb-3">
+                <i class="fas fa-star-half-alt me-2 text-warning"></i>Tổng kết ngày
+            </h4>
+
+            <div id="reviewForm" style="display: none;">
+                <p class="text-muted">Hôm qua bạn ăn uống thế nào? Hãy tự đánh giá để theo dõi tiến độ nhé!</p>
+
+                <div class="mb-3 text-center py-2">
+                    <div class="rating-stars" style="font-size: 2rem; cursor: pointer; color: #ddd;">
+                        <i class="fas fa-star" data-value="1"></i>
+                        <i class="fas fa-star" data-value="2"></i>
+                        <i class="fas fa-star" data-value="3"></i>
+                        <i class="fas fa-star" data-value="4"></i>
+                        <i class="fas fa-star" data-value="5"></i>
+                    </div>
+                    <input type="hidden" id="ratingInput" value="0">
+                    <small id="ratingText" class="text-warning fw-bold"></small>
+                </div>
+
+                <div class="mb-3">
+                    <textarea id="commentInput" class="form-control" rows="3"
+                        placeholder="Ghi chú thêm: Cảm thấy no, đói, hay thèm ăn gì không?"></textarea>
+                </div>
+
+                <button id="btnSubmitReview" class="btn btn-warning w-100 fw-bold text-dark">Lưu đánh giá</button>
+            </div>
+
+            <div id="reviewDisplay" style="display: none;">
+                <div class="d-flex align-items-center mb-2">
+                    <div id="displayStars" class="me-3 text-warning" style="font-size: 1.5rem;"></div>
+                    <span class="badge bg-success">Đã hoàn thành đánh giá</span>
+                </div>
+                <div class="p-3 bg-light rounded border">
+                    <i class="fas fa-quote-left text-muted me-2"></i>
+                    <span id="displayComment" class="fst-italic text-dark"></span>
+                </div>
+                <p class="text-muted small mt-2 mb-0"><i class="fas fa-lock me-1"></i>Đánh giá đã lưu và không thể thay đổi.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<link rel="stylesheet" href="~/css/food-diary.css">
+<script src="~/js/food-diary.js" asp-append-version="true"></script>

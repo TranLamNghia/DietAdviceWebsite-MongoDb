@@ -13,4 +13,7 @@ public class MealService
 
     public async Task<List<Meal>> GetAllAsync()
         => await _meals.Find(_ => true).ToListAsync();
+
+    public async Task<Meal> GetByIdAsync(string id)
+        => await _meals.Find(m => m.Id == id).FirstOrDefaultAsync();
 }
