@@ -39,6 +39,7 @@ builder.Services.AddSingleton<MealAdminService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<MealPlanService>();
 builder.Services.AddScoped<DailyLogService>();
+builder.Services.AddScoped<MealsManagementService>();
 builder.Services.AddScoped<MealService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FoodDiaryService>();

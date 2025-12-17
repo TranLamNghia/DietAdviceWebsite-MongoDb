@@ -5,11 +5,11 @@ using MongoDB.Bson;
 
 namespace DietAdviceWebsite_MongoDb.Areas.Customer.Services
 {
-    public class MealManagementService
+    public class MealsManagementService
     {
         private readonly IMongoCollection<Meal> _mealsCollection;
 
-        public MealManagementService(IMongoDatabase database, IOptions<MongoDbSettings> settings)
+        public MealsManagementService(IMongoDatabase database, IOptions<MongoDbSettings> settings)
         {
             _mealsCollection = database.GetCollection<Meal>(settings.Value.MealsCollectionName);
         }

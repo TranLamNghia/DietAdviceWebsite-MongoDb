@@ -9,10 +9,10 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
     [Area("Customer")]
     public class MealPlanController : Controller
     {
-        private readonly MealManagementService _mealManagementService;
+        private readonly MealsManagementService _mealManagementService;
         private readonly MealPlanService _mealPlanService;
 
-        public MealPlanController(MealManagementService mealManagementService, MealPlanService mealPlanService)
+        public MealPlanController(MealsManagementService mealManagementService, MealPlanService mealPlanService)
         {
             _mealManagementService = mealManagementService;
             _mealPlanService = mealPlanService;
