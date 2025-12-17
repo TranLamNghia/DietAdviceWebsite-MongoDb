@@ -1,5 +1,4 @@
-using DietAdviceWebsite_MongoDb.Models;
-using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
+﻿using DietAdviceWebsite_MongoDb.Models;
 using DietAdviceWebsite_MongoDb.Areas.Customer.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -22,9 +21,31 @@ namespace DietAdviceWebsite_MongoDb.Areas.Customer.Controllers
         public async Task<IActionResult> Index()
         {
             List<Meal> allMeals = await _service.GetAsync(null, null);
-            ViewBag.Categories = allMeals.Select(m => m.Category).Distinct().OrderBy(c => c).ToList();
+
+            // 🛡️ FIX NULL NUTRITION
+            foreach (var meal in allMeals)
+            {
+                if (meal.Nutrition == null)
+                {
+                    meal.Nutrition = new NutritionInfo
+                    {
+                        Calories = 0,
+                        Protein = 0,
+                        Carbs = 0,
+                        Fats = 0
+                    };
+                }
+            }
+
+            // 🛡️ FIX NULL CATEGORY
+            ViewBag.Categories = allMeals
+                .Where(m => !string.IsNullOrEmpty(m.Category))
+                .Select(m => m.Category)
+                .Distinct()
+                .ToList();
 
             return View(allMeals);
         }
+
     }
 }
