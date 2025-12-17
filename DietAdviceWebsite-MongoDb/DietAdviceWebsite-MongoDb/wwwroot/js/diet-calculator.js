@@ -1,26 +1,9 @@
-﻿const currentUserId = window.appData.userId;
-
 // Biến lưu trữ kết quả
+
 let currentResult = {};
 
-// Database món ăn mẫu (Giả lập)
-const sampleMenuDB = {
-    breakfast: [
-        { name: "Trứng ốp la", cal: 200, p: 14, c: 1, f: 15 },
-        { name: "Bánh mì nướng", cal: 150, p: 4, c: 30, f: 2 },
-        { name: "Sữa tươi", cal: 120, p: 8, c: 12, f: 5 }
-    ],
-    lunch: [
-        { name: "Cơm gà", cal: 450, p: 35, c: 50, f: 8 },
-        { name: "Salad rau xanh", cal: 150, p: 5, c: 10, f: 10 },
-        { name: "Nước ép cam", cal: 100, p: 1, c: 24, f: 0 }
-    ],
-    dinner: [
-        { name: "Cá hồi nướng", cal: 350, p: 40, c: 0, f: 20 },
-        { name: "Cơm trắng (1/2)", cal: 130, p: 2, c: 28, f: 0 },
-        { name: "Rau xanh luộc", cal: 50, p: 3, c: 8, f: 0 }
-    ]
-};
+const currentUserId = window.appData?.userId || null;
+window.generatedMenu = [];
 
 function calculateDiet() {
     // 1. Lấy input
@@ -99,74 +82,106 @@ function displayResults(data) {
     document.getElementById('macroFats').innerText = data.fGrams + "g";
 
     // Generate Menu
-    renderMenu();
+    renderMenuFromDB(data.targetCalories);
+
 }
 
-function renderMenu() {
-    const container = document.getElementById('menuPreviewList');
+function pickOneUnit(units) {
+    if (!units || units.length === 0) return "Không rõ";
+    return units[Math.floor(Math.random() * units.length)];
+}
+
+function renderMenuFromDB(targetCalories) {
+    const container = document.getElementById("menuPreviewList");
     container.innerHTML = "";
+
+    window.generatedMenu = [];
 
     let totalCal = 0, totalP = 0, totalC = 0, totalF = 0;
 
-    // Helper render function
-    const renderMealGroup = (title, items) => {
-        let html = `<div class="menu-group"><div class="menu-group-header">${title}</div>`;
-        items.forEach(item => {
-            totalCal += item.cal;
-            totalP += item.p;
-            totalC += item.c;
-            totalF += item.f;
+    const availableMealTypes = [...new Set(
+        window.mealDB.flatMap(m => m.mealTypes || [])
+    )];
 
-            html += `
+    if (!availableMealTypes.length) {
+        container.innerHTML = "<p>Không có dữ liệu món ăn</p>";
+        return;
+    }
+
+    const ratio = 1 / availableMealTypes.length;
+
+    availableMealTypes.forEach(mealType => {
+        const maxCal = targetCalories * ratio;
+
+        const meals = window.mealDB.filter(m =>
+            m.mealTypes.includes(mealType) &&
+            m.nutrition?.calories <= maxCal
+        );
+
+        if (!meals.length) return;
+
+        const selected = meals.reduce((prev, curr) =>
+            Math.abs(curr.nutrition.calories - maxCal) <
+                Math.abs(prev.nutrition.calories - maxCal)
+                ? curr : prev
+        );
+
+        const n = selected.nutrition;
+        const unit = pickOneUnit(selected.units);
+
+        totalCal += n.calories;
+        totalP += n.protein;
+        totalC += n.carbs;
+        totalF += n.fats;
+
+        container.innerHTML += `
+            <div class="menu-group">
+                <div class="menu-group-header">${mealType}</div>
                 <div class="menu-item-row">
-                    <div class="menu-item-name">${item.name}</div>
+                    <div class="menu-item-name">
+                        ${selected.name}
+                        <span class="meal-unit">(${unit})</span>
+                    </div>
                     <div class="menu-item-macros">
-                        ${item.cal} kcal &nbsp;|&nbsp; P: ${item.p}g &nbsp; C: ${item.c}g &nbsp; F: ${item.f}g
+                        ${n.calories} kcal |
+                        P ${n.protein}g |
+                        C ${n.carbs}g |
+                        F ${n.fats}g
                     </div>
                 </div>
-            `;
+            </div>
+        `;
+
+        window.generatedMenu.push({
+            mealId: selected.id,
+            name: selected.name,
+            timeSlot: mealType,
+            quantity: 1,
+            unit: unit,
+            caloriesConsumed: n.calories
         });
-        html += `</div>`;
-        return html;
-    };
+    });
 
-    container.innerHTML += renderMealGroup("Sáng", sampleMenuDB.breakfast);
-    container.innerHTML += renderMealGroup("Trưa", sampleMenuDB.lunch);
-    container.innerHTML += renderMealGroup("Tối", sampleMenuDB.dinner);
-
-    // Update Footer Summary
     document.getElementById('totalMenuCal').innerText = totalCal + " kcal";
     document.getElementById('totalMenuPro').innerText = totalP + "g";
     document.getElementById('totalMenuCarb').innerText = totalC + "g";
     document.getElementById('totalMenuFat').innerText = totalF + "g";
 }
 
-function saveToDailyMenu() {
-    const btn = document.querySelector('.btn-save-menu');
-    const oldText = btn.innerText;
-    btn.innerText = "Đang lưu...";
-    btn.disabled = true;
-
-    Toast.fire({
-        icon: 'success',
-        title: 'Đã lưu thực đơn thành công!'
-    });
-}
 
 async function saveToDailyMenu() {
     const data = {
-        userId: currentUserId,
+        userId: window.appData?.userId,
         age: parseInt(document.getElementById("age").value),
         height: parseInt(document.getElementById("height").value),
         weight: parseFloat(document.getElementById("weight").value),
         gender: document.getElementById("gender").value,
-        activityLevel: document.getElementById("activity").value,
-
+        activityLevel: parseFloat(document.getElementById("activity").value),
         goalType: document.getElementById("goal").value,
         targetWeight: 65,
         dailyCalorieTarget: parseInt(document.getElementById("targetCalories").innerText)
     };
-
+    console.log(data);
     try {
         const response = await fetch("/customer/diet-calculator/save", {
             method: "POST",
@@ -174,18 +189,21 @@ async function saveToDailyMenu() {
             body: JSON.stringify(data)
         });
 
-        const result = await response.json(); 
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Server error:", errorText);
 
-        if (response.status !== 201) {
             return Toast.fire({
                 icon: 'error',
-                title: result.message || 'Có lỗi xảy ra'
+                title: errorText || 'Dữ liệu không hợp lệ'
             });
         }
 
+        const result = await response.json();
+
         return Toast.fire({
             icon: 'success',
-            title: result.message 
+            title: result.message || 'Lưu thành công'
         });
 
     } catch (error) {
@@ -196,3 +214,35 @@ async function saveToDailyMenu() {
         });
     }
 }
+async function saveDailyLog() {
+    if (!window.generatedMenu?.length) {
+        alert("Chưa có thực đơn");
+        return;
+    }
+
+    const payload = {
+        userId: window.appData.userId,
+        date: new Date().toISOString().split("T")[0],
+        meals: window.generatedMenu
+    };
+
+    const res = await fetch("/customer/diet-calculator/save-daily-log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+        Toast.fire({ icon: "success", title: data.message });
+    } else {
+        Toast.fire({ icon: "error", title: data });
+        console.error(title.data);
+    }
+}
+async function saveAll() {
+    await saveToDailyMenu(); // lưu user + goal
+    await saveDailyLog();    // lưu thực đơn
+}
+

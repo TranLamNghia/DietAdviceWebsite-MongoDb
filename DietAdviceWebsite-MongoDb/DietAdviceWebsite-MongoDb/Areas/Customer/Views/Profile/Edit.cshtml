@@ -11,13 +11,6 @@
         new SelectListItem("Khác", "Khác", profile.Gender == "Khác")
     };
 
-    // Tạo danh sách SelectList cho Mức độ hoạt động
-    var activities = new List<SelectListItem>
-    {
-        new SelectListItem("Thấp", "Thấp", profile.ActivityLevel == "Thấp"),
-        new SelectListItem("Trung bình", "Trung bình", profile.ActivityLevel == "Trung bình"),
-        new SelectListItem("Cao", "Cao", profile.ActivityLevel == "Cao")
-    };
 }
 
 <!DOCTYPE html>
@@ -126,12 +119,6 @@
                 <label>Tình trạng sức khỏe</label>
                 <input type="text" name="HealthCondition" value="@profile.HealthCondition"
                        placeholder="Không bắt buộc" class="form-control" />
-            </div>
-
-            <!-- Mức độ hoạt động -->
-            <div class="form-group">
-                <label>Mức độ hoạt động</label>
-                <select name="ActivityLevel" asp-items="activities" class="form-control"></select>
             </div>
 
             <button type="submit" class="btn-save">Lưu thay đổi</button>
